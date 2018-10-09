@@ -79,16 +79,26 @@
 
 
 
-<meta name="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
-<meta property="og:type" content="website">
+<meta name="description" content="RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。 接口风格遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：  使用https协议 版本号放入URL或Header 只提供json返回格式 post,put上使用json作为输入 使用http">
+<meta property="og:type" content="article">
 <meta property="og:title" content="道之上">
-<meta property="og:url" content="http://www.xiaokunli.com/index.html">
+<meta property="og:url" content="http://www.xiaokunli.com/2018/10/09/RESTful API规范/index.html">
 <meta property="og:site_name" content="道之上">
-<meta property="og:description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+<meta property="og:description" content="RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。 接口风格遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：  使用https协议 版本号放入URL或Header 只提供json返回格式 post,put上使用json作为输入 使用http">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/91CE3B191AA340DCC1AE30657BC35CF3.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/675D06D91948B580BE09A845EAEF869C.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/6ADB0471C4586203DC41F089CC7AE5C2.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/8A7923DA6F4F6C943455327D7EFFCE8E.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/DBE0B1939E1FB99300DA43DE527F6919.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/2C3DCFC9251B9D1C2BE62D24BA2D5F51.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/A0124F9D8F1F1C1444BD26F92DB0651B.png">
+<meta property="og:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/D46706A93340184429DDF34164065D41.png">
+<meta property="og:updated_time" content="2018-10-09T08:04:20.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="道之上">
-<meta name="twitter:description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+<meta name="twitter:description" content="RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。 接口风格遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：  使用https协议 版本号放入URL或Header 只提供json返回格式 post,put上使用json作为输入 使用http">
+<meta name="twitter:image" content="http://www.xiaokunli.com/2018/10/09/RESTful%20API规范/images/91CE3B191AA340DCC1AE30657BC35CF3.png">
 
 
 
@@ -118,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xiaokunli.com/"/>
+  <link rel="canonical" href="http://www.xiaokunli.com/2018/10/09/RESTful API规范/"/>
 
 
 
 
 
-  <title>道之上</title>
+  <title> | 道之上</title>
   
 
 
@@ -143,8 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,9 +290,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -313,9 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/09/RESTful API规范/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -347,163 +354,13 @@
           
 
           
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。
-接口风格遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：
-
-使用https协议
-版本号放入URL或Header
-只提供json返回格式
-post,put上使用json作为输入
-使用http
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/09/RESTful API规范/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2018/09/25/快速排序算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="不二">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="道之上">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/25/快速排序算法/" itemprop="url">快速排序算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T17:48:44+08:00">
-                2018-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
           
-            
-          
-
-          
-          
-
-          
-
-          
 
           
 
@@ -520,20 +377,145 @@ post,put上使用json作为输入
       
 
       
-        
-          
-          快速排序
-快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。
-步骤为：从数列中挑出一个元素，称为“基准”（pivot），重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。递归地（
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/快速排序算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p><em>RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。</em></p>
+<h2 id="接口风格"><a href="#接口风格" class="headerlink" title="接口风格"></a>接口风格</h2><p>遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：</p>
+<ul>
+<li>使用https协议</li>
+<li>版本号放入URL或Header</li>
+<li>只提供json返回格式</li>
+<li>post,put上使用json作为输入</li>
+<li>使用http状态码作为错误提示</li>
+<li>Path（路径）尽量使用名词，不使用动词，把每个URL看成一个资源</li>
+<li>使用HTTP动词（GET,POST,PUT,DELETE）作为action操作URL资源</li>
+<li>过滤信息<ul>
+<li>limit：指定返回记录数量</li>
+<li>offset：记录开始位置</li>
+<li>direction：请求数据的方向，取值prev-上一页数据；next-下一页数据</li>
+<li>page：第几页</li>
+<li>per_page：每页条数</li>
+<li>total_count：总记录数</li>
+<li>total_pages：总页数，等于page时，表示当前是最后一页</li>
+<li>sort：column1,column2排序字段</li>
+<li>orderby：排序规则，desc或asc</li>
+<li>q：搜索关键字（uri encode之后的）</li>
+</ul>
+</li>
+<li>返回结果<ul>
+<li>GET：返回资源对象</li>
+<li>POST：返回新生成的资源对象</li>
+<li>PUT：返回完整的资源对象</li>
+<li>DELETE：返回一个空文档</li>
+</ul>
+</li>
+<li>速率限制<ul>
+<li>X-RateLimit-Limit: 每个IP每个时间窗口最大请求数</li>
+<li>X-RateLimit-Remaining: 当前时间窗口剩余请求数</li>
+<li>X-RateLimit-Reset: 下次更新时间窗口的时间（UNIX时间戳），达到下个时间窗口时，Remaining恢复为Limit</li>
+</ul>
+</li>
+</ul>
+<p>未遵循原则：</p>
+<ul>
+<li>Hypermedia API（HATEOAS），通过接口URL获取接口地址及帮助文档地址信息</li>
+<li>限制返回值的域，fields=id,subject,customer_name</li>
+<li>缓存，使用ETag和Last-Modified</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.github.com/v3/" target="_blank" rel="noopener">GitHub api </a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">ruanyifeng blog</a></li>
+<li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api" target="_blank" rel="noopener">best-practices-for-a-pragmatic-restful-api</a></li>
+</ul>
+<h2 id="模块和版本说明"><a href="#模块和版本说明" class="headerlink" title="模块和版本说明"></a>模块和版本说明</h2><p>接口模块相互对立且有版本管理，模块名作为APP配置项进行存储，每个模块的版本号version和endpoint在应用初始化时调用api模块信息接口（通过传递客户端应用名称和版本号获取各个API模块的endpoint和version）获取并存储。</p>
+<ul>
+<li>示例模块及最新版本号：</li>
+</ul>
+<p>模块模块用途最新版本号account帐户v1sms短信v1open一些开放接口，不需要公共参数v1</p>
+<h2 id="公共参数"><a href="#公共参数" class="headerlink" title="公共参数"></a>公共参数</h2><h4 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h4><p>公共请求参数是指每个接口都可能需要传递的参数，公共参数通过header传递。</p>
+<p>参数是否必须说明及header格式app所有接口必须请求客户端应用标识，取值<code>*-ios、*-android、*-pc、*-h5</code><br>header格式：<br><code>X-Co-App: $app</code>user_idApp登录后所有接口都传，<br>Web通过session机制获取用户标识<br>header格式：<br><code>Authorization: CoAPI base64(user_id:token)</code>tokenApp登录后所有接口都传，<br>Web通过session机制获取授权访问令牌<br>header格式：<br><code>Authorization: CoAPI base64(user_id:token)</code></p>
+<ul>
+<li>Web应用通过cookies传递session id，user_id和token无需传递，接口会从session自动获取；</li>
+<li>同一token值在App和Web各应用间通用（token即为session id）；</li>
+<li>APP修改user-agent，在原有user-agent的尾部添加<code>$app/$version</code>和<code>NetType/$value</code>。如：<ul>
+<li><code>Dalvik/2.1.0 (Linux; U; Android 6.0.1; MI 4LTE MIUI/V7.5.3.0.MXGCNDE) $app-android/3.0.0 NetType/4G</code></li>
+<li><code>Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) $app-ios/3.0.0 NetType/WIFI</code></li>
+</ul>
+</li>
+<li>app取值及释义示例</li>
+</ul>
+<p>app取值客户端名称【域名】admin-pc管理中心PC网页版【admin.url.com】admin-h5管理中心手机网页版【admin.url.com】admin-ios管理中心iOS版admin-android管理中心Android版</p>
+<h4 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h4><ul>
+<li>用于告知服务端是否支持Webp的Cookie：cookie name是<code>supportWebp</code>，取值是1（支持）和0（不支持），未传递时服务端默认取值为0。</li>
+<li>Webview植入Session的Cookie：</li>
+</ul>
+<h4 id="JWT-amp-OAuth2"><a href="#JWT-amp-OAuth2" class="headerlink" title="JWT &amp; OAuth2"></a>JWT &amp; OAuth2</h4><ul>
+<li><a href="https://jwt.io/" target="_blank" rel="noopener">Json Web Token</a>可用于替代session-cookie机制。但会存在一些问题，比如为过期token强制失效问题（用户修改了密码后，无法强制其他的终端token全部失效）。</li>
+<li><a href="https://oauth.net/2/" target="_blank" rel="noopener">OAuth2</a>是授权其他开发者访问自己应用有限权限的授权机制。</li>
+</ul>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul>
+<li>权限分为<ul>
+<li><code>none</code>：无需任何授权；</li>
+<li><code>token</code>：需要用户登录授权，可通过<code>header Authorization</code>和<code>Cookie CoSID</code>传递；</li>
+<li><code>admintoken</code>：需要管理员登录授权，可通过<code>header Authorization</code>和<code>Cookie CoCPSID</code>传递；</li>
+<li><code>token || admintoken</code>：用户登录授权或管理员登录授权都可以；<img src="images/91CE3B191AA340DCC1AE30657BC35CF3.png" alt="图片"></li>
+<li><code>sign</code>：需要签名，一般用于服务端内部相互调用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="状态码说明"><a href="#状态码说明" class="headerlink" title="状态码说明"></a>状态码说明</h2><p>正确<br>接口正常访问情况下，服务器返回2××的HTTP状态码。</p>
+<p>HTTP状态码200 OK - 表示已在响应中发出、资源更改成功（GET、PUT）201 Created - 新资源被创建（POST）204 No Content - 资源被删除（DELETE）</p>
+<p>错误<br>当用户访问接口出错时，服务器会返回给一个合适的4××或者5××的HTTP状态码；以及一个application/json格式的消息体，消息体中包含错误码code和错误说明message。</p>
+<ul>
+<li>5××错误(<code>500=&lt;status code</code>)为服务器或程序出错，客户端只需要提示“服务异常，请稍后重试”即可，该类错误不在每个接口中列出。</li>
+<li>4××错误(<code>400=&lt;status code&lt;500</code>)为客户端的请求错误，需要根据具体的code做相应的提示和逻辑处理，message仅供开发时参考，不建议作为用户提示。</li>
+<li>部分错误示例：</li>
+</ul>
+<p>codemessageHTTP状态码InvalidToken未登录或授权过期，请登录401 UnauthorizedValidationError输入字段验证出错，缺少字段或字段格式有误422 Unprocessable EntityAccountNotExist账户名不存在404 Not FoundInvalidPassword密码错误401 UnauthorizedNotFound请求的资源不存在404 Not FoundAccountHasExist账户名已经存在409 ConflictMobileHasBinded手机号已经绑定其他账户409 ConflictInvalidSign参数签名验证未通过403 ForbiddenInvalidSMSCode短信验证码错误403 ForbiddenExpiredSMSCode过期的短信验证码403 ForbiddenFrequencyLimit发送过于频繁，请稍后再试403 ForbiddenTimesExceeded达到最大发送次数限制，请明天再试403 ForbiddenVerifyTimesExceeded达到最大校验次数，请明天再试403 ForbiddenRateLimitExceeded接口调用次数超过限制，请稍后再试429 Too Many Requests   InternalError服务异常，请稍后再试500 Internal Server Error</p>
+<ul>
+<li><a href="http://baike.baidu.com/item/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">HTTP状态码参考</a><img src="images/675D06D91948B580BE09A845EAEF869C.png" alt="图片"></li>
+</ul>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>遵循RESTful规范，使用了GET, POST, PUT, DELETE共4种请求方法。</p>
+<ol>
+<li>GET：请求资源，返回资源对象</li>
+<li>POST：新建资源，返回新生成的资源对象</li>
+<li>PUT：新建/更新资源，返回完整的资源对象</li>
+<li>DELETE：删除资源，返回body为空</li>
+</ol>
+<ul>
+<li>GET请求不允许有body， 所有参数通过拼接在URL之后传递，所有的请求参数都要进行遵循<a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">RFC 3986</a>的URL Encode。</li>
+<li>DELETE删除单个资源时，资源标识通过path传递，批量删除时，通过在body中传递JSON。</li>
+<li>POST, PUT请求，所有参数通过JSON传递，<em>可选的请求参数，只传有值的，无值的不要传递</em>，contentType为application/json。</li>
+</ul>
+<p><em>4种请求动作中，GET、PUT、DELETE是幂等的；只有POST是非幂等的。幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。</em> 是非幂等是判断接口使用POST还是PUT的决定条件</p>
+<p>注意： APP端获取json数据时，对于数值类型字段必须以数值类型转换，无论传递过来的值是否带引号。<img src="images/6ADB0471C4586203DC41F089CC7AE5C2.png" alt="图片"><img src="images/8A7923DA6F4F6C943455327D7EFFCE8E.png" alt="图片"></p>
+<h2 id="速率限制Rate-Limiting"><a href="#速率限制Rate-Limiting" class="headerlink" title="速率限制Rate Limiting"></a>速率限制Rate Limiting</h2><ul>
+<li>为了防止API被恶意调用，对API调用进行速率限制。</li>
+<li>速率限制为每IP每15分钟5000次（dev/qa为10W）调用（15分钟是一个时间窗口）。</li>
+<li>限制是针对所有接口模块一起计算的（Redis key为<code>APIRL:{IP}</code>），暂时没有特殊的模块或单个接口（未来可能有）。</li>
+<li>你可以通过每个接口返回的HTTP headers了解当前速率限制的情况:<ul>
+<li>X-RateLimit-Limit: 每个IP每个时间窗口最大请求数</li>
+<li>X-RateLimit-Remaining: 当前时间窗口剩余请求数</li>
+<li>X-RateLimit-Reset: 下次更新时间窗口的时间（UNIX时间戳），达到下个时间窗口时，Remaining恢复为Limit</li>
+</ul>
+</li>
+<li>超出速率限制，返回以下错误<img src="images/DBE0B1939E1FB99300DA43DE527F6919.png" alt="图片"></li>
+</ul>
+<h2 id="安全注意事项"><a href="#安全注意事项" class="headerlink" title="安全注意事项"></a>安全注意事项</h2><ul>
+<li>用户登录后用户的token；aliyun OSS的bucket、AccessKey ID与AccessKey secret；微视频的appid、sign、bucket；这些关键数据通过调用接口获得，需要在客户端以安全的方式存储。</li>
+<li>音频视频在APP内的存储，不允许被拷贝（即使越狱或root后拿走也无法使用）。</li>
+</ul>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h2><p>推荐Chrome浏览器插件Postman作为接口测试工具， <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop" target="_blank" rel="noopener">Postman下载地址</a><br><img src="images/2C3DCFC9251B9D1C2BE62D24BA2D5F51.png" alt="图片"></p>
+<h2 id="文档生成工具"><a href="#文档生成工具" class="headerlink" title="文档生成工具"></a>文档生成工具</h2><ul>
+<li>生成的工具为apidoc，详细阅读官方文档：<a href="http://apidocjs.com" target="_blank" rel="noopener">http://apidocjs.com</a></li>
+</ul>
+<h2 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h2><ul>
+<li>伪代码<img src="images/A0124F9D8F1F1C1444BD26F92DB0651B.png" alt="图片"></li>
+<li>PHP<img src="images/D46706A93340184429DDF34164065D41.png" alt="图片"></li>
+</ul>
+<h2 id="API模块信息获取"><a href="#API模块信息获取" class="headerlink" title="API模块信息获取"></a>API模块信息获取</h2><ul>
+<li>App配置文件中仅存储api模块名，App初始化时请求<a href="https://apidev.baobaobooks.net/docs/open/#api-basicGroup-get_basic_apis" target="_blank" rel="noopener">获取api模块信息</a>，获取各个api模块的信息（endpoint和version）。</li>
+</ul>
+
       
     </div>
     
@@ -550,12 +532,28 @@ post,put上使用json作为输入
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/25/快速排序算法/" rel="next" title="快速排序算法">
+                <i class="fa fa-chevron-left"></i> 快速排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -565,10 +563,11 @@ post,put上使用json作为输入
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -576,6 +575,10 @@ post,put上使用json作为输入
 
 
           
+
+  
+
+
 
         </div>
         
@@ -821,6 +824,10 @@ post,put上使用json作为输入
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
