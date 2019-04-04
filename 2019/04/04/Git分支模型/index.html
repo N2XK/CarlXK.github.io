@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="招聘,面试," />
+  <meta name="keywords" content="分支,Git," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="准备 掌握候选人基本信息  123年龄、性别、学历、专业行业背景技术范围、工作经验  对候选人的期望值  123456技术要求    比如：Java基础扎实，熟悉分布式系统开发，对A、B、C、D技术熟练使用/掌握原理/有优化经验，实践过并发大于100的系统等能力素质    例如：沟通能力、协调能力、领导力等个性特质    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境  最好">
-<meta name="keywords" content="招聘,面试">
+<meta name="description" content="分支定义 master  123长期分支，存在与整个项目开发过程。由项目主要技术负责人管理该分支。  release/xxx  1234release/test 和 release/prod既可以为长期分支也可以为短期分支，可能存在于一个或者多个版本之间.由测试负责人负责人管理该分支。  feature/fixbug/hotfix  12345临时分支用于开发的具体功能特性和修复bug的分支，功能">
+<meta name="keywords" content="分支,Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="结构化行为面试法">
-<meta property="og:url" content="http://www.xiaokunli.com/2019/03/30/结构化行为面试法/index.html">
+<meta property="og:title" content="Git分支模型(参考阿里Aone Flow)">
+<meta property="og:url" content="http://www.xiaokunli.com/2019/04/04/Git分支模型/index.html">
 <meta property="og:site_name" content="二三">
-<meta property="og:description" content="准备 掌握候选人基本信息  123年龄、性别、学历、专业行业背景技术范围、工作经验  对候选人的期望值  123456技术要求    比如：Java基础扎实，熟悉分布式系统开发，对A、B、C、D技术熟练使用/掌握原理/有优化经验，实践过并发大于100的系统等能力素质    例如：沟通能力、协调能力、领导力等个性特质    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境  最好">
+<meta property="og:description" content="分支定义 master  123长期分支，存在与整个项目开发过程。由项目主要技术负责人管理该分支。  release/xxx  1234release/test 和 release/prod既可以为长期分支也可以为短期分支，可能存在于一个或者多个版本之间.由测试负责人负责人管理该分支。  feature/fixbug/hotfix  12345临时分支用于开发的具体功能特性和修复bug的分支，功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T05:31:58.519Z">
+<meta property="og:image" content="http://www.xiaokunli.com/images/11104507-6f5f154ad213ec59.png">
+<meta property="og:image" content="http://www.xiaokunli.com/images/11104507-c2f7ecc5ef081ab1.png">
+<meta property="og:image" content="http://www.xiaokunli.com/images/11104507-e12ea812229e37e2.png">
+<meta property="og:updated_time" content="2019-04-04T09:52:09.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="结构化行为面试法">
-<meta name="twitter:description" content="准备 掌握候选人基本信息  123年龄、性别、学历、专业行业背景技术范围、工作经验  对候选人的期望值  123456技术要求    比如：Java基础扎实，熟悉分布式系统开发，对A、B、C、D技术熟练使用/掌握原理/有优化经验，实践过并发大于100的系统等能力素质    例如：沟通能力、协调能力、领导力等个性特质    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境  最好">
+<meta name="twitter:title" content="Git分支模型(参考阿里Aone Flow)">
+<meta name="twitter:description" content="分支定义 master  123长期分支，存在与整个项目开发过程。由项目主要技术负责人管理该分支。  release/xxx  1234release/test 和 release/prod既可以为长期分支也可以为短期分支，可能存在于一个或者多个版本之间.由测试负责人负责人管理该分支。  feature/fixbug/hotfix  12345临时分支用于开发的具体功能特性和修复bug的分支，功能">
+<meta name="twitter:image" content="http://www.xiaokunli.com/images/11104507-6f5f154ad213ec59.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xiaokunli.com/2019/03/30/结构化行为面试法/"/>
+  <link rel="canonical" href="http://www.xiaokunli.com/2019/04/04/Git分支模型/"/>
 
 
 
 
 
-  <title>结构化行为面试法 | 二三</title>
+  <title>Git分支模型(参考阿里Aone Flow) | 二三</title>
   
 
 
@@ -297,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/30/结构化行为面试法/">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/04/Git分支模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="不二">
@@ -314,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">结构化行为面试法</h1>
+          <h1 class="post-title" itemprop="name headline">Git分支模型(参考阿里Aone Flow)</h1>
         
 
         <div class="post-meta">
@@ -326,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T11:06:50+08:00">
-                2019-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T11:49:45+08:00">
+                2019-04-04
               </time>
             
 
@@ -351,6 +355,17 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/管理/" itemprop="url" rel="index">
                     <span itemprop="name">管理</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/管理/开发/" itemprop="url" rel="index">
+                    <span itemprop="name">开发</span>
                   </a>
                 </span>
 
@@ -391,74 +406,63 @@
       
 
       
-        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li><p>掌握候选人基本信息</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">年龄、性别、学历、专业</span><br><span class="line">行业背景</span><br><span class="line">技术范围、工作经验</span><br></pre></td></tr></table></figure>
+        <h2 id="分支定义"><a href="#分支定义" class="headerlink" title="分支定义"></a>分支定义</h2><ol>
+<li><p>master</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">长期分支，存在与整个项目开发过程。</span><br><span class="line"></span><br><span class="line">由项目主要技术负责人管理该分支。</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>对候选人的期望值</p>
- <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">技术要求</span><br><span class="line">    比如：Java基础扎实，熟悉分布式系统开发，对A、B、<span class="keyword">C</span>、<span class="keyword">D</span>技术熟练使用/掌握原理/有优化经验，实践过并发大于<span class="number">100</span>的系统等</span><br><span class="line">能力素质</span><br><span class="line">    例如：沟通能力、协调能力、领导力等</span><br><span class="line">个性特质</span><br><span class="line">    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境</span><br></pre></td></tr></table></figure>
-<p> 最好公司有自己的能力素质模型 – 待整理</p>
+<li><p>release/xxx</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">release</span>/<span class="keyword">test</span> 和 <span class="keyword">release</span>/prod</span><br><span class="line">既可以为长期分支也可以为短期分支，可能存在于一个或者多个版本之间.</span><br><span class="line"></span><br><span class="line">由测试负责人负责人管理该分支。</span><br></pre></td></tr></table></figure>
 </li>
-<li>其他 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">列出提问的问题：</span><br><span class="line">    问题要求：清晰、准确、易理解</span><br><span class="line">    多维度：  项目经验、技术能力、沟通、协作、规划等</span><br><span class="line">面试流程<span class="comment">(确定面几轮、谁来面？如何决策)</span></span><br></pre></td></tr></table></figure>
+<li><p>feature/fixbug/hotfix</p>
+ <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">临时分支</span><br><span class="line">用于开发的具体功能特性和修复bug的分支，功能完成后删除.</span><br><span class="line">格式为：feature_$date_$name_$description</span><br><span class="line">       fixbug_$date_$name_$description</span><br><span class="line">       hotfix_$date_$name_$description</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h2><ol>
-<li><p>暖场</p>
-<p> 暖场的作用在于减少候选人的压力，便于后续从面试的过程中获取真实的行为事例。</p>
-<p> 暖场话术示例(继续补充)：</p>
- <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">茶水或者咖啡？</span><br><span class="line">天气状况，适宜出游 <span class="keyword">or</span> 太热太冷只可宅？</span><br><span class="line">路况如何，到达公司所需时长，是否顺利？</span><br><span class="line">哪里人，靠近什么名胜或者有什么特产？<span class="comment">(注意避免地域性偏见)</span></span><br><span class="line">毕业于什么学校，学校有什么有名的人物或者事迹？</span><br></pre></td></tr></table></figure>
+<h2 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h2><ol>
+<li><p>规则1</p>
+<p> 开始工作前，从主干创建特性分支</p>
+<ul>
+<li>每当开始一件新的工作项（比如新的功能或是bug）的时候，从最新已发布版本的主干Master上创建一个以feature(bugfix)/前缀命名的特性分支，然后在这个分支上提交代码修改。</li>
+<li>每个工作项（可以是一个人完成，或是多个人协作完成）对应一个特性分支，所有的修改都不允许直接提交到主干。<br><img src="/images/11104507-6f5f154ad213ec59.png" alt=""></li>
+</ul>
 </li>
-<li><p>开篇话术</p>
-<p> 介绍自己、面试流程和面试重点</p>
+<li><p>规则2</p>
+<p> 通过合并特性分支，形成发布分支</p>
+<ul>
+<li>从主干上拉出一条新分支，将所有本次要集成或发布的特性分支依次合并过去，从而得到发布分支。发布分支通常以release/前缀命名。</li>
+<li>每条发布分支与具体的环境相对应，比如release/test分支对应部署测试环境，release/prod分支对应线上正式环境等等，并与流水线工具相结合，串联各个环境上的代码质量扫描和自动化测试关卡，将产出的部署包直接发布到相应环境上。<br><img src="/images/11104507-c2f7ecc5ef081ab1.png" alt=""></li>
+</ul>
+</li>
+<li><p>规则3</p>
+<p> 发布到线上正式环境后，合并相应的发布分支到主干，在主干添加标签，同时删除该发布分支关联的特性分支</p>
+<ul>
+<li>完成了线上正式环境的部署，就意味着相应的功能真正地发布了，此时应该将这条发布分支合并到主干。</li>
+<li>为了避免在代码仓库里堆积大量历史上的特性分支，还应该清理掉已经上线部分特性分支。</li>
+<li>主干分支上的最新版本始终与线上版本一致，如果要回溯历史版本，只需在主干分支上找到相应的版本标签即可。<br><img src="/images/11104507-e12ea812229e37e2.png" alt=""></li>
+</ul>
+</li>
+<li><p>其他</p>
+<ul>
+<li>对于hotfix，可以创建一条新的发布分支对应线上环境（相当于hotfix分支），同时为这个分支创建临时流水线，以保障必要的发布前检查和冒烟测试能够自动执行。</li>
+<li>如果非得修一个历史版本的Bug，在主干分支找到版本标签位置，然后从那个位置创建hotfix分支，这种情况比较少见</li>
+</ul>
+</li>
+</ol>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><ol>
+<li>新功能开发时，开发人员从Master拉取代码生成特性分支。</li>
+<li>单元测试完成后等待测试负责人拉取release/test分支，然后提交Pull Request</li>
+<li>开发负责人或者其他开发人员对Pull Request进行代码Review</li>
+<li>代码Review完成后，测试负责人合并Pull Request到release/test，如果遇到合并冲突，则让相应的开发人员把feature/bug/hotfix分支重新以master为基准进行提交以及让相应的开发人员协助解决。</li>
+<li>测试人员使用流水线工具进行代码质量扫描和自动化测试</li>
+<li>测试人员进行测试</li>
+<li>完成测试后，查看Master是否比拉取release/test时有更新，如果没有直接使用release/test上线，否则从最新Master拉取分支release/prod分支合并相关PR并进行回归测试</li>
+<li><p>提交上线申请上线</p>
 <p> 示例：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">面试官：您好，王先生，请坐。自我介绍一下，我是今天的面试官XXX，这位是YYY，欢迎来参加今天的面试。</span><br><span class="line">求职者：谢谢。</span><br><span class="line">面试官：面试的过程中我们会提出一些问题，请您以过去经历当中的具体事例来回答，而这部分将占用大部分的面谈时间，在回答的过程中请注意简明扼要、抓住重点。需要说明的是面试的过程中我会视情况调整话题，以确保多谈一些您过往曾经做过的事情。最后我会留一些时间让您询问跟这份工作以及我们公司相关的问题。</span><br><span class="line">我们现在正式开始，OK？</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对方自我介绍</p>
-<p> 注意倾听不要打断，有问题等介绍完再去问。</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">开发人员A从Master拉取代码生成feature_20190818_A_get_users</span><br><span class="line">开发人员B从Master拉取代码生成feature_20190819_B_login</span><br><span class="line"></span><br><span class="line">测试负责人Y从Master拉取<span class="keyword">release</span>/<span class="keyword">test</span></span><br><span class="line">开发人员A提交Pull Request PR1</span><br><span class="line">开发人员B提交Pull Request PR2</span><br><span class="line"></span><br><span class="line">开发负责人F和开发人员C评审PR1 PR2，评审通过</span><br><span class="line"></span><br><span class="line">测试负责人Y合并代码到<span class="keyword">release</span>/<span class="keyword">test</span></span><br><span class="line">测试人员X进行测试，完成后发现<span class="keyword">Master</span>和拉取<span class="keyword">release</span>/<span class="keyword">test</span>时一样，直接使用<span class="keyword">release</span>/<span class="keyword">test</span>进行构建申请发布</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="问问题"><a href="#问问题" class="headerlink" title="问问题"></a>问问题</h2><ol>
-<li><p>提问话术</p>
-<p> 问题短而精，基于事的行为问题（为什么这么做），少问假设性问题</p>
-<p> 标准化能力行为提问：</p>
- <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请谈谈 你在工作中快速掌握新知识的 一些经验</span><br><span class="line">请举   一个 体现<span class="string">"沟通能力"</span>的 栗子 </span><br><span class="line">请描述 一件 在跨部门合作成功的 经历</span><br><span class="line">请举  一个 证明你有效与人合作并共同完成了一件重要的事情的 栗子</span><br></pre></td></tr></table></figure>
-<p> 过去行为示例：</p>
- <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请举例说明 你过往是如何 获得了XX技能并把该技能转化到实际工作中</span><br><span class="line">请举例说明 你过往是如何 处理线上突发的<span class="keyword">Bug</span></span><br><span class="line"><span class="keyword">请举例说明 </span>你过往是如何  进行<span class="meta">Code</span> <span class="keyword">Review</span></span><br><span class="line"><span class="keyword">请举例说明 </span>你过往是如何  帮助下属/同事成长</span><br></pre></td></tr></table></figure>
-<p> 过去行为示例：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">分享一下 你在过往工作 所使用的git分支模型</span><br><span class="line">分享一下 你在过往工作 所做过的MYSQL优化</span><br><span class="line">分享一下 你在过往工作 所做过的技术分享</span><br><span class="line">讲述一下 你在上一份工作中遇到的最难解决的问题 你是怎么处理的？</span><br><span class="line">回忆    你在同一时间内需要同时处理多项工作时 你是如何处理的？</span><br><span class="line">在过去  你和领导意见不一致时 你是如何处理的？</span><br><span class="line">分享一下 你在面对新的工作环境时 你是怎么处理的？</span><br><span class="line">分享一下 你在过往工作中最有价值的一件事 当时你是怎么做的？</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何避免面试中出现的虚假的回答？</p>
-<p> 运用STAR进行有效追问，面试官需要敏锐地观察并进行细节追问，追问的目的在于获取行为事例或者对不完整事例进行补充</p>
- <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S指情景（Situation）：这件事发生的时间、地点、人物等背景介绍。</span><br><span class="line">T指任务（<span class="keyword">Task</span>）：这件事情发生在什么场景下，你要完成什么任务，面对什么抉择或者困难？</span><br><span class="line">A指行动（Action）：你扮演什么角色？做了哪些事情？</span><br><span class="line">R指结果（Result）：事情的结果如何？你收到了什么反馈？</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>层层递进问题法</p>
-<p> 针对候选人的项目经验和过往的技术能力问题层层递进，直到候选人答不上来为止</p>
-<p> 比如HashMap：</p>
- <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">HashMap</span>的使用场景</span><br><span class="line">为什么用<span class="keyword">HashMap</span></span><br><span class="line"><span class="keyword">HashMap</span>的原理</span><br><span class="line"><span class="keyword">HashMap</span>的初始化、增长、键值获取</span><br><span class="line"><span class="keyword">HashMap</span>如何减少碰撞</span><br><span class="line">Hash函数如何实现</span><br><span class="line">为什么改为红黑树，不用二叉树 -&gt; 为什么不一致用红黑树</span><br><span class="line"><span class="keyword">HashMap</span>有序嘛 -&gt; 有没有有序的Map -&gt; 有序的Map怎么实现的,怎么保证有序性</span><br><span class="line">HashTable和<span class="keyword">HashMap</span>的区别</span><br><span class="line">ConcurrentHashMap可以完全替代Hashtable嘛</span><br><span class="line">ConcurrentHashMap的版本迭代中发生了哪些变动，各个版本都有什么问题</span><br><span class="line">ConcurrentHashMap用到的锁的逻辑部分是怎么实现的</span><br></pre></td></tr></table></figure>
-<p> 候选人：我是谁？我为什么要来面试？这个面试官是魔鬼嘛…</p>
-</li>
-</ol>
-<h2 id="逻辑能力-写代码"><a href="#逻辑能力-写代码" class="headerlink" title="逻辑能力+写代码"></a>逻辑能力+写代码</h2><p>针对技术面试一定要有逻辑能力和代码能力的部分</p>
-<ol>
-<li><p>逻辑题</p>
-<p> 例如(继续补充)：</p>
- <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">马路上的井盖为什么是圆的？</span><br><span class="line">有人把车停在旅馆外，丢失了他的财物，他接下来会干什么？</span><br><span class="line">你需要确认朋友<span class="keyword">Bob是否有你正确的电话号码，但不能直接问他。你须在一张卡片上写下这个问题，然后交给Eva，由Eva把卡片交给Bob，再转告你答案。除了在卡片上写下这个问题外，你还必须怎样写，才能确保Bob在给出答案的同时，不让Eva知道你的电话号码？</span></span><br><span class="line"><span class="keyword">假设你是海盗船的船长，船员们即将对黄金的分配方案投票。如果赞成票不到半数的话，你会被杀死。你怎样才能在保证自己存活的情况下拿到最多的黄金？</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>算法题</p>
-<p> 例如(继续补充)：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">排序算法</span><br><span class="line">哈希算法</span><br><span class="line">红黑树</span><br><span class="line">合并有序链表</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其他代码能力</p>
-<p> 例如(继续补充)：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">写一个生产者消费者模式</span><br><span class="line">写一个死锁</span><br><span class="line">写一个你认为最好的单例模式</span><br><span class="line">给盲人设计一个ATM/电梯</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="评估表现-待补充"><a href="#评估表现-待补充" class="headerlink" title="评估表现(待补充)"></a>评估表现(待补充)</h2><ol>
-<li>依据上述记录的事实来进行多维度评估</li>
-<li><p>填写表格并作出相应的决定</p>
-<p> 使用公司拥有的能力模型来设计打分表，并进行结果评估，然后做出候选人对比。</p>
-</li>
-</ol>
+<h2 id="提交信息："><a href="#提交信息：" class="headerlink" title="提交信息："></a>提交信息：</h2><p>在合并到待发布分支之前，可以对自己的功能分支进行提交历史整理。</p>
+<p>信息撰写：type代表某次提交的类型，比如是修复一个bug还是增加一个新的feature。</p>
+<p>type 类型如下：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">feat： 新增 feature</span><br><span class="line">fix: 修复 bug</span><br><span class="line">docs: 仅仅修改了文档，比如 README, CHANGELOG, CONTRIBUTE 等等</span><br><span class="line">style: 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑</span><br><span class="line">refactor: 代码重构，没有加新功能或者修复 bug</span><br><span class="line">perf: 优化相关，比如提升性能、体验</span><br><span class="line"><span class="keyword">test: </span>测试用例，包括单元测试、集成测试等</span><br><span class="line">chore: 改变构建流程、或者增加依赖库、工具等</span><br><span class="line">revert: 回滚到上一个版本</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -476,9 +480,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/招聘/" <i class="fa fa-tag"></i> 招聘</a>
+            <a href="/tags/分支/" <i class="fa fa-tag"></i> 分支</a>
           
-            <a href="/tags/面试/" <i class="fa fa-tag"></i> 面试</a>
+            <a href="/tags/Git/" <i class="fa fa-tag"></i> Git</a>
           
         </div>
       
@@ -491,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/带新员工/" rel="next" title="带新员工">
-                <i class="fa fa-chevron-left"></i> 带新员工
+              <a href="/2019/03/30/结构化行为面试法/" rel="next" title="结构化行为面试法">
+                <i class="fa fa-chevron-left"></i> 结构化行为面试法
               </a>
             
           </div>
@@ -500,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/04/Git分支模型/" rel="prev" title="Git分支模型(参考阿里Aone Flow)">
-                Git分支模型(参考阿里Aone Flow) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
