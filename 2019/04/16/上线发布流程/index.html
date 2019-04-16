@@ -87,7 +87,7 @@
 <meta property="og:description" content="上线发布流程图 计划阶段在迭代完成前半周的会议上确认迭代是否需要发布版本，如果需要则制定发布计划并确定是否需要做回归测试  是否需要回归测试？12345现有的分支模型为开发直接从Master拉取feature分支，测试从Master拉取release/test分组然后合并feature branch到release/test形成测试分支上线前如果Master分支上没有其他feature上线，则直接">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.xiaokunli.com/images/officially_release_process.png">
-<meta property="og:updated_time" content="2019-04-16T08:35:15.545Z">
+<meta property="og:updated_time" content="2019-04-16T08:38:08.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上线发布流程">
 <meta name="twitter:description" content="上线发布流程图 计划阶段在迭代完成前半周的会议上确认迭代是否需要发布版本，如果需要则制定发布计划并确定是否需要做回归测试  是否需要回归测试？12345现有的分支模型为开发直接从Master拉取feature分支，测试从Master拉取release/test分组然后合并feature branch到release/test形成测试分支上线前如果Master分支上没有其他feature上线，则直接">
@@ -376,17 +376,24 @@
 <p>是否需要回归测试？<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">现有的分支模型为开发直接从Master拉取feature分支，测试从Master拉取<span class="keyword">release</span>/<span class="keyword">test</span>分组然后合并feature branch到<span class="keyword">release</span>/<span class="keyword">test</span>形成测试分支</span><br><span class="line">上线前如果<span class="keyword">Master</span>分支上没有其他feature上线，则直接使用<span class="keyword">release</span>/<span class="keyword">test</span>打包上线</span><br><span class="line"></span><br><span class="line">以下情况需要回归测试：</span><br><span class="line">上线前如果<span class="keyword">Master</span>分支上有其他feature上线，则从<span class="keyword">Master</span>拉取<span class="keyword">release</span>/pro并合并相关feature branch打包上线，并进行回归测试</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h2 id="发布策略"><a href="#发布策略" class="headerlink" title="发布策略"></a>发布策略</h2><p>能做灰度发布尽量灰度，并且设计开关，有些Bug在测试环境测不出来</p>
-<p>常见策略：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">灰度/金丝雀</span><br><span class="line">滚动发布</span><br><span class="line">蓝绿发布</span><br></pre></td></tr></table></figure></p>
+<p>常见策略：</p>
+<ul>
+<li>灰度/金丝雀</li>
+<li>滚动发布</li>
+<li>蓝绿发布</li>
+</ul>
 <h2 id="上线审批"><a href="#上线审批" class="headerlink" title="上线审批"></a>上线审批</h2><p>使用邮件或者TAPD流程进行审批</p>
 <p>如下为内容框架：</p>
 <ul>
 <li>上线时间</li>
 <li>上线内容</li>
-<li><p>影响范围</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">影响到的服务</span><br><span class="line">数据变更说明</span><br><span class="line">配置变更说明</span><br></pre></td></tr></table></figure>
+<li>影响范围<ul>
+<li>影响到的服务</li>
+<li>数据变更说明</li>
+<li>配置变更说明</li>
+</ul>
 </li>
-<li><p>详细操作步骤(测试和运维可以操作的step by step说明)</p>
-</li>
+<li>详细操作步骤(测试和运维可以操作的step by step说明)</li>
 <li>上线注意事项</li>
 <li>数据监控</li>
 </ul>
