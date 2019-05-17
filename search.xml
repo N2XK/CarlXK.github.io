@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git仓库的多个子目录独立成一个新仓库]]></title>
+    <url>%2F2019%2F05%2F17%2FGit%E4%BB%93%E5%BA%93%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95%E7%8B%AC%E7%AB%8B%E6%88%90%E6%96%B0%E4%BB%93%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[需求描述我有一个仓库AAA，目录结构如下：12345678$ tree├── .git├── common-api ├── commons-pojo├── commons-utils ├── account └── payment └── product 现在我需要把common-api、commons-pojo、commons-utils独立为一个新仓库xxx-common从网上找到可以用”git filter-branch”和”git subtree split”两种方式独立目录为仓库，但是”git subtree split”只能独立一个目录为仓库，如果需要独立多个目录为仓库需要使用”git filter-branch”。 实施步骤1. Clone原有仓库到本地1git clone git@192.168.0.xxx:test/AAA.git 2. 在本地创建需要保留的分支下面示例中保留了dev和feature_20190516_xxx_aaa_bbb12git checkout -b dev origin/devgit checkout -b feature_20190516_xxx_aaa_bbb origin/feature_20190516_xxx_aaa_bbb 取消远程库的关联1git remote rm origin 删除所有tag1git tag -l | xargs git tag -d 保留需要的目录和git历史把”GIT_COMMIT –”后面的目录改为自己需要保留的12git filter-branch -f --prune-empty --index-filter \ 'git rm --cached -r -q -- . ; git reset -q $GIT_COMMIT -- commons-api commons-pojo commons-utils' -- --all 清理仓库并减小体积1234git reset --hardgit for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -dgit reflog expire --expire=now --allgit gc --aggressive --prune=now 关联到鑫的远程库，并推送代码到远端1234git remote add origin git@192.168.0.xxx:test/xxx-common.gitgit push -u origin mastergit push -u origin devgit push -u origin feature_20190516_xxx_aaa_bbb]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[上线发布流程]]></title>
     <url>%2F2019%2F04%2F16%2F%E4%B8%8A%E7%BA%BF%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[上线发布流程图 计划阶段在迭代完成前半周的会议上确认迭代是否需要发布版本，如果需要则制定发布计划并确定是否需要做回归测试 是否需要回归测试？12345现有的分支模型为开发直接从Master拉取feature分支，测试从Master拉取release/test分组然后合并feature branch到release/test形成测试分支上线前如果Master分支上没有其他feature上线，则直接使用release/test打包上线以下情况需要回归测试：上线前如果Master分支上有其他feature上线，则从Master拉取release/pro并合并相关feature branch打包上线，并进行回归测试 发布策略能做灰度发布尽量灰度，并且设计开关，有些Bug在测试环境测不出来 常见策略： 灰度/金丝雀 滚动发布 蓝绿发布 上线审批使用邮件或者TAPD流程进行审批 如下为内容框架： 上线时间 上线内容 影响范围 影响到的服务 数据变更说明 配置变更说明 详细操作步骤(测试和运维可以操作的step by step说明) 上线注意事项 数据监控 上线后 线上验收 验证特性的正确性 验证所有业务流程 检查各项数据的正确性 数据监控 线上数据的正确性 临界值监控]]></content>
@@ -60,8 +71,8 @@
         <category>开发</category>
       </categories>
       <tags>
-        <tag>分支</tag>
         <tag>Git</tag>
+        <tag>分支</tag>
       </tags>
   </entry>
   <entry>
