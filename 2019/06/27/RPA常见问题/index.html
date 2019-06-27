@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="RPA," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="需求描述我有一个仓库AAA，目录结构如下：12345678$ tree├── .git├── common-api     ├── commons-pojo├── commons-utils  ├── account └── payment └── product 现在我需要把common-api、commons-pojo、commons-utils独立为一个新仓库xxx-common从网上找到可">
-<meta name="keywords" content="Git">
+<meta name="description" content="What is RPA? RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks. How RPA is different from Test Automation? Bo">
+<meta name="keywords" content="RPA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git仓库的多个子目录独立成一个新仓库">
-<meta property="og:url" content="http://www.xiaokunli.com/2019/05/17/Git仓库的子目录独立成新仓库/index.html">
+<meta property="og:title" content="RPA常见问题">
+<meta property="og:url" content="http://www.xiaokunli.com/2019/06/27/RPA常见问题/index.html">
 <meta property="og:site_name" content="二三">
-<meta property="og:description" content="需求描述我有一个仓库AAA，目录结构如下：12345678$ tree├── .git├── common-api     ├── commons-pojo├── commons-utils  ├── account └── payment └── product 现在我需要把common-api、commons-pojo、commons-utils独立为一个新仓库xxx-common从网上找到可">
+<meta property="og:description" content="What is RPA? RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks. How RPA is different from Test Automation? Bo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T06:23:21.083Z">
+<meta property="og:updated_time" content="2019-06-27T03:39:03.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git仓库的多个子目录独立成一个新仓库">
-<meta name="twitter:description" content="需求描述我有一个仓库AAA，目录结构如下：12345678$ tree├── .git├── common-api     ├── commons-pojo├── commons-utils  ├── account └── payment └── product 现在我需要把common-api、commons-pojo、commons-utils独立为一个新仓库xxx-common从网上找到可">
+<meta name="twitter:title" content="RPA常见问题">
+<meta name="twitter:description" content="What is RPA? RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks. How RPA is different from Test Automation? Bo">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xiaokunli.com/2019/05/17/Git仓库的子目录独立成新仓库/"/>
+  <link rel="canonical" href="http://www.xiaokunli.com/2019/06/27/RPA常见问题/"/>
 
 
 
 
 
-  <title>Git仓库的多个子目录独立成一个新仓库 | 二三</title>
+  <title>RPA常见问题 | 二三</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/05/17/Git仓库的子目录独立成新仓库/">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/06/27/RPA常见问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="不二">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git仓库的多个子目录独立成一个新仓库</h1>
+          <h1 class="post-title" itemprop="name headline">RPA常见问题</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T14:49:14+08:00">
-                2019-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-27T11:38:05+08:00">
+                2019-06-27
               </time>
             
 
@@ -391,15 +391,129 @@
       
 
       
-        <h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>我有一个仓库AAA，目录结构如下：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ tree</span><br><span class="line">├── .git</span><br><span class="line">├── <span class="keyword">common</span>-api     </span><br><span class="line">├── commons-pojo</span><br><span class="line">├── commons-utils  </span><br><span class="line">├── account </span><br><span class="line">└── payment </span><br><span class="line">└── <span class="built_in">product</span></span><br></pre></td></tr></table></figure></p>
-<p>现在我需要把common-api、commons-pojo、commons-utils独立为一个新仓库xxx-common<br>从网上找到可以用”git filter-branch”和”git subtree split”两种方式独立目录为仓库，但是”git subtree split”只能独立一个目录为仓库，如果需要独立多个目录为仓库需要使用”git filter-branch”。</p>
-<h2 id="实施步骤"><a href="#实施步骤" class="headerlink" title="实施步骤"></a>实施步骤</h2><h3 id="1-Clone原有仓库到本地"><a href="#1-Clone原有仓库到本地" class="headerlink" title="1. Clone原有仓库到本地"></a>1. Clone原有仓库到本地</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">git</span>@<span class="number">192.168</span>.<span class="number">0</span>.xxx:test/AAA.git</span><br></pre></td></tr></table></figure>
-<h3 id="2-在本地创建需要保留的分支"><a href="#2-在本地创建需要保留的分支" class="headerlink" title="2. 在本地创建需要保留的分支"></a>2. 在本地创建需要保留的分支</h3><p>下面示例中保留了dev和feature_20190516_xxx_aaa_bbb<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="selector-tag">b</span> dev origin/dev</span><br><span class="line">git checkout -<span class="selector-tag">b</span> feature_20190516_xxx_aaa_bbb origin/feature_20190516_xxx_aaa_bbb</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-取消远程库的关联"><a href="#3-取消远程库的关联" class="headerlink" title="3. 取消远程库的关联"></a>3. 取消远程库的关联</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git remote rm origin</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-删除所有tag"><a href="#4-删除所有tag" class="headerlink" title="4. 删除所有tag"></a>4. 删除所有tag</h3><p>需要删除所有的tag，否则会出错<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-l</span> | xargs git <span class="keyword">tag</span> <span class="title">-d</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="5-保留需要的目录和git历史"><a href="#5-保留需要的目录和git历史" class="headerlink" title="5. 保留需要的目录和git历史"></a>5. 保留需要的目录和git历史</h3><p>把”GIT_COMMIT –”后面的目录改为自己需要保留的<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">filter</span><span class="literal">-</span><span class="comment">branch</span> <span class="literal">-</span><span class="comment">f</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prune</span><span class="literal">-</span><span class="comment">empty</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">index</span><span class="literal">-</span><span class="comment">filter</span> <span class="comment">\</span></span><br><span class="line"><span class="comment"></span>  <span class="comment">'git</span> <span class="comment">rm</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">cached</span> <span class="literal">-</span><span class="comment">r</span> <span class="literal">-</span><span class="comment">q</span> <span class="literal">-</span><span class="literal">-</span> <span class="string">.</span> <span class="comment">;</span> <span class="comment">git</span> <span class="comment">reset</span> <span class="literal">-</span><span class="comment">q</span> <span class="comment">$GIT_COMMIT</span> <span class="literal">-</span><span class="literal">-</span> <span class="comment">commons</span><span class="literal">-</span><span class="comment">api</span>  <span class="comment">commons</span><span class="literal">-</span><span class="comment">pojo</span>  <span class="comment">commons</span><span class="literal">-</span><span class="comment">utils'</span> <span class="literal">-</span><span class="literal">-</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">all</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="6-清理仓库并减小体积"><a href="#6-清理仓库并减小体积" class="headerlink" title="6. 清理仓库并减小体积"></a>6. 清理仓库并减小体积</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard</span></span><br><span class="line">git <span class="keyword">for</span>-<span class="keyword">each</span>-<span class="keyword">ref</span> <span class="comment">--format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d</span></span><br><span class="line">git reflog <span class="keyword">expire</span> <span class="comment">--expire=now --all</span></span><br><span class="line">git gc <span class="comment">--aggressive --prune=now</span></span><br></pre></td></tr></table></figure>
-<h3 id="7-关联到新的远程库-空仓库-，并推送代码到远端"><a href="#7-关联到新的远程库-空仓库-，并推送代码到远端" class="headerlink" title="7. 关联到新的远程库(空仓库)，并推送代码到远端"></a>7. 关联到新的远程库(空仓库)，并推送代码到远端</h3><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="keyword">add</span> origin git@<span class="number">192.168</span><span class="meta">.0</span>.xxx:<span class="keyword">test</span>/xxx-<span class="meta">common</span>.git</span><br><span class="line">git <span class="keyword">push</span> -u origin master</span><br><span class="line">git <span class="keyword">push</span> -u origin dev</span><br><span class="line">git <span class="keyword">push</span> -u origin feature_20190516_xxx_aaa_bbb</span><br></pre></td></tr></table></figure>
+        <h2 id="What-is-RPA"><a href="#What-is-RPA" class="headerlink" title="What is RPA?"></a>What is RPA?</h2><p> RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks.</p>
+<h2 id="How-RPA-is-different-from-Test-Automation"><a href="#How-RPA-is-different-from-Test-Automation" class="headerlink" title="How RPA is different from Test Automation?"></a>How RPA is different from Test Automation?</h2><ul>
+<li><p>Both Test Automation and RPA involve “Automation” and offer advantages of reducing manual intervention and delivering quality, but these two or different…</p>
+</li>
+<li><p>RPA – Robotic Process Automation, Automates Business Processes like Data Entry, Queries, Calculations, and Transactions in various organizations. where as Test Automation Automates Software Testing Processes,It automates Functional Testing, Performance Testing, Web Services Testing Etc. of Software Products.</p>
+</li>
+<li><p>Using Blueprism, Automation Anywhere, Uipath etc… tools we can automate Business Automation, and Using Selenium, UFT/QTP, LoadRunner SoapUI etc…Software Tools we can automate software Testing Processes.</p>
+</li>
+</ul>
+<h2 id="What-type-of-processes-can-be-automated-with-RPA"><a href="#What-type-of-processes-can-be-automated-with-RPA" class="headerlink" title="What type of processes can be automated with RPA?"></a>What type of processes can be automated with RPA?</h2><ul>
+<li><p>RPA is software-based, it can be used to perform various tasks. These include Maintenance of records, queries, calculations, and transactions.</p>
+</li>
+<li><p>Additionally, any application commonly used by your company can be operated by RPA. Citrix, .NET, HTML, and Java are all technologies commonly supported by RPA.</p>
+</li>
+<li><p>Compatible systems include Mainframe Terminals, SAP, Oracle, Blackline, and many more. RPA can be configured to perform almost any rule-based task.</p>
+</li>
+</ul>
+<h2 id="What-are-the-Popular-RPA-Tools"><a href="#What-are-the-Popular-RPA-Tools" class="headerlink" title="What are the Popular RPA Tools?"></a>What are the Popular RPA Tools?</h2><p>Popular Robotic Process Automation (RPA) Tools to automate the Business Processes.</p>
+<ul>
+<li><p>Blue Prism</p>
+<p>Blue Prism is the trading name of the Blue Prism Group, a UK multinational software corporation, the term Robotic Process Automation was invented by Blue Prism, that itself proves they are the pioneers in Robotic Process Automation Software Development.</p>
+</li>
+<li><p>Automation Anywhere</p>
+<p>Automation Anywhere is another top RPA vendors providing powerful and User- friendly robotic process automation tools to automate tasks of any complexity.</p>
+</li>
+<li><p>UiPath</p>
+<p>UiPath is a Windows desktop Robotic Process Automation (RPA) Software used for automation for various web,desktop,citrix,etc based applications.</p>
+</li>
+</ul>
+<p>Other Popular RPA tools are Pega, Nice, and Workfusion etc…</p>
+<h2 id="How-to-Select-a-RPA-Tool"><a href="#How-to-Select-a-RPA-Tool" class="headerlink" title="How to Select a RPA Tool?"></a>How to Select a RPA Tool?</h2><p>By considering several factors we select a RPA Tool for Businness Process Automation,</p>
+<ul>
+<li><p>Technology</p>
+<p>First and foremost is the technology in which RPA tool has been built, like Microsift .NET, IBM Mainframe, Java, web etc. The tool has to be platform independent, considering many of the organizations perform their day to day tasks outside the local desktop using Citrix or Virtual machines etc. So the automation solution should be able to support any application and platform.</p>
+</li>
+<li><p>Interface</p>
+<p>Next most important feature is the RPA tool’s user interface. A complex user interface will delay the process of implementation and increase the learning curve and adaptability. A more user friendly interface like drag and drop, auto capture, image recognition etc. would be better.</p>
+</li>
+<li><p>Management</p>
+<p>It is important to know how effectively and easily the robots can be managed, considering these robots are going to be replacing your human workforce. There should be a high level of visibility and control in terms of process monitoring, process change, development, re-use etc.</p>
+</li>
+<li><p>Security</p>
+<p>Security is one of the most important factor to be considered. How safe are the robots when compared to the humans? After all robots/RPA tools are also a piece of software, so how much more security controls can be implemented, test the code rigidly and lock it up, the better.</p>
+</li>
+</ul>
+<h2 id="6-What-are-the-important-Phases-of-RPA-Life-Cycle"><a href="#6-What-are-the-important-Phases-of-RPA-Life-Cycle" class="headerlink" title="6) What are the important Phases of RPA Life Cycle?"></a>6) What are the important Phases of RPA Life Cycle?</h2><p>Phases of RPA Life Cycle:</p>
+<ul>
+<li><p>Analysis</p>
+<p>Life cycle in RPA begins with analysis phase. Business team and RPA Architect work together to identify a business process for RPA development.</p>
+</li>
+<li><p>Bot Development</p>
+<p>RPA developer(Team) starts working on requirement in their environment possibly a separate development environment.</p>
+</li>
+<li><p>Testing</p>
+<p>There are two approaches on which testing is being carried out-</p>
+<p>Some organisations conduct Testing by Separate Testing Team, While other few have a dedicated testing team which perform a dedicated QA like normal SDLC flow.</p>
+<p>Best Practice is to have a dedicated testing team which perform QA of developed bot.</p>
+</li>
+<li><p>Deployment and Maintenance-</p>
+<p>After the Development and Testing closure, a bot is ready for deployment and enters maintenance phase.</p>
+</li>
+</ul>
+<h2 id="How-to-implement-Robotic-Process-Automation"><a href="#How-to-implement-Robotic-Process-Automation" class="headerlink" title="How to implement Robotic Process Automation?"></a>How to implement Robotic Process Automation?</h2><p>There are mainly 6 steps to be followed for a successful RPA implementation.</p>
+<ul>
+<li>Identify the Automation Opportunities</li>
+<li>Optimize the Identified Processes</li>
+<li>Build a Business Case</li>
+<li>RPA Vendor Selection</li>
+<li>Pilot RPA Development</li>
+<li>Ramp up and Continue Building Expertise RPA bots.</li>
+</ul>
+<h2 id="Explain-about-RPA-Testing"><a href="#Explain-about-RPA-Testing" class="headerlink" title="Explain about RPA Testing?"></a>Explain about RPA Testing?</h2><p>At a broader level RPA testing can be grouped in to 2 categories.</p>
+<blockquote>
+<p>First one is testing the business processes automated through RPA and the second one is testing the instructions passed on to Robots to execute user actions.</p>
+</blockquote>
+<ul>
+<li><p>Business Process Testing</p>
+<p>This is nothing but the conventional testing done for any application. The end to end business process automated by the RPA tool has to be validated here.</p>
+<p>If we have to test the RPA use case, a scenario would be to test if Robot is able to get the file from server, read the data from application, compare these two data sources, identify any conflicts and send an email notification to respective owner. All combinations of data are to be validate like it is done for any other application.</p>
+</li>
+<li><p>Robots Testing</p>
+<p>There are multiple aspects when testing Robots. The first one is interpretation of the models by Robots. It is very important that the Robots are able to interpret the instructions given through the models correctly and able to perform actions on the UI accordingly. This need not be tested regularly but when the model is designed/modified or before a Robot is put into use.</p>
+</li>
+</ul>
+<h2 id="What-are-different-RPA-Jobs"><a href="#What-are-different-RPA-Jobs" class="headerlink" title="What are different RPA Jobs?"></a>What are different RPA Jobs?</h2><p>Robotics Process Automation jobs can be broadly classify into 3 major categories.</p>
+<ul>
+<li>RPA Developers/Architects</li>
+<li>Robotic Process Automation Consultants</li>
+<li>RPA Leads/Managers</li>
+</ul>
+<h2 id="What-are-advantages-of-Robotic-Process-Automation"><a href="#What-are-advantages-of-Robotic-Process-Automation" class="headerlink" title="What are advantages of Robotic Process Automation?"></a>What are advantages of Robotic Process Automation?</h2><ul>
+<li><p>Faster</p>
+<p>As bots are handling the execution here, a larger amount of work can be done in a relatively much shorter period. A faster delivery, coupled with accuracy.</p>
+</li>
+<li><p>Cost Effective</p>
+<p>It has been estimated that using robotics cuts operational costs, Robots can operate 24/7 and take no vacation, when compared to humans.</p>
+</li>
+<li><p>Consistency</p>
+<p>Robotics is a safe, non-invasive technology that doesn’t interfere with the inherent systems and provides perfect consistency in performing the activities across the board, each time and every time.</p>
+</li>
+<li><p>Accuracy &amp; Quality</p>
+<p>RPA offers improved services to processes that have a high probability of human error, thereby increasing accuracy. Robots are reliable, and consistent and do not whine when expected to work tirelessly.</p>
+</li>
+<li><p>Increased Customer Satisfaction</p>
+<p>Delivering better quality of work with high accuracy and improved customer/client interaction leads to increased customer and client satisfaction.</p>
+</li>
+<li><p>Improved Analytics</p>
+<p>Having access to error free, accurate data from various sources would improve the quality of analytics in the process.</p>
+</li>
+</ul>
+<h2 id="What-are-Limitations-of-Robotic-Process-Automation"><a href="#What-are-Limitations-of-Robotic-Process-Automation" class="headerlink" title="What are Limitations of Robotic Process Automation?"></a>What are Limitations of Robotic Process Automation?</h2><ul>
+<li><p>RPA certainly boosts company efficiency by automating repetitive human effort, but there are limitations to the types of work that it can be applied to – specifically ones that require judgement.</p>
+</li>
+<li><p>RPA cannot read any data that is non-electronic with unstructured inputs.</p>
+</li>
+<li><p>companies need to be aware of diverse inputs coming from multiple sources.</p>
+</li>
+<li><p>RPA is not a cognitive computing solution. It cannot learn from experience and therefore has a ‘shelf life’. As processes evolve</p>
+</li>
+<li><p>Applying RPA to a broken and inefficient process will not fix it. RPA is not a Business Process Management solution and does not bring an end-to-end process view.</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -416,7 +530,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" <i class="fa fa-tag"></i> Git</a>
+            <a href="/tags/RPA/" <i class="fa fa-tag"></i> RPA</a>
           
         </div>
       
@@ -429,8 +543,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/16/上线发布流程/" rel="next" title="上线发布流程">
-                <i class="fa fa-chevron-left"></i> 上线发布流程
+              <a href="/2019/06/22/Libra环境搭建和第一笔交易/" rel="next" title="Libra环境搭建和第一笔交易">
+                <i class="fa fa-chevron-left"></i> Libra环境搭建和第一笔交易
               </a>
             
           </div>
@@ -438,10 +552,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/22/Libra环境搭建和第一笔交易/" rel="prev" title="Libra环境搭建和第一笔交易">
-                Libra环境搭建和第一笔交易 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
