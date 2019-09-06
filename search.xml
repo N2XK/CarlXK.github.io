@@ -3,13 +3,13 @@
   <entry>
     <title><![CDATA[MySQL面试题]]></title>
     <url>%2F2019%2F09%2F06%2FMysql%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[MySQL面试题基础知识 常用的MySQL引擎有哪些？ MyISAM和InnoDB区别 MySQL事务，解释ACID SQL标准定义的四个隔离级别 CHAR和VARCHAR的区别？ FLOAT和DOUBLE的区别是什么？ 列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？ BLOB和TEXT有什么区别？ Heap表是什么？ DROP、DELETE、TRUNCATE的区别 MySQL里记录货币用什么字段类型好 通用SQL函数有哪些？ NOW（）和CURRENT_DATE（）有什么区别？ MySQL查询是否区分大小写？ 主键 超键 候选键 外键 视图的作用，视图的优缺点，视图可以更改么？ MySQL有关权限的表都有哪几个？ MySQL数据表在什么情况下容易损坏？ 简述MySQL的执行计划？ 索引、锁 MySQL索引的目的和原理 MySQL索引的数据结构和算法原理 索引对性能的影响 索引的使用场景 索引的创建原则 什么是索引合并？ 什么是覆盖索引？ MySQL索引的注意事项 列举创建索引但是无法命中索引的情况 为什么使用B+Tree B-Tree和B+Tree的区别 最左前缀原理 什么是聚集索引和非聚集索引 可以使用多少列创建索引？ MySQL中有哪几种锁？ 什么是乐观锁和悲观锁 乐观锁和悲观锁的区别及使用场景 乐观锁常见的两种实现方式 乐观锁的缺点 什么是MVCC MySQL的innodb引擎是如何实现MVCC的 MySQL中InnoDB引擎的行锁是怎么实现的？为什么是这样子的？ 调优诊断 对SQL语句优化有哪些方法？ MySQL如何优化DISTINCT？ 锁的优化策略 MySQL数据库CPU飙升到500%的话他怎么处理？ MySQL数据库服务器性能分析的方法命令有哪些? 数据库结构优化的建议有哪些 解答题 一张表，里面有ID自增主键，当insert了17条记录之后，删除了第15,16,17条记录，再把MySQL重启，再insert一条记录，这条记录的ID是18还是15 ？ 如何在MySQL种获取当前日期？ 如何查询第n高的工资？ 有A(id,sex,par,c1,c2),B(id,age,c1,c2)两张表，其中A.id与B.id关联，现在要求写出一条SQL语句，将B中age&gt;50的记录的c1,c2更新到A表中同一记录中的c1,c2字段中 一个6亿的表a，一个3亿的表b，通过外间tid关联，你如何最快的查询出满足条件的第50000到第50200中的这200条数据记录 1000w条数据，使用limit offset 分页时，为什么越往后翻越慢？如何解决？ 运维安全 SQL注入漏洞产生的原因？如何防止？ 关于SQL语句应该考虑哪些安全性？ 简述数据库的读写分离？ 简述数据库分库分表？（水平、垂直） MySQL的复制原理以及流程]]></content>
+    <content type="text"><![CDATA[MySQL面试题基础知识 常用的MySQL引擎有哪些？ MyISAM和InnoDB区别 MySQL事务，解释ACID SQL标准定义的四个隔离级别 CHAR和VARCHAR的区别？ FLOAT和DOUBLE的区别是什么？ 列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？ BLOB和TEXT有什么区别？ Heap表是什么？ DROP、DELETE、TRUNCATE的区别 MySQL里记录货币用什么字段类型好 通用SQL函数有哪些？ NOW（）和CURRENT_DATE（）有什么区别？ MySQL查询是否区分大小写？ 主键 超键 候选键 外键 视图的作用，视图的优缺点，视图可以更改么？ MySQL有关权限的表都有哪几个？ MySQL数据表在什么情况下容易损坏？ 对Explain参数及重要参数的理解？ MySQL binlog的几种日志录入格式以及区别 索引、锁 MySQL索引的目的和原理 MySQL索引的数据结构和算法原理 索引对性能的影响 索引的使用场景 索引的创建原则 什么是索引合并？ 什么是覆盖索引？ MySQL索引的注意事项 列举创建索引但是无法命中索引的情况 为什么使用B+Tree B-Tree和B+Tree的区别 最左前缀原理 什么是聚集索引和非聚集索引 可以使用多少列创建索引？ MySQL中有哪几种锁？ 什么是乐观锁和悲观锁 乐观锁和悲观锁的区别及使用场景 乐观锁常见的两种实现方式 乐观锁的缺点 什么是MVCC MySQL的innodb引擎是如何实现MVCC的 MySQL中InnoDB引擎的行锁是怎么实现的？为什么是这样子的？ 调优诊断 对SQL语句优化有哪些方法？ MySQL如何优化DISTINCT？ 锁的优化策略 MySQL数据库CPU飙升到500%的话他怎么处理？ MySQL数据库服务器性能分析的方法命令有哪些? 数据库结构优化的建议有哪些 Schema设计对系统性能有什么影响？ 解答题 一张表，里面有ID自增主键，当insert了17条记录之后，删除了第15,16,17条记录，再把MySQL重启，再insert一条记录，这条记录的ID是18还是15 ？ 如何在MySQL种获取当前日期？ 如何查询第n高的工资？ 有A(id,sex,par,c1,c2),B(id,age,c1,c2)两张表，其中A.id与B.id关联，现在要求写出一条SQL语句，将B中age&gt;50的记录的c1,c2更新到A表中同一记录中的c1,c2字段中 一个6亿的表a，一个3亿的表b，通过外间tid关联，你如何最快的查询出满足条件的第50000到第50200中的这200条数据记录 1000w条数据，使用limit offset 分页时，为什么越往后翻越慢？如何解决？ 运维安全 SQL注入漏洞产生的原因？如何防止？ 关于SQL语句应该考虑哪些安全性？ 简述数据库的读写分离？ 简述数据库分库分表？（水平、垂直） MySQL的复制原理以及流程 Mysql热备方案和原理]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
         <tag>MySQL</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +20,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>面试题</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
