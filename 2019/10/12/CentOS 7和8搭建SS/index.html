@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="二三">
 <meta property="og:description" content="CentOS 7和8下搭建shadowsocks-libev安装shadowsocks-libev12cd /etc/yum.repos.d/curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo 源路径在CentOS7和8下不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T06:41:47.744Z">
+<meta property="og:updated_time" content="2019-10-12T06:53:58.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7和8下搭建shadowsocks-libev">
 <meta name="twitter:description" content="CentOS 7和8下搭建shadowsocks-libev安装shadowsocks-libev12cd /etc/yum.repos.d/curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo 源路径在CentOS7和8下不">
@@ -420,45 +420,30 @@
 <h3 id="配置ss"><a href="#配置ss" class="headerlink" title="配置ss"></a>配置ss</h3><p>打开/etc/shadowsocks-libev/config.json，如果不存在该文件则需要新建。</p>
 <p>配置对应的参数：</p>
 <ul>
-<li><p>server：当前自己的服务器的地址</p>
-<p>比如：<code>0.0.0.0</code></p>
+<li><p>server：当前自己的服务器的地址<br>比如：<code>0.0.0.0</code></p>
 </li>
-<li><p>server_port：ss服务的端口</p>
-<p>一般要大于1024，小于65536,可以随意取值，只要不和其他端口冲突即可</p>
-<p>比如：<code>21500</code></p>
+<li><p>server_port：ss服务的端口<br><br>一般要大于1024，小于65536,可以随意取值，只要不和其他端口冲突即可<br><br>比如：<code>21500</code></p>
 </li>
-<li><p>password：ss客户端使用ss时要使用的密码<br>最好设置一个复杂但安全的密码，例如：<code>Ci20s5a6y96F</code></p>
+<li><p>password：ss客户端使用ss时要使用的密码<br><br>最好设置一个复杂但安全的密码，例如：<code>Ci20s5a6y96F</code></p>
 </li>
-<li><p>method：加密方式</p>
-<p>以前常见的方式是：<code>aes-256-cfb</code></p>
-<p>最新更加复杂但更安全的是：chacha20-ietf-poly1305</p>
-<p>注意: 需要ss客户端要支持该加密方式才能正常使用ss服务</p>
+<li><p>method：加密方式<br><br>以前常见的方式是：<code>aes-256-cfb</code><br><br>最新更加复杂但更安全的是：chacha20-ietf-poly1305<br><br>注意: 需要ss客户端要支持该加密方式才能正常使用ss服务</p>
 </li>
-<li><p>timeout：超时时间，单位：秒</p>
-<p>比如：<code>300</code></p>
+<li><p>timeout：超时时间，单位：秒<br><br>比如：<code>300</code></p>
 </li>
-<li><p>mode：ss服务的模式</p>
-<p>比如：<code>tcp_and_udp</code>，即支持tcp也支持udp</p>
+<li><p>mode：ss服务的模式<br><br>比如：<code>tcp_and_udp</code>，即支持tcp也支持udp</p>
 </li>
 </ul>
 <p>示例：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">  <span class="attr">"server_port"</span>: <span class="number">21500</span>,</span><br><span class="line">  <span class="attr">"password"</span>: <span class="string">"Ci20s5a6y96F"</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"chacha20-ietf-poly1305"</span>,</span><br><span class="line">  <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">  <span class="attr">"mode"</span>: <span class="string">"tcp_and_udp"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="防火墙上打开端口"><a href="#防火墙上打开端口" class="headerlink" title="防火墙上打开端口"></a>防火墙上打开端口</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --permanent --add-port=xxxx/tcp</span></span><br><span class="line"><span class="bash">firewall-cmd --reload</span></span><br></pre></td></tr></table></figure>
-<h3 id="启动shadowsocks-libev"><a href="#启动shadowsocks-libev" class="headerlink" title="启动shadowsocks-libev"></a>启动shadowsocks-libev</h3><p>启动：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart shadowsocks-libev</span></span><br></pre></td></tr></table></figure>
-<p>开机启动：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> shadowsocks-libev</span><br></pre></td></tr></table></figure>
+<h3 id="启动shadowsocks-libev"><a href="#启动shadowsocks-libev" class="headerlink" title="启动shadowsocks-libev"></a>启动shadowsocks-libev</h3><p>启动：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart shadowsocks-libev</span></span><br></pre></td></tr></table></figure></p>
+<p>开机启动：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> shadowsocks-libev</span><br></pre></td></tr></table></figure></p>
 <h3 id="生成复杂但安全的密码"><a href="#生成复杂但安全的密码" class="headerlink" title="生成复杂但安全的密码"></a>生成复杂但安全的密码</h3><p><a href="http://ucdok.com/project/generate_password.html" target="_blank" rel="noopener">http://ucdok.com/project/generate_password.html</a></p>
-<h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><p>查看服务状态</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl status shadowsocks-libev</span></span><br></pre></td></tr></table></figure>
-<p>查看日志</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u shadowsocks-libev</span><br></pre></td></tr></table></figure>
-<p>查看端口是否启动</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnlp <span class="string">| grep xxxx</span></span><br></pre></td></tr></table></figure>
-<h3 id="实现shadowsocks-libev多用户"><a href="#实现shadowsocks-libev多用户" class="headerlink" title="实现shadowsocks-libev多用户"></a>实现shadowsocks-libev多用户</h3><p>新建另外一个配置文件，比如：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>shadowsocks-libev<span class="regexp">/config2.json</span></span><br></pre></td></tr></table></figure>
-<p>内容和之前一致，只是端口号<code>server_port</code>和密码<code>password</code>改了一下即可：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>: <span class="number">21501</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"passowrd2"</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"mode"</span>: <span class="string">"tcp_and_udp"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><p>查看服务状态<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl status shadowsocks-libev</span></span><br></pre></td></tr></table></figure></p>
+<p>查看日志<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u shadowsocks-libev</span><br></pre></td></tr></table></figure></p>
+<p>查看端口是否启动<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnlp <span class="string">| grep xxxx</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="实现shadowsocks-libev多用户"><a href="#实现shadowsocks-libev多用户" class="headerlink" title="实现shadowsocks-libev多用户"></a>实现shadowsocks-libev多用户</h3><p>新建另外一个配置文件，比如：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>shadowsocks-libev<span class="regexp">/config2.json</span></span><br></pre></td></tr></table></figure></p>
+<p>内容和之前一致，只是端口号<code>server_port</code>和密码<code>password</code>改了一下即可：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>: <span class="number">21501</span>,</span><br><span class="line">    <span class="attr">"password"</span>: <span class="string">"passowrd2"</span>,</span><br><span class="line">    <span class="attr">"method"</span>: <span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="attr">"mode"</span>: <span class="string">"tcp_and_udp"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>注意: 端口号不要和系统中其他服务的端口号冲突了。</p>
 </blockquote>
