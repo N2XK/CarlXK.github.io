@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="二三">
 <meta property="og:description" content="CentOS 7和8下搭建shadowsocks-libev安装shadowsocks-libev12cd /etc/yum.repos.d/curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo 源路径在CentOS7和8下不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T06:53:58.933Z">
+<meta property="og:updated_time" content="2019-10-12T06:56:36.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7和8下搭建shadowsocks-libev">
 <meta name="twitter:description" content="CentOS 7和8下搭建shadowsocks-libev安装shadowsocks-libev12cd /etc/yum.repos.d/curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo 源路径在CentOS7和8下不">
@@ -422,15 +422,15 @@
 <ul>
 <li><p>server：当前自己的服务器的地址<br>比如：<code>0.0.0.0</code></p>
 </li>
-<li><p>server_port：ss服务的端口<br><br>一般要大于1024，小于65536,可以随意取值，只要不和其他端口冲突即可<br><br>比如：<code>21500</code></p>
+<li><p>server_port：ss服务的端口<br>一般要大于1024，小于65536,可以随意取值，只要不和其他端口冲突即可<br>比如：<code>21500</code></p>
 </li>
-<li><p>password：ss客户端使用ss时要使用的密码<br><br>最好设置一个复杂但安全的密码，例如：<code>Ci20s5a6y96F</code></p>
+<li><p>password：ss客户端使用ss时要使用的密码<br>最好设置一个复杂但安全的密码，例如：<code>Ci20s5a6y96F</code></p>
 </li>
-<li><p>method：加密方式<br><br>以前常见的方式是：<code>aes-256-cfb</code><br><br>最新更加复杂但更安全的是：chacha20-ietf-poly1305<br><br>注意: 需要ss客户端要支持该加密方式才能正常使用ss服务</p>
+<li><p>method：加密方式<br>以前常见的方式是：<code>aes-256-cfb</code><br>最新更加复杂但更安全的是：chacha20-ietf-poly1305<br>注意: 需要ss客户端要支持该加密方式才能正常使用ss服务</p>
 </li>
-<li><p>timeout：超时时间，单位：秒<br><br>比如：<code>300</code></p>
+<li><p>timeout：超时时间，单位：秒<br>比如：<code>300</code></p>
 </li>
-<li><p>mode：ss服务的模式<br><br>比如：<code>tcp_and_udp</code>，即支持tcp也支持udp</p>
+<li><p>mode：ss服务的模式<br>比如：<code>tcp_and_udp</code>，即支持tcp也支持udp</p>
 </li>
 </ul>
 <p>示例：</p>
