@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mac安装k8s for docker desktop]]></title>
+    <url>%2F2020%2F01%2F27%2FMac%E5%AE%89%E8%A3%85k8s%20for%20docker%20desktop%2F</url>
+    <content type="text"><![CDATA[安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;offering=community 版本信息： 配置镜像加速 阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大镜像加速地址 https://docker.mirrors.ustc.edu.cn mac配置： 开启k8s 下载离线镜像 123git clone https://github.com/AliyunContainerService/k8s-for-docker-desktopcd k8s-for-docker-desktop./load_images.sh 开启kubernetes 配置 CPU 和 内存资源 开启 Kubernetes安装k8s dashboard应用 部署dashboard 1kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml 或者 1kubectl create -f kubernetes-dashboard.yaml 开启API Server访问代理 1kubectl proxy 访问Kubernetes dashboard URL： http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default 配置控制台访问令牌 登录dashboard时 选择令牌，输入下文控制台输出的内容 123TOKEN=$(kubectl -n kube-system describe secret default| awk '$1=="token:"&#123;print $2&#125;')kubectl config set-credentials docker-for-desktop --token="$&#123;TOKEN&#125;"echo $TOKEN 选择 Kubeconfig 文件 路径如下：$HOME/.kube/config 安装过程中的问题 kubernets is starting k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案： 使用如下命令查看日志 12$ pred='process matches ".*(ocker|vpnkit).*" || (process in &#123;"taskgated-helper", "launchservicesd", "kernel"&#125; &amp;&amp; eventMessage contains[c] "docker")'$ /usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred" 卸载docker panel 删除 .kube file 1rm -rf ~/.kube 编辑/etc/hosts. (第一行包含docker-for-desktop)编辑后如下: 123127.0.0.1 localhost docker-for-desktop255.255.255.255 broadcasthost::1 localhost 重新安装kubernets 问题参考链接 https://github.com/docker/for-mac/issues https://github.com/docker/for-mac/issues/3327]]></content>
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>kubernets</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CentOS 7和8下搭建shadowsocks-libev]]></title>
     <url>%2F2019%2F10%2F12%2FCentOS%207%E5%92%8C8%E6%90%AD%E5%BB%BASS%2F</url>
     <content type="text"><![CDATA[CentOS 7和8下搭建shadowsocks-libev安装shadowsocks-libev12cd /etc/yum.repos.d/curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo 源路径在CentOS7和8下不同，如下： 1234# CentOS7URL=https://copr.fedorainfracloud.org/coprs/outman/shadowsocks-libev/repo/epel-7/outman-shadowsocks-libev-epel-7.repo# CentOS8URL=https://copr.fedorainfracloud.org/coprs/outman/shadowsocks-libev/repo/epel-8/outman-shadowsocks-libev-epel-8.repo 安装 1234yum updateyum install -y epel-releaseyum install -y libsodium shadowsocks-libev simple-obfsyum install -y shadowsocks-libev 配置ss打开/etc/shadowsocks-libev/config.json，如果不存在该文件则需要新建。 配置对应的参数： server：当前自己的服务器的地址比如：0.0.0.0 server_port：ss服务的端口一般要大于1024，小于65536,可以随意取值，只要不和其他端口冲突即可比如：21500 password：ss客户端使用ss时要使用的密码最好设置一个复杂但安全的密码，例如：Ci20s5a6y96F method：加密方式以前常见的方式是：aes-256-cfb最新更加复杂但更安全的是：chacha20-ietf-poly1305注意: 需要ss客户端要支持该加密方式才能正常使用ss服务 timeout：超时时间，单位：秒比如：300 mode：ss服务的模式比如：tcp_and_udp，即支持tcp也支持udp 示例： 12345678&#123; "server": "0.0.0.0", "server_port": 21500, "password": "Ci20s5a6y96F", "method": "chacha20-ietf-poly1305", "timeout": 300, "mode": "tcp_and_udp"&#125; 防火墙上打开端口12firewall-cmd --permanent --add-port=xxxx/tcpfirewall-cmd --reload 启动shadowsocks-libev启动：1systemctl restart shadowsocks-libev 开机启动：1systemctl enable shadowsocks-libev 生成复杂但安全的密码http://ucdok.com/project/generate_password.html Debug查看服务状态1systemctl status shadowsocks-libev 查看日志1journalctl -u shadowsocks-libev 查看端口是否启动1netstat -tnlp | grep xxxx 实现shadowsocks-libev多用户新建另外一个配置文件，比如：1/etc/shadowsocks-libev/config2.json 内容和之前一致，只是端口号server_port和密码password改了一下即可：12345678&#123; "server": "0.0.0.0", "server_port": 21501, "password": "passowrd2", "method": "aes-256-cfb", "timeout": 300, "mode": "tcp_and_udp"&#125; 注意: 端口号不要和系统中其他服务的端口号冲突了。 另外再去用：1setsid ss-server -c /etc/shadowsocks-libev/config2.json -u 启用新端口对应的ss服务。]]></content>
@@ -19,8 +31,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
         <tag>MySQL</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -31,8 +43,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>面试题</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
