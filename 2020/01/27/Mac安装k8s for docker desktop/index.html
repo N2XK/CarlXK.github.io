@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s3.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s4.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/k8s_credentials.png">
-<meta property="og:updated_time" content="2020-01-29T13:00:05.184Z">
+<meta property="og:updated_time" content="2020-01-29T13:33:45.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac安装k8s for docker desktop">
 <meta name="twitter:description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community  版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科">
@@ -425,20 +425,22 @@
 <li>阿里云镜像服务 <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" target="_blank" rel="noopener">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></li>
 <li><p>中科大镜像加速地址 <a href="https://docker.mirrors.ustc.edu.cn" target="_blank" rel="noopener">https://docker.mirrors.ustc.edu.cn</a></p>
 <p>mac配置：<br><img src="/images/docker-k8s2.png" alt=""></p>
-<h2 id="开启k8s"><a href="#开启k8s" class="headerlink" title="开启k8s"></a>开启k8s</h2></li>
-</ul>
 </li>
-<li><p>下载离线镜像</p>
- <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/AliyunContainerService/k8s-<span class="keyword">for</span>-docker-desktop</span><br><span class="line"><span class="keyword">cd</span> k8s-<span class="keyword">for</span>-docker-desktop</span><br><span class="line">./load_images.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启kubernetes</p>
-<ul>
-<li>配置 CPU 和 内存资源<br><img src="/images/docker-k8s3.png" alt=""></li>
-<li>开启 Kubernetes<br><img src="/images/docker-k8s4.png" alt=""><h2 id="安装k8s-dashboard应用"><a href="#安装k8s-dashboard应用" class="headerlink" title="安装k8s dashboard应用"></a>安装k8s dashboard应用</h2></li>
 </ul>
 </li>
 </ol>
+<h2 id="开启kubernetes"><a href="#开启kubernetes" class="headerlink" title="开启kubernetes"></a>开启kubernetes</h2><ol>
+<li><p>下载离线镜像</p>
+ <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/AliyunContainerService/k8s-<span class="keyword">for</span>-docker-desktop</span><br><span class="line"><span class="keyword">cd</span> k8s-<span class="keyword">for</span>-docker-desktop</span><br><span class="line">./load_images.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装并启动kubernetes</p>
 <ul>
+<li>配置 CPU 和 内存资源<br><img src="/images/docker-k8s3.png" alt=""></li>
+<li>开启 Kubernetes<br><img src="/images/docker-k8s4.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="安装k8s-dashboard应用"><a href="#安装k8s-dashboard应用" class="headerlink" title="安装k8s dashboard应用"></a>安装k8s dashboard应用</h2><ul>
 <li><p>部署dashboard</p>
   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/kubernetes/</span>dashboard<span class="regexp">/v1.10.1/</span>src<span class="regexp">/deploy/</span>recommended<span class="regexp">/kubernetes-dashboard.yaml</span></span><br></pre></td></tr></table></figure>
 <p>  或者</p>
