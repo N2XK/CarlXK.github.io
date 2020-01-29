@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community  版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科">
+<meta name="description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community 版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大">
 <meta name="keywords" content="kubernets,Mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac安装k8s for docker desktop">
 <meta property="og:url" content="http://www.xiaokunli.com/2020/01/27/Mac安装k8s for docker desktop/index.html">
 <meta property="og:site_name" content="二三">
-<meta property="og:description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community  版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科">
+<meta property="og:description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community 版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s1.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s2.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s3.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/docker-k8s4.png">
 <meta property="og:image" content="http://www.xiaokunli.com/images/k8s_credentials.png">
-<meta property="og:updated_time" content="2020-01-29T13:33:45.804Z">
+<meta property="og:updated_time" content="2020-01-29T13:50:45.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac安装k8s for docker desktop">
-<meta name="twitter:description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community  版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科">
+<meta name="twitter:description" content="安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;amp;offering=community 版本信息：  配置镜像加速  阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大">
 <meta name="twitter:image" content="http://www.xiaokunli.com/images/docker-k8s1.png">
 
 
@@ -419,7 +419,7 @@
 
       
         <h2 id="安装docker-desktop-for-mac"><a href="#安装docker-desktop-for-mac" class="headerlink" title="安装docker desktop for mac"></a>安装docker desktop for mac</h2><ol>
-<li>下载 Docker CE最新版本<br> 地址： <a href="https://store.docker.com/search?type=edition&amp;offering=community" target="_blank" rel="noopener">https://store.docker.com/search?type=edition&amp;offering=community</a> <br><br> 版本信息：<br> <img src="/images/docker-k8s1.png" alt=""></li>
+<li>下载 Docker CE最新版本<br> 地址： <a href="https://store.docker.com/search?type=edition&amp;offering=community" target="_blank" rel="noopener">https://store.docker.com/search?type=edition&amp;offering=community</a><br> 版本信息：<br> <img src="/images/docker-k8s1.png" alt=""></li>
 <li><p>配置镜像加速</p>
 <ul>
 <li>阿里云镜像服务 <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" target="_blank" rel="noopener">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></li>
@@ -440,49 +440,42 @@
 </ul>
 </li>
 </ol>
-<h2 id="安装k8s-dashboard应用"><a href="#安装k8s-dashboard应用" class="headerlink" title="安装k8s dashboard应用"></a>安装k8s dashboard应用</h2><ul>
+<h2 id="安装k8s-dashboard应用"><a href="#安装k8s-dashboard应用" class="headerlink" title="安装k8s dashboard应用"></a>安装k8s dashboard应用</h2><ol>
 <li><p>部署dashboard</p>
-  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/kubernetes/</span>dashboard<span class="regexp">/v1.10.1/</span>src<span class="regexp">/deploy/</span>recommended<span class="regexp">/kubernetes-dashboard.yaml</span></span><br></pre></td></tr></table></figure>
-<p>  或者</p>
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">kubectl</span> <span class="selector-tag">create</span> <span class="selector-tag">-f</span> <span class="selector-tag">kubernetes-dashboard</span><span class="selector-class">.yaml</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/kubernetes/</span>dashboard<span class="regexp">/v1.10.1/</span>src<span class="regexp">/deploy/</span>recommended<span class="regexp">/kubernetes-dashboard.yaml</span></span><br></pre></td></tr></table></figure>
+<p> 或者</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">kubectl</span> <span class="selector-tag">create</span> <span class="selector-tag">-f</span> <span class="selector-tag">kubernetes-dashboard</span><span class="selector-class">.yaml</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>开启API Server访问代理</p>
-  <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">kubectl proxy</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">kubectl proxy</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>访问Kubernetes dashboard<br><br>  URL：<br>  <a href="http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" target="_blank" rel="noopener">http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default</a></p>
+<li><p>访问Kubernetes dashboard<br> URL：<br> <a href="http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default" target="_blank" rel="noopener">http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default</a></p>
 </li>
 <li><p>配置控制台访问令牌</p>
-<p>  登录dashboard时<br>  <img src="/images/k8s_credentials.png" alt=""></p>
-<ol>
+<p> 登录dashboard时<br> <img src="/images/k8s_credentials.png" alt=""></p>
+<ul>
 <li><p>选择令牌，输入下文控制台输出的内容</p>
 <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">TOKEN=</span>$(<span class="string">kubectl </span>-n <span class="string">kube-system </span><span class="string">describe </span><span class="string">secret </span><span class="string">default|</span> <span class="string">awk </span><span class="string">'$1=="token:"&#123;print $2&#125;'</span>)</span><br><span class="line"><span class="string">kubectl </span><span class="string">config </span><span class="built_in">set-credentials</span> <span class="string">docker-for-</span><span class="string">desktop </span><span class="built_in">--token="$&#123;TOKEN&#125;"</span></span><br><span class="line"><span class="built_in">echo</span> $<span class="string">TOKEN</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>选择 Kubeconfig 文件<br><br> 路径如下：$HOME/.kube/config</p>
-</li>
-</ol>
+<li><p>选择 Kubeconfig 文件<br>  路径如下：$HOME/.kube/config</p>
 </li>
 </ul>
-<h2 id="安装过程中的问题"><a href="#安装过程中的问题" class="headerlink" title="安装过程中的问题"></a>安装过程中的问题</h2><ul>
-<li><p>kubernets is starting<br>  k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案：</p>
-<ol>
-<li><p>使用如下命令查看日志</p>
+</li>
+</ol>
+<h2 id="安装过程中的问题"><a href="#安装过程中的问题" class="headerlink" title="安装过程中的问题"></a>安装过程中的问题</h2><p>kubernets is starting<br>    k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案</p>
+<pre><code>1. 使用如下命令查看日志
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pred</span>='process matches <span class="string">".*(ocker|vpnkit).*"</span> || (process <span class="keyword">in</span> &#123;<span class="string">"taskgated-helper"</span>, <span class="string">"launchservicesd"</span>, <span class="string">"kernel"</span>&#125; &amp;&amp; eventMessage contains[c] <span class="string">"docker"</span>)'</span><br><span class="line">$ /usr/bin/<span class="built_in">log</span> stream --<span class="built_in">style</span> syslog --level=debug --<span class="built_in">color</span>=always --predicate <span class="string">"$pred"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>卸载docker panel</p>
-</li>
-<li><p>删除 .kube file</p>
+
+2. 卸载docker panel
+3. 删除 .kube file
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~<span class="string">/.kube</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑/etc/hosts. (第一行包含<strong>docker-for-desktop</strong>)<br>编辑后如下:</p>
+
+4. 编辑/etc/hosts. (第一行包含**docker-for-desktop**)
+编辑后如下:
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span>	<span class="selector-tag">localhost</span> <span class="selector-tag">docker-for-desktop</span></span><br><span class="line">255<span class="selector-class">.255</span><span class="selector-class">.255</span><span class="selector-class">.255</span> <span class="selector-tag">broadcasthost</span></span><br><span class="line"><span class="selector-pseudo">::1</span> <span class="selector-tag">localhost</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新安装kubernets</p>
-</li>
-</ol>
-</li>
-<li><p>问题参考链接<br><br>  <a href="https://github.com/docker/for-mac/issues" target="_blank" rel="noopener">https://github.com/docker/for-mac/issues</a><br><br>  <a href="https://github.com/docker/for-mac/issues/3327" target="_blank" rel="noopener">https://github.com/docker/for-mac/issues/3327</a></p>
-</li>
-</ul>
+
+5. 重新安装kubernets
+</code></pre><p>问题参考链接<br>    <a href="https://github.com/docker/for-mac/issues" target="_blank" rel="noopener">https://github.com/docker/for-mac/issues</a><br>    <a href="https://github.com/docker/for-mac/issues/3327" target="_blank" rel="noopener">https://github.com/docker/for-mac/issues/3327</a></p>
 
       
     </div>

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Mac安装k8s for docker desktop]]></title>
     <url>%2F2020%2F01%2F27%2FMac%E5%AE%89%E8%A3%85k8s%20for%20docker%20desktop%2F</url>
-    <content type="text"><![CDATA[安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;offering=community 版本信息： 配置镜像加速 阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大镜像加速地址 https://docker.mirrors.ustc.edu.cn mac配置： 开启kubernetes 下载离线镜像 123git clone https://github.com/AliyunContainerService/k8s-for-docker-desktopcd k8s-for-docker-desktop./load_images.sh 安装并启动kubernetes 配置 CPU 和 内存资源 开启 Kubernetes 安装k8s dashboard应用 部署dashboard 1kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml 或者 1kubectl create -f kubernetes-dashboard.yaml 开启API Server访问代理 1kubectl proxy 访问Kubernetes dashboard URL： http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default 配置控制台访问令牌 登录dashboard时 选择令牌，输入下文控制台输出的内容 123TOKEN=$(kubectl -n kube-system describe secret default| awk '$1=="token:"&#123;print $2&#125;')kubectl config set-credentials docker-for-desktop --token="$&#123;TOKEN&#125;"echo $TOKEN 选择 Kubeconfig 文件 路径如下：$HOME/.kube/config 安装过程中的问题 kubernets is starting k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案： 使用如下命令查看日志 12$ pred='process matches ".*(ocker|vpnkit).*" || (process in &#123;"taskgated-helper", "launchservicesd", "kernel"&#125; &amp;&amp; eventMessage contains[c] "docker")'$ /usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred" 卸载docker panel 删除 .kube file 1rm -rf ~/.kube 编辑/etc/hosts. (第一行包含docker-for-desktop)编辑后如下: 123127.0.0.1 localhost docker-for-desktop255.255.255.255 broadcasthost::1 localhost 重新安装kubernets 问题参考链接 https://github.com/docker/for-mac/issues https://github.com/docker/for-mac/issues/3327]]></content>
+    <content type="text"><![CDATA[安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;offering=community 版本信息： 配置镜像加速 阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大镜像加速地址 https://docker.mirrors.ustc.edu.cn mac配置： 开启kubernetes 下载离线镜像 123git clone https://github.com/AliyunContainerService/k8s-for-docker-desktopcd k8s-for-docker-desktop./load_images.sh 安装并启动kubernetes 配置 CPU 和 内存资源 开启 Kubernetes 安装k8s dashboard应用 部署dashboard 1kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml 或者 1kubectl create -f kubernetes-dashboard.yaml 开启API Server访问代理 1kubectl proxy 访问Kubernetes dashboard URL： http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default 配置控制台访问令牌 登录dashboard时 选择令牌，输入下文控制台输出的内容 123TOKEN=$(kubectl -n kube-system describe secret default| awk '$1=="token:"&#123;print $2&#125;')kubectl config set-credentials docker-for-desktop --token="$&#123;TOKEN&#125;"echo $TOKEN 选择 Kubeconfig 文件 路径如下：$HOME/.kube/config 安装过程中的问题kubernets is starting k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案 1. 使用如下命令查看日志 12$ pred='process matches ".*(ocker|vpnkit).*" || (process in &#123;"taskgated-helper", "launchservicesd", "kernel"&#125; &amp;&amp; eventMessage contains[c] "docker")'$ /usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred" 2. 卸载docker panel 3. 删除 .kube file 1rm -rf ~/.kube 4. 编辑/etc/hosts. (第一行包含**docker-for-desktop**) 编辑后如下: 123127.0.0.1 localhost docker-for-desktop255.255.255.255 broadcasthost::1 localhost 5. 重新安装kubernets 问题参考链接 https://github.com/docker/for-mac/issues https://github.com/docker/for-mac/issues/3327]]></content>
       <categories>
         <category>开发</category>
       </categories>
@@ -31,8 +31,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>面试题</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +43,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
         <tag>Java</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
