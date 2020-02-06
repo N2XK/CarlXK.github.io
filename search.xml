@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[无题]]></title>
+    <url>%2F2020%2F02%2F06%2F%E5%9C%A8%E9%82%A3%E4%BA%9B%E6%B2%A1%E6%9C%89%E4%BF%A1%E5%BF%83%E9%9D%A0%E8%87%AA%E5%B7%B1%E5%8A%AA%E5%8A%9B%E5%A5%8B%E6%96%97%E6%89%BE%E5%88%B0%E5%89%8D%E9%80%94%E7%9A%84%E4%BA%BA%E4%BB%AC%E5%BD%93%E4%B8%AD%EF%BC%8C%E4%BD%A0%E5%BE%88%E9%9A%BE%E6%89%BE%E5%88%B0%E7%8B%AC%E7%AB%8B%E7%9A%84%E7%B2%BE%E7%A5%9E%E5%92%8C%E5%9D%9A%E5%BC%BA%E7%9A%84%E4%B8%AA%E6%80%A7%E3%80%82%2F</url>
+    <content type="text"><![CDATA[在那些没有信心靠自己努力奋斗找到前途的人们当中，你很难找到独立的精神和坚强的个性。Independence of mind or strength of character are rarely found among those who cannot be confident that they will make their way by their own effort. 在那些缺乏信心依靠自己的努力找到出路的人当中，很难找到独立的思想和坚强的性格。 —— 哈耶克《通往奴役之路》]]></content>
+      <categories>
+        <category>心理学</category>
+      </categories>
+      <tags>
+        <tag>鸡汤</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac安装k8s for docker desktop]]></title>
     <url>%2F2020%2F01%2F27%2FMac%E5%AE%89%E8%A3%85k8s%20for%20docker%20desktop%2F</url>
     <content type="text"><![CDATA[安装docker desktop for mac 下载 Docker CE最新版本 地址： https://store.docker.com/search?type=edition&amp;offering=community 版本信息： 配置镜像加速 阿里云镜像服务 https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors 中科大镜像加速地址 https://docker.mirrors.ustc.edu.cn mac配置： 开启kubernetes 下载离线镜像 123git clone https://github.com/AliyunContainerService/k8s-for-docker-desktopcd k8s-for-docker-desktop./load_images.sh 安装并启动kubernetes 配置 CPU 和 内存资源 开启 Kubernetes 安装k8s dashboard应用 部署dashboard 1kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml 或者 1kubectl create -f kubernetes-dashboard.yaml 开启API Server访问代理 1kubectl proxy 访问Kubernetes dashboard URL： http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default 配置控制台访问令牌 登录dashboard时 选择令牌，输入下文控制台输出的内容 123TOKEN=$(kubectl -n kube-system describe secret default| awk '$1=="token:"&#123;print $2&#125;')kubectl config set-credentials docker-for-desktop --token="$&#123;TOKEN&#125;"echo $TOKEN 选择 Kubeconfig 文件 路径如下：$HOME/.kube/config 安装过程中的问题kubernets is starting k8s 一直是开始状态而不是running状态，查看官方的issue列表中找到如下解决方案 1. 使用如下命令查看日志 12$ pred='process matches ".*(ocker|vpnkit).*" || (process in &#123;"taskgated-helper", "launchservicesd", "kernel"&#125; &amp;&amp; eventMessage contains[c] "docker")'$ /usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred" 2. 卸载docker panel 3. 删除 .kube file 1rm -rf ~/.kube 4. 编辑/etc/hosts. (第一行包含**docker-for-desktop**) 编辑后如下: 123127.0.0.1 localhost docker-for-desktop255.255.255.255 broadcasthost::1 localhost 5. 重新安装kubernets 问题参考链接 https://github.com/docker/for-mac/issues https://github.com/docker/for-mac/issues/3327]]></content>
