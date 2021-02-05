@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="COLA架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施">
+<meta name="description" content="架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施层； 领">
 <meta name="keywords" content="DDD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="COLA框架的架构和调用流程">
 <meta property="og:url" content="http://www.xiaokunli.com/2021/02/05/COLA/index.html">
 <meta property="og:site_name" content="二三">
-<meta property="og:description" content="COLA架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施">
+<meta property="og:description" content="架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施层； 领">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.xiaokunli.com/images/cola-arch.jpg">
 <meta property="og:image" content="http://www.xiaokunli.com/images/cola-invoke-chain.jpg">
-<meta property="og:updated_time" content="2021-02-05T07:12:20.598Z">
+<meta property="og:updated_time" content="2021-02-05T07:14:42.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="COLA框架的架构和调用流程">
-<meta name="twitter:description" content="COLA架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施">
+<meta name="twitter:description" content="架构图四层结构  适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller； 应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施层； 领">
 <meta name="twitter:image" content="http://www.xiaokunli.com/images/cola-arch.jpg">
 
 
@@ -415,7 +415,7 @@
       
 
       
-        <h1 id="COLA"><a href="#COLA" class="headerlink" title="COLA"></a>COLA</h1><h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p>四层结构<br><img src="/images/cola-arch.jpg" alt=""></p>
+        <h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p>四层结构<br><img src="/images/cola-arch.jpg" alt=""></p>
 <ol>
 <li>适配层（Adapter Layer）：负责对前端展示（web，wireless，wap）的路由和适配，对于传统B/S系统而言，adapter就相当于MVC中的controller；</li>
 <li>应用层（Application Layer）：主要负责获取输入，组装上下文，参数校验，调用领域层做业务处理，如果需要的话，发送消息通知等。层次是开放的，应用层也可以绕过领域层，直接访问基础实施层；</li>
