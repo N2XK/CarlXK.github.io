@@ -1,37 +1,617 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaokunli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="简介 ELK是elasticsearch、logstash、kibana软件的集合，对外是作为一个日志管理系统的开源方案，它可以从任何来源、任何格式进行日志搜索、分析与可视化展示。基本组成软件：   elasticsearch：一个开源分布式搜索引擎，提供收集、分析、存储数据三大功能。 kibana：一个基于web的图形界面，用于搜索、分析和可视化存储在elasticsearch中的日志数据。 l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ELK搭建">
+<meta property="og:url" content="http://www.xiaokunli.com/2020/12/17/ELK%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="二三">
+<meta property="og:description" content="简介 ELK是elasticsearch、logstash、kibana软件的集合，对外是作为一个日志管理系统的开源方案，它可以从任何来源、任何格式进行日志搜索、分析与可视化展示。基本组成软件：   elasticsearch：一个开源分布式搜索引擎，提供收集、分析、存储数据三大功能。 kibana：一个基于web的图形界面，用于搜索、分析和可视化存储在elasticsearch中的日志数据。 l">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-17T06:49:14.000Z">
+<meta property="article:modified_time" content="2021-02-05T07:58:16.543Z">
+<meta property="article:author" content="李一">
+<meta property="article:tag" content="ELK">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaokunli.com/2020/12/17/ELK%E6%90%AD%E5%BB%BA/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>ELK搭建 | 二三</title>
+  
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二三" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二三</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我见青山多妩媚，青山见我应如是</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2020/12/17/ELK%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ELK搭建
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-17 14:49:14" itemprop="dateCreated datePublished" datetime="2020-12-17T14:49:14+08:00">2020-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 15:58:16" itemprop="dateModified" datetime="2021-02-05T15:58:16+08:00">2021-02-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/12/17/ELK%E6%90%AD%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="ELK搭建" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>ELK是elasticsearch、logstash、kibana软件的集合，对外是作为一个日志管理系统的开源方案，它可以从任何来源、任何格式进行日志搜索、分析与可视化展示。<br>基本组成软件：</p>
+</blockquote>
+<ul>
+<li>elasticsearch：一个开源分布式搜索引擎，提供收集、分析、存储数据三大功能。</li>
+<li>kibana：一个基于web的图形界面，用于搜索、分析和可视化存储在elasticsearch中的日志数据。</li>
+<li>logstash：一个服务端的数据处理管道，可以从多个源中提取数据，对其进行转换，然后将其存储到Elasticsearch中。简单来说就是日志的收集、分析、过滤工具。</li>
+</ul>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>使用版本是7.9.3，部署前我们可以先提前从官网上下载下面4个安装包：<br>elasticsearch-7.9.3-linux-x86_64.tar.gz<br>kibana-7.9.3-linux-x86_64.tar.gz<br>logstash-7.9.3.tar.gz</p>
+<p>这4个组件可以部署在不同的机器上，只要机器之间是端口开放即可<br>本文档中elasticsearch、logstash、kibana部署在一台机器，filebeat部署在有业务服务的机器上。</p>
+<ol>
+<li><p>创建用户和解压文件<br> groupadd elk<br> useradd elk -g elk<br> 解压文件：<br> tar -zxvf elasticsearch-7.9.3-linux-x86_64.tar.gz -C &#x2F;home&#x2F;elk<br> tar -zxvf kibana-7.9.3-linux-x86_64.tar.gz -C &#x2F;home&#x2F;elk<br> tar -zxvf logstash-7.9.3.tar.gz -C &#x2F;home&#x2F;elk<br><br> cd &#x2F;home&#x2F;elk<br> mv kibana-7.9.3-linux-x86_64 kibana-7.9.3<br><br> chown -R elk:elk &#x2F;home&#x2F;elk&#x2F;elasticsearch-7.9.3<br> chown -R elk:elk &#x2F;home&#x2F;elk&#x2F;kibana-7.9.3<br> chown -R elk:elk &#x2F;home&#x2F;elk&#x2F;logstash-7.9.3</p>
+</li>
+<li><p>部署elasticsearch</p>
+<ol>
+<li>切换到elk用户<br> su - elasticsearch<br> cd &#x2F;home&#x2F;elk&#x2F;</li>
+<li>修改elasticsearch.yml<br> cd &#x2F;home&#x2F;elk&#x2F;elasticsearch-7.9.3&#x2F;config<br> vi elasticsearch.yml<br> 在文件末尾增加以下内容<br> # 集群初始主节点<br> cluster.name: “es-cluster”<br> network.host: 0.0.0.0<br> node.name: “node-1”<br><br> # discovery type<br> discovery.type: single-node<br> #discovery.seed_hosts: [“127.0.0.1”, “[::1]”]<br><br> # 设置允许所有ip可以连接该elasticsearch<br> network.host: 0.0.0.0<br><br> # 开启监听的端口为9200<br> http.port: 9200<br><br> # 增加新的参数，为了让elasticsearch-head插件可以访问es<br> http.cors.enabled: true<br> http.cors.allow-origin: “*”<br><br> # 启用密码<br> xpack.security.enabled: true<br><br> # 使用默认密码<br> xpack.security.authc.accept_default_password: true<br> xpack.security.transport.ssl.enabled: true<br> 如果需要外置存储和日志，需要修改path.data和path.logs<br> path.data: &#x2F;nfsc&#x2F;cnas_csp_pase_hrx_id010797_vol1003_dev&#x2F;elasticsearch<br> path.logs: &#x2F;nfsc&#x2F;cnas_csp_pase_hrx_id010797_vol1003_dev&#x2F;elasticsearch_logs</li>
+<li>修改Elasticsearch占用内存<br> cd &#x2F;home&#x2F;elk&#x2F;elasticsearch-7.9.3&#x2F;config<br> vi jvm.options<br> 修改JVM参数 ：<br> -Xms16g<br> -Xmx16g</li>
+<li>启动es的时候有可能会报类似的下面的错误<code>【max virtual memory areas vm.max_map_count [65530] is too low】</code>，所以我们可以通过下面的方法去处理：<br> vi &#x2F;etc&#x2F;sysctl.conf<br> 文件末尾添加一行<br> vm.max_map_count&#x3D;655360<br> 保存之后执行下面的命令加载参数<br> sysctl -p</li>
+<li>启动Elasticsearch<br> 切换用户，进入bin目录启动：<br> cd &#x2F;home&#x2F;elk&#x2F;elasticsearch-7.9.3&#x2F;bin<br> .&#x2F;elasticsearch -d</li>
+<li>为内置账号添加密码<br> # interactive：给用户一一设置密码<br> # auto：自动生成密码<br> cd &#x2F;home&#x2F;elk&#x2F;elasticsearch-7.9.3&#x2F;bin&#x2F;<br> .&#x2F;elasticsearch-setup-passwords interactive</li>
+<li>验证是否启动成功<br> # curl -XGET -u elastic ‘localhost:9200’<br><br> {<br>   “name” : “node-1”,<br>   “cluster_name” : “es-cluster”,<br>   “cluster_uuid” : “8eGk8_ohRbWl8ZcNSPsFDQ”,<br>   “version” : {<br>     “number” : “7.9.3”,<br>     “build_flavor” : “default”,<br>     “build_type” : “tar”,<br>     “build_hash” : “c4138e51121ef06a6404866cddc601906fe5c868”,<br>     “build_date” : “2020-10-16T10:36:16.141335Z”,<br>     “build_snapshot” : false,<br>     “lucene_version” : “8.6.2”,<br>     “minimum_wire_compatibility_version” : “6.8.0”,<br>     “minimum_index_compatibility_version” : “6.0.0-beta1”<br>   },<br>   “tagline” : “You Know, for Search”<br> }</li>
+</ol>
+</li>
+<li><p>部署kibana</p>
+<ol>
+<li>修改配置文件，文件位置在&#x2F;home&#x2F;elk&#x2F;kibana-7.9.3&#x2F;config目录下<br> su - elasticsearch<br> cd &#x2F;home&#x2F;elk&#x2F;kibana-7.9.3&#x2F;config<br> vi kibana.yml<br> 添加es的配置，由于是都在同一台机器所以用localhost，如果是不同机器，就换成对应的ip即可<br> # kibana端口<br> server.port: 5601<br><br> # 允许所有ip访问<br> server.host: “0.0.0.0”<br><br> # elasticsearch所在的ip及监听的地址<br> elasticsearch.hosts: [“<a target="_blank" rel="noopener" href="http://localhost:9200"]">http://localhost:9200&quot;]</a><br> elasticsearch.username: “kibana_system”<br> elasticsearch.password: “kibana_system”<br><br> # kibana默认创建的索引<br> kibana.index: “.kibana”<br><br> # 字符编码<br> i18n.locale: “zh-CN”<br><br> # elasticsearch加密所需配置<br> xpack.reporting.encryptionKey: “a_random_string”<br> xpack.security.encryptionKey: “something_at_least_32_characters”</li>
+<li>启动kibana<br> cd &#x2F;home&#x2F;elk&#x2F;kibana-7.9.3&#x2F;bin<br> .&#x2F;kibana &amp;</li>
+<li>访问kibana<br> <a target="_blank" rel="noopener" href="http://ip:5601/">http://IP:5601/</a></li>
+</ol>
+</li>
+<li><p>部署Logstash</p>
+<ol>
+<li>修改Logstash的YML配置文件<br> cd &#x2F;home&#x2F;elk&#x2F;logstash-7.9.3&#x2F;config&#x2F;<br> vim logstash.yml<br> 修改以下内容<br> # 配置自动刷新<br> config.reload.automatic: true<br> config.reload.interval: 20s<br><br> # 配置可任意地址都可访问<br> http.host: 0.0.0.0<br> http.port: 9600<br><br> # 配置es的访问密码<br> xpack.monitoring.enabled: true<br> xpack.monitoring.elasticsearch.username: logstash_system<br> xpack.monitoring.elasticsearch.password: logstash_system<br> xpack.monitoring.elasticsearch.hosts: [“<a target="_blank" rel="noopener" href="http://localhsot:9200"]">http://localhsot:9200&quot;]</a></li>
+<li>修改 pipelines配置文件<br> - pipeline.id: gmp-logs<br>   queue.type: persisted<br>   path.config: “&#x2F;home&#x2F;elk&#x2F;logstash-7.9.3&#x2F;conf.d&#x2F;*.config”</li>
+<li>创建日志的config文件<br> touch &#x2F;home&#x2F;elk&#x2F;logstash-7.9.3&#x2F;conf.d&#x2F;logstash-beats.conf<br> 写入文件内容<br> input {<br>   beats {<br>     port &#x3D;&gt; 5044<br>   }<br> }<br><br> filter {<br>     grok {<br>         match &#x3D;&gt; [<br>             “message”, “%{TIMESTAMP_ISO8601:timestamp_string}%{SPACE}%{GREEDYDATA:line}”<br>         ]<br>     }<br>     date  {<br>         match &#x3D;&gt; [“timestamp_string”, “ISO8601”]<br>     }<br>     mutate {<br>         remove_field &#x3D;&gt; [message, timestamp_string]<br>     }<br> }<br><br> output {<br>     elasticsearch {<br>         hosts &#x3D;&gt;  [“<a target="_blank" rel="noopener" href="http://localhost:9200"]">http://localhost:9200&quot;]</a><br>         user &#x3D;&gt; elastic<br>         password &#x3D;&gt; “elastic”<br>     }<br>     stdout {<br>         codec &#x3D;&gt; rubydebug<br>     }<br> }</li>
+<li>启动Logstash(root用户)<br> cd &#x2F;home&#x2F;elk&#x2F;logstash-7.9.3&#x2F;bin<br> sh logstash -f ..&#x2F;conf.d&#x2F;logstash-beats.conf &amp;</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ELK/" rel="tag"># ELK</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/10/%E7%AE%80%E5%8D%95%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" rel="prev" title="简单时间管理">
+      <i class="fa fa-chevron-left"></i> 简单时间管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/05/COLA/" rel="next" title="COLA框架的架构和调用流程">
+      COLA框架的架构和调用流程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">李一</p>
+  <div class="site-description" itemprop="description">Logic will get you from A to B. Imagination will take you everywhere.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarlXK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarlXK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李一</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":"enable","app_id":"I1rX73moe8O5ACer7ME38fKz-gzGzoHsz","app_key":"38btLhxNFhVFyYm9mqwnUyb3","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,37 +1,669 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaokunli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="环境准备 Linux或者Mac OS系统，本次测试使用CentOS 7.5 稳定的网络环境，并且连接到互联网 提前安装Git 如果是MacOS，需要提前安装Homebrew yum 或者 apt-get命令  踩的坑：  安装包：yum install -y git gcc gcc-c++ ncurses-devel bison CMake版本低(2.8)导致编译错误，升级到3.14.4解决  安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Libra环境搭建和第一笔交易">
+<meta property="og:url" content="http://www.xiaokunli.com/2019/06/22/Libra%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AC%AC%E4%B8%80%E7%AC%94%E4%BA%A4%E6%98%93/index.html">
+<meta property="og:site_name" content="二三">
+<meta property="og:description" content="环境准备 Linux或者Mac OS系统，本次测试使用CentOS 7.5 稳定的网络环境，并且连接到互联网 提前安装Git 如果是MacOS，需要提前安装Homebrew yum 或者 apt-get命令  踩的坑：  安装包：yum install -y git gcc gcc-c++ ncurses-devel bison CMake版本低(2.8)导致编译错误，升级到3.14.4解决  安">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-06-22T07:58:02.000Z">
+<meta property="article:modified_time" content="2019-06-22T09:00:34.530Z">
+<meta property="article:author" content="李一">
+<meta property="article:tag" content="区块链">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaokunli.com/2019/06/22/Libra%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AC%AC%E4%B8%80%E7%AC%94%E4%BA%A4%E6%98%93/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>Libra环境搭建和第一笔交易 | 二三</title>
+  
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二三" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二三</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我见青山多妩媚，青山见我应如是</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/06/22/Libra%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AC%AC%E4%B8%80%E7%AC%94%E4%BA%A4%E6%98%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Libra环境搭建和第一笔交易
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-22 15:58:02 / Modified: 17:00:34" itemprop="dateCreated datePublished" datetime="2019-06-22T15:58:02+08:00">2019-06-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/06/22/Libra%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AC%AC%E4%B8%80%E7%AC%94%E4%BA%A4%E6%98%93/" class="post-meta-item leancloud_visitors" data-flag-title="Libra环境搭建和第一笔交易" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
+<li>Linux或者Mac OS系统，本次测试使用CentOS 7.5</li>
+<li>稳定的网络环境，并且连接到互联网</li>
+<li>提前安装Git</li>
+<li>如果是MacOS，需要提前安装Homebrew</li>
+<li>yum 或者 apt-get命令</li>
+</ul>
+<p>踩的坑：</p>
+<ul>
+<li>安装包：yum install -y git gcc gcc-c++ ncurses-devel bison</li>
+<li>CMake版本低(2.8)导致编译错误，升级到3.14.4解决</li>
+</ul>
+<h1 id="安装Libra-Core"><a href="#安装Libra-Core" class="headerlink" title="安装Libra Core"></a>安装Libra Core</h1><p>克隆代码库</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/libra/libra.git</span><br></pre></td></tr></table></figure>
+
+<p>运行安装脚本，安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> libra</span><br><span class="line">./scripts/dev_setup.sh</span><br></pre></td></tr></table></figure>
+<p>该初始化脚本执行了如下动作：</p>
+<ul>
+<li>安装rustup – rustup是Rust官方的跨平台安装工具器, Libra Core使用Rust来实现</li>
+<li>安装rust-toolchain的必要版本</li>
+<li>安装CMake  – 管理编译和构建</li>
+<li>安装protoc – protocol buffers的编译器</li>
+<li>安装Go     – 为了构建protocol buffers使用</li>
+</ul>
+<h1 id="构建Libra-CLI客户端并连接到测试网络"><a href="#构建Libra-CLI客户端并连接到测试网络" class="headerlink" title="构建Libra CLI客户端并连接到测试网络"></a>构建Libra CLI客户端并连接到测试网络</h1><p>执行客户端脚本来连接到测试网络上的节点，时间较长，需耐心等待。。。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/<span class="keyword">cli</span>/start_cli_testnet.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<p>一旦连接到网络会看到如下输出信息：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Connected <span class="keyword">to</span> validator at: ac.testnet.libra.<span class="built_in">or</span><span class="variable">g:8000</span></span><br><span class="line">usage: <span class="symbol">&lt;command&gt;</span> <span class="symbol">&lt;args&gt;</span></span><br><span class="line"></span><br><span class="line">Use the following commands:</span><br><span class="line"></span><br><span class="line">account | <span class="keyword">a</span></span><br><span class="line">trueAccount operations</span><br><span class="line">query | q</span><br><span class="line">trueQuery operations</span><br><span class="line">transfer | transferb | t | tb</span><br><span class="line">true<span class="symbol">&lt;sender_account_address&gt;</span>|<span class="symbol">&lt;sender_account_ref_id&gt;</span> <span class="symbol">&lt;receiver_account_address&gt;</span>|<span class="symbol">&lt;receiver_account_ref_id&gt;</span> <span class="symbol">&lt;number_of_coins&gt;</span> [gas_unit_price_in_micro_libras (default=<span class="number">0</span>)] [max_gas_amount_in_micro_libras (default <span class="number">10000</span>)] Suffix <span class="string">&#x27;b&#x27;</span> <span class="keyword">is</span> <span class="keyword">for</span> blocking.</span><br><span class="line">trueTransfer coins (in libra) from account <span class="keyword">to</span> another.</span><br><span class="line"><span class="keyword">help</span> | h</span><br><span class="line">truePrints this <span class="keyword">help</span></span><br><span class="line"><span class="keyword">quit</span> | q!</span><br><span class="line">trueExit this client</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Please, <span class="built_in">input</span> commands:</span><br><span class="line"></span><br><span class="line">libra%</span><br></pre></td></tr></table></figure>
+
+<p>使用help可以看到命令列表，可以执行的命令如下：</p>
+<ul>
+<li>account – 账户相关操作<ul>
+<li>create – 创建账户</li>
+<li>list – 查看所有账户列表</li>
+<li>mint – 增加libra币</li>
+<li>write <file_path>  – 保存libra钱包到磁盘</li>
+<li>recover <file_path>  – 从磁盘恢复libra钱包</li>
+</ul>
+</li>
+<li>query – 查询操作<ul>
+<li>balance <account_ref_id>|<account_address> – 查询账户余额</li>
+<li>sequence – 获得账户当前sequence number</li>
+<li>account_state – 获取账户最近状态</li>
+<li>txn_acc_seq – 通过账号或者sequence number获取已提交的交易</li>
+<li>txn_range – 通过version范围获取已提交的交易</li>
+<li>event – 通过账号或者事件类型来获取事件列表</li>
+</ul>
+</li>
+<li>transfer – 转账操作<ul>
+<li>transfer – 从一个账户转libra币到另外一个账户</li>
+<li>transferb – transfer的阻塞式操作</li>
+</ul>
+</li>
+<li>quit – 退出连接</li>
+</ul>
+<h1 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h1><p>创建账户A</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libra% account create</span><br><span class="line"><span class="meta prompt_">&gt;&gt;</span> <span class="title class_">Creating</span>/retrieving <span class="keyword">next</span> account from wallet</span><br><span class="line"><span class="title class_">Created</span>/retrieved account <span class="comment">#0 address 1b7f0e3123d52cd4b80d451da785a1db96a5ec6a9cdcd84d5d344341b8e77158</span></span><br></pre></td></tr></table></figure>
+<p>创建账户B</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libra% account create</span><br><span class="line"><span class="meta prompt_">&gt;&gt;</span> <span class="title class_">Creating</span>/retrieving <span class="keyword">next</span> account from wallet</span><br><span class="line"><span class="title class_">Created</span>/retrieved account <span class="comment">#1 address fc5fecde4dee37102a49085725f5d4491d9e9cda00afba078988eba0696c4691</span></span><br></pre></td></tr></table></figure>
+<p>列出本地所有账户信息：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libra% account list</span><br><span class="line">User account <span class="built_in">index</span>: <span class="number">0</span>, address: <span class="number">1</span>b7f0e3123d52cd4b80d451da785a1db96a5ec6a9cdcd84d5d344341b8e77158, <span class="keyword">sequence</span> <span class="keyword">number</span>: <span class="number">0</span>, <span class="keyword">status</span>: <span class="keyword">Local</span></span><br><span class="line">User account <span class="built_in">index</span>: <span class="number">1</span>, address: fc5fecde4dee37102a49085725f5d4491d9e9cda00afba078988eba0696c4691, <span class="keyword">sequence</span> <span class="keyword">number</span>: <span class="number">0</span>, <span class="keyword">status</span>: <span class="keyword">Local</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>A和B只是为了方便书面称谓，Libra目前不支持给账户命名，但如上A对应编号为0的账户，B对应编号为1的账户。地址后面的 sequence 指的是这个账户主动发起转账的次数，目前两个账户都还没有发起过转账，所以都是 0。</p>
+</blockquote>
+<h1 id="给账户铸币"><a href="#给账户铸币" class="headerlink" title="给账户铸币"></a>给账户铸币</h1><p>给A账户铸币1000</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libra% account mint <span class="number">0</span> <span class="number">1000</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;</span> <span class="title class_">Minting</span> coins</span><br><span class="line"><span class="title class_">Mint</span> request submitted</span><br></pre></td></tr></table></figure>
+<p>可能会由于网络原因失败</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libra% account mint 0 1000</span><br><span class="line">&gt;&gt; Minting coins</span><br><span class="line"></span><br><span class="line">[<span class="built_in">ERROR</span>] <span class="built_in">Error</span> minting coins: <span class="built_in">error</span> trying <span class="keyword">to</span> connect: failed <span class="keyword">to</span> lookup<span class="built_in"> address </span>information: Name <span class="keyword">or</span><span class="built_in"> service </span><span class="keyword">not</span> known</span><br></pre></td></tr></table></figure>
+
+<p>给B账户铸币50</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libra% account mint <span class="number">1</span> <span class="number">50</span></span><br><span class="line"><span class="meta prompt_">&gt;&gt;</span> <span class="title class_">Minting</span> coins</span><br><span class="line"><span class="title class_">Mint</span> request submitted</span><br></pre></td></tr></table></figure>
+
+<p>查询账户余额</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">libra</span>% query balance <span class="number">0</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">libra</span>% query balance <span class="number">1</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">50</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="发起转账交易"><a href="#发起转账交易" class="headerlink" title="发起转账交易"></a>发起转账交易</h1><p>查询账户的sequence，由于两个账户都没有交易记录，所以都是0</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">libra% query <span class="keyword">sequence</span> <span class="number">0</span></span><br><span class="line">&gt;&gt; Getting current <span class="keyword">sequence</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">Sequence</span> <span class="keyword">number</span> is: <span class="number">0</span></span><br><span class="line">libra% query <span class="keyword">sequence</span> <span class="number">1</span></span><br><span class="line">&gt;&gt; Getting current <span class="keyword">sequence</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">Sequence</span> <span class="keyword">number</span> is: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>从A给B转账100</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libra% transfer <span class="number">0</span> <span class="number">1</span> <span class="number">100</span></span><br><span class="line">&gt;&gt; Transferring</span><br><span class="line"><span class="keyword">Transaction</span> submitted <span class="keyword">to</span> <span class="keyword">validator</span></span><br><span class="line"><span class="keyword">To</span> query <span class="keyword">for</span> <span class="keyword">transaction</span> status, run: query txn_acc_seq <span class="number">0</span> <span class="number">0</span> &lt;fetch_events=<span class="keyword">true</span>|<span class="keyword">false</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查询账户余额：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">libra</span>% query balance <span class="number">0</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">900</span></span><br><span class="line"><span class="attribute">libra</span>% query balance <span class="number">1</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">150</span></span><br></pre></td></tr></table></figure>
+
+<p>再次从A给B转账100</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">libra% transferb <span class="number">0</span> <span class="number">1</span> <span class="number">100</span></span><br><span class="line">&gt;&gt; Transferring</span><br><span class="line">[waiting <span class="keyword">Transaction</span> completed, <span class="built_in">found</span> <span class="keyword">sequence</span> number <span class="number">2</span>]</span><br><span class="line">Finished <span class="keyword">transaction</span>!</span><br><span class="line"><span class="keyword">To</span> query <span class="keyword">for</span> <span class="keyword">transaction</span> status, run: query txn_acc_seq <span class="number">0</span> <span class="number">1</span> &lt;fetch_events=<span class="keyword">true</span>|<span class="keyword">false</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>再查询账户余额：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">libra</span>% query balance <span class="number">1</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">250</span></span><br><span class="line"><span class="attribute">libra</span>% query balance <span class="number">0</span></span><br><span class="line"><span class="attribute">Balance</span> is: <span class="number">800</span></span><br></pre></td></tr></table></figure>
+
+<p>查询A和B账户的sequence， A的账户sequence number是2表示A发起了两个交易，B账户的sequence number是0表示B账户没有发起交易</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">libra% query <span class="keyword">sequence</span> <span class="number">0</span></span><br><span class="line">&gt;&gt; Getting current <span class="keyword">sequence</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">Sequence</span> <span class="keyword">number</span> is: <span class="number">2</span></span><br><span class="line">libra% query <span class="keyword">sequence</span> <span class="number">1</span></span><br><span class="line">&gt;&gt; Getting current <span class="keyword">sequence</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">Sequence</span> <span class="keyword">number</span> is: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以使用 query txn_acc_seq 0 0 true查询详细的转账信息:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">libra%</span> <span class="string">query</span> <span class="string">txn_acc_seq</span> <span class="number">0</span> <span class="number">0</span> <span class="literal">true</span></span><br><span class="line"><span class="string">&gt;&gt;</span> <span class="string">Getting</span> <span class="string">committed</span> <span class="string">transaction</span> <span class="string">by</span> <span class="string">account</span> <span class="string">and</span> <span class="string">sequence</span> <span class="string">number</span></span><br><span class="line"><span class="attr">Committed transaction:</span> <span class="string">SignedTransaction</span> &#123;</span><br><span class="line"> <span class="attr">raw_txn:</span> <span class="string">RawTransaction</span> &#123;</span><br><span class="line">true<span class="attr">sender:</span> <span class="string">1b7f0e3123d52cd4b80d451da785a1db96a5ec6a9cdcd84d5d344341b8e77158</span>,</span><br><span class="line">true<span class="attr">sequence_number:</span> <span class="number">0</span>,</span><br><span class="line">true<span class="attr">payload:</span> &#123;,</span><br><span class="line">truetrue<span class="attr">transaction:</span> <span class="string">peer_to_peer_transaction</span>,</span><br><span class="line">truetrue<span class="attr">args:</span> [</span><br><span class="line">truetruetrue&#123;<span class="attr">ADDRESS:</span> <span class="string">fc5fecde4dee37102a49085725f5d4491d9e9cda00afba078988eba0696c4691</span>&#125;,</span><br><span class="line">truetruetrue&#123;<span class="attr">U64:</span> <span class="number">100000000</span>&#125;,</span><br><span class="line">truetrue]</span><br><span class="line">true&#125;,</span><br><span class="line">true<span class="attr">max_gas_amount:</span> <span class="number">10000</span>,</span><br><span class="line">true<span class="attr">gas_unit_price:</span> <span class="number">0</span>,</span><br><span class="line">true<span class="attr">expiration_time:</span> <span class="string">1561190218s</span>,</span><br><span class="line">&#125;,</span><br><span class="line"> <span class="attr">public_key:</span> <span class="string">2a9c5aa44975912b7eda3bc9df6047d19dd5f4937404bade1f922acce9cab42c</span>,</span><br><span class="line"> <span class="attr">signature:</span> <span class="string">Signature(</span> <span class="attr">R: CompressedEdwardsY:</span> [<span class="number">203</span>, <span class="number">171</span>, <span class="number">64</span>, <span class="number">238</span>, <span class="number">247</span>, <span class="number">224</span>, <span class="number">54</span>, <span class="number">137</span>, <span class="number">221</span>, <span class="number">158</span>, <span class="number">125</span>, <span class="number">30</span>, <span class="number">230</span>, <span class="number">58</span>, <span class="number">66</span>, <span class="number">151</span>, <span class="number">147</span>, <span class="number">23</span>, <span class="number">112</span>, <span class="number">148</span>, <span class="number">192</span>, <span class="number">216</span>, <span class="number">201</span>, <span class="number">210</span>, <span class="number">123</span>, <span class="number">53</span>, <span class="number">94</span>, <span class="number">96</span>, <span class="number">129</span>, <span class="number">180</span>, <span class="number">182</span>, <span class="number">126</span>], <span class="attr">s:</span> <span class="string">Scalar</span>&#123;</span><br><span class="line">true<span class="attr">bytes:</span> [<span class="number">71</span>, <span class="number">53</span>, <span class="number">181</span>, <span class="number">160</span>, <span class="number">59</span>, <span class="number">152</span>, <span class="number">34</span>, <span class="number">26</span>, <span class="number">218</span>, <span class="number">59</span>, <span class="number">72</span>, <span class="number">202</span>, <span class="number">235</span>, <span class="number">202</span>, <span class="number">104</span>, <span class="number">248</span>, <span class="number">52</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">191</span>, <span class="number">171</span>, <span class="number">105</span>, <span class="number">222</span>, <span class="number">117</span>, <span class="number">50</span>, <span class="number">57</span>, <span class="number">155</span>, <span class="number">35</span>, <span class="number">206</span>, <span class="number">52</span>, <span class="number">185</span>, <span class="number">14</span>],</span><br><span class="line">&#125; <span class="string">)</span>,</span><br><span class="line"> &#125;</span><br><span class="line"><span class="attr">Events:</span></span><br><span class="line"><span class="string">ContractEvent</span> &#123; <span class="attr">access_path:</span> <span class="string">AccessPath</span> &#123; <span class="attr">address:</span> <span class="string">1b7f0e3123d52cd4b80d451da785a1db96a5ec6a9cdcd84d5d344341b8e77158</span>, <span class="attr">type:</span> <span class="string">Resource</span>, <span class="attr">hash:</span> <span class="string">&quot;217da6c6b3e19f1825cfb2676daecce3bf3de03cf26647c78df00b371b25cc97&quot;</span>, <span class="attr">suffix:</span> <span class="string">&quot;/sent_events_count/&quot;</span> &#125; , <span class="attr">index:</span> <span class="number">0</span>, <span class="attr">event_data:</span> <span class="string">AccountEvent</span> &#123; <span class="attr">account:</span> <span class="string">fc5fecde4dee37102a49085725f5d4491d9e9cda00afba078988eba0696c4691</span>, <span class="attr">amount:</span> <span class="number">100000000</span> &#125; &#125;</span><br><span class="line"><span class="string">ContractEvent</span> &#123; <span class="attr">access_path:</span> <span class="string">AccessPath</span> &#123; <span class="attr">address:</span> <span class="string">fc5fecde4dee37102a49085725f5d4491d9e9cda00afba078988eba0696c4691</span>, <span class="attr">type:</span> <span class="string">Resource</span>, <span class="attr">hash:</span> <span class="string">&quot;217da6c6b3e19f1825cfb2676daecce3bf3de03cf26647c78df00b371b25cc97&quot;</span>, <span class="attr">suffix:</span> <span class="string">&quot;/received_events_count/&quot;</span> &#125; , <span class="attr">index:</span> <span class="number">0</span>, <span class="attr">event_data:</span> <span class="string">AccountEvent</span> &#123; <span class="attr">account:</span> <span class="string">1b7f0e3123d52cd4b80d451da785a1db96a5ec6a9cdcd84d5d344341b8e77158</span>, <span class="attr">amount:</span> <span class="number">100000000</span> &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Over!</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"># 区块链</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/17/Git%E4%BB%93%E5%BA%93%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95%E7%8B%AC%E7%AB%8B%E6%88%90%E6%96%B0%E4%BB%93%E5%BA%93/" rel="prev" title="Git仓库的多个子目录独立成一个新仓库">
+      <i class="fa fa-chevron-left"></i> Git仓库的多个子目录独立成一个新仓库
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/27/RPA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="next" title="RPA常见问题">
+      RPA常见问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Libra-Core"><span class="nav-number">2.</span> <span class="nav-text">安装Libra Core</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BALibra-CLI%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B9%B6%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C"><span class="nav-number">3.</span> <span class="nav-text">构建Libra CLI客户端并连接到测试网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%B4%A6%E6%88%B7"><span class="nav-number">4.</span> <span class="nav-text">创建账户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%99%E8%B4%A6%E6%88%B7%E9%93%B8%E5%B8%81"><span class="nav-number">5.</span> <span class="nav-text">给账户铸币</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E8%B5%B7%E8%BD%AC%E8%B4%A6%E4%BA%A4%E6%98%93"><span class="nav-number">6.</span> <span class="nav-text">发起转账交易</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">李一</p>
+  <div class="site-description" itemprop="description">Logic will get you from A to B. Imagination will take you everywhere.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarlXK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarlXK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李一</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":"enable","app_id":"I1rX73moe8O5ACer7ME38fKz-gzGzoHsz","app_key":"38btLhxNFhVFyYm9mqwnUyb3","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

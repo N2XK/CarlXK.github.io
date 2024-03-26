@@ -1,37 +1,640 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaokunli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="准备 掌握候选人基本信息 123年龄、性别、学历、专业行业背景技术范围、工作经验 对候选人的期望值 123456技术要求    比如：Java基础扎实，熟悉分布式系统开发，对A、B、C、D技术熟练使用&#x2F;掌握原理&#x2F;有优化经验，实践过并发大于100的系统等能力素质    例如：沟通能力、协调能力、领导力等个性特质    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境  最好公司有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结构化行为面试法">
+<meta property="og:url" content="http://www.xiaokunli.com/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/index.html">
+<meta property="og:site_name" content="二三">
+<meta property="og:description" content="准备 掌握候选人基本信息 123年龄、性别、学历、专业行业背景技术范围、工作经验 对候选人的期望值 123456技术要求    比如：Java基础扎实，熟悉分布式系统开发，对A、B、C、D技术熟练使用&#x2F;掌握原理&#x2F;有优化经验，实践过并发大于100的系统等能力素质    例如：沟通能力、协调能力、领导力等个性特质    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境  最好公司有">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-03-30T03:06:50.000Z">
+<meta property="article:modified_time" content="2019-07-09T07:55:47.039Z">
+<meta property="article:author" content="李一">
+<meta property="article:tag" content="招聘">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaokunli.com/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>结构化行为面试法 | 二三</title>
+  
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二三" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二三</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我见青山多妩媚，青山见我应如是</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          结构化行为面试法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-30 11:06:50" itemprop="dateCreated datePublished" datetime="2019-03-30T11:06:50+08:00">2019-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-09 15:55:47" itemprop="dateModified" datetime="2019-07-09T15:55:47+08:00">2019-07-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="结构化行为面试法" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>掌握候选人基本信息 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">年龄、性别、学历、专业</span><br><span class="line">行业背景</span><br><span class="line">技术范围、工作经验</span><br></pre></td></tr></table></figure></li>
+<li>对候选人的期望值 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">技术要求</span><br><span class="line">    比如：Java基础扎实，熟悉分布式系统开发，对<span class="selector-tag">A</span>、<span class="selector-tag">B</span>、C、D技术熟练使用/掌握原理/有优化经验，实践过并发大于<span class="number">100</span>的系统等</span><br><span class="line">能力素质</span><br><span class="line">    例如：沟通能力、协调能力、领导力等</span><br><span class="line">个性特质</span><br><span class="line">    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境</span><br></pre></td></tr></table></figure>
+ 最好公司有自己的能力素质模型 – 待整理</li>
+<li>其他 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">列出提问的问题：</span><br><span class="line">    问题要求：清晰、准确、易理解</span><br><span class="line">    多维度：  项目经验、技术能力、沟通、协作、规划等</span><br><span class="line">面试流程<span class="comment">(确定面几轮、谁来面？如何决策)</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h2><ol>
+<li><p>暖场</p>
+<p> 暖场的作用在于减少候选人的压力，便于后续从面试的过程中获取真实的行为事例。</p>
+<p> 暖场话术示例(继续补充)：</p>
+ <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">茶水或者咖啡？</span><br><span class="line">天气状况，适宜出游 <span class="keyword">or</span> 太热太冷只可宅？</span><br><span class="line">路况如何，到达公司所需时长，是否顺利？</span><br><span class="line">哪里人，靠近什么名胜或者有什么特产？<span class="comment">(注意避免地域性偏见)</span></span><br><span class="line">毕业于什么学校，学校有什么有名的人物或者事迹？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开篇话术</p>
+<p> 介绍自己、面试流程和面试重点</p>
+<p> 示例：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">面试官：您好，王先生，请坐。自我介绍一下，我是今天的面试官XXX，这位是YYY，欢迎来参加今天的面试。</span><br><span class="line">求职者：谢谢。</span><br><span class="line">面试官：面试的过程中我们会提出一些问题，请您以过去经历当中的具体事例来回答，而这部分将占用大部分的面谈时间，在回答的过程中请注意简明扼要、抓住重点。需要说明的是面试的过程中我会视情况调整话题，以确保多谈一些您过往曾经做过的事情。最后我会留一些时间让您询问跟这份工作以及我们公司相关的问题。</span><br><span class="line">我们现在正式开始，OK？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对方自我介绍</p>
+<p> 注意倾听不要打断，有问题等介绍完再去问。</p>
+</li>
+</ol>
+<h2 id="问问题"><a href="#问问题" class="headerlink" title="问问题"></a>问问题</h2><ol>
+<li><p>提问话术</p>
+<p> 问题短而精，基于事的行为问题（为什么这么做），少问假设性问题</p>
+<p> 标准化能力行为提问：</p>
+ <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请谈谈 你在工作中快速掌握新知识的 一些经验</span><br><span class="line">请举   一个 体现<span class="string">&quot;沟通能力&quot;</span>的 栗子 </span><br><span class="line">请描述 一件 在跨部门合作成功的 经历</span><br><span class="line">请举  一个 证明你有效与人合作并共同完成了一件重要的事情的 栗子 </span><br></pre></td></tr></table></figure>
+<p> 过去行为示例：</p>
+ <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请举例说明 你过往是如何 获得了XX技能并把该技能转化到实际工作中</span><br><span class="line">请举例说明 你过往是如何 处理线上突发的Bug</span><br><span class="line">请举例说明 你过往是如何  进行<span class="meta">Code</span> Review</span><br><span class="line">请举例说明 你过往是如何  帮助下属/同事成长</span><br></pre></td></tr></table></figure>
+<p> 过去行为示例：</p>
+ <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">分享一下 你在过往工作 所使用的git分支模型</span><br><span class="line">分享一下 你在过往工作 所做过的MYSQL优化</span><br><span class="line">分享一下 你在过往工作 所做过的技术分享</span><br><span class="line">讲述一下 你在上一份工作中遇到的最难解决的问题 你是怎么处理的？</span><br><span class="line">回忆    你在同一时间内需要同时处理多项工作时 你是如何处理的？</span><br><span class="line">在过去  你和领导意见不一致时 你是如何处理的？</span><br><span class="line">分享一下 你在面对新的工作环境时 你是怎么处理的？</span><br><span class="line">分享一下 你在过往工作中最有价值的一件事 当时你是怎么做的？</span><br><span class="line">分享一下 你在遇到服务<span class="string">/Mysql</span>变慢的问题时 你是怎么处理的？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何避免面试中出现的虚假的回答？</p>
+<p> 运用STAR进行有效追问，面试官需要敏锐地观察并进行细节追问，追问的目的在于获取行为事例或者对不完整事例进行补充</p>
+ <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S指情景（Situation）：这件事发生的时间、地点、人物等背景介绍。</span><br><span class="line">T指任务（<span class="keyword">Task</span>）：这件事情发生在什么场景下，你要完成什么任务，面对什么抉择或者困难？</span><br><span class="line">A指行动（Action）：你扮演什么角色？做了哪些事情？</span><br><span class="line">R指结果（Result）：事情的结果如何？你收到了什么反馈？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>层层递进问题法</p>
+<p> 针对候选人的项目经验和过往的技术能力问题层层递进，直到候选人答不上来为止</p>
+<p> 比如HashMap：</p>
+ <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">HashMap</span>的使用场景</span><br><span class="line">为什么用<span class="built_in">HashMap</span></span><br><span class="line"><span class="built_in">HashMap</span>的原理</span><br><span class="line"><span class="built_in">HashMap</span>的初始化、增长、键值获取</span><br><span class="line"><span class="built_in">HashMap</span>如何减少碰撞</span><br><span class="line">Hash函数如何实现</span><br><span class="line">为什么改为红黑树，不用二叉树 -&gt; 为什么不一致用红黑树</span><br><span class="line"><span class="built_in">HashMap</span>有序嘛 -&gt; 有没有有序的Map -&gt; 有序的Map怎么实现的,怎么保证有序性</span><br><span class="line">HashTable和<span class="built_in">HashMap</span>的区别</span><br><span class="line">ConcurrentHashMap可以完全替代Hashtable嘛</span><br><span class="line">ConcurrentHashMap的版本迭代中发生了哪些变动，各个版本都有什么问题</span><br><span class="line">ConcurrentHashMap用到的锁的逻辑部分是怎么实现的</span><br></pre></td></tr></table></figure>
+<p> 候选人：我是谁？我为什么要来面试？这个面试官太强了吧…</p>
+</li>
+</ol>
+<h2 id="逻辑能力-写代码"><a href="#逻辑能力-写代码" class="headerlink" title="逻辑能力+写代码"></a>逻辑能力+写代码</h2><p>针对技术面试一定要有逻辑能力和代码能力的部分</p>
+<ol>
+<li><p>逻辑题</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">马路上的井盖为什么是圆的？</span><br><span class="line">有人把车停在旅馆外，丢失了他的财物，他接下来会干什么？</span><br><span class="line">你需要确认朋友<span class="keyword">Bob是否有你正确的电话号码，但不能直接问他。你须在一张卡片上写下这个问题，然后交给Eva，由Eva把卡片交给Bob，再转告你答案。除了在卡片上写下这个问题外，你还必须怎样写，才能确保Bob在给出答案的同时，不让Eva知道你的电话号码？</span></span><br><span class="line"><span class="keyword"></span>假设你是海盗船的船长，船员们即将对黄金的分配方案投票。如果赞成票不到半数的话，你会被杀死。你怎样才能在保证自己存活的情况下拿到最多的黄金？</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>算法题</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">排序算法</span><br><span class="line">哈希算法</span><br><span class="line">红黑树</span><br><span class="line">合并有序链表</span><br><span class="line">约瑟夫问题<span class="punctuation">(</span>求最后一个人序号、求最小的<span class="variable">m</span>使得<span class="built_in">K</span>个被处决<span class="built_in">K</span>个不被处决<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>其他代码能力</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">写一个生产者消费者模式</span><br><span class="line">写一个死锁</span><br><span class="line">写一个你认为最好的单例模式</span><br><span class="line">给盲人设计一个ATM/电梯</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="评估表现-待补充"><a href="#评估表现-待补充" class="headerlink" title="评估表现(待补充)"></a>评估表现(待补充)</h2><ol>
+<li><p>依据上述记录的事实来进行多维度评估</p>
+</li>
+<li><p>填写表格并作出相应的决定</p>
+<p> 使用公司拥有的能力模型来设计打分表，并进行结果评估，然后做出候选人对比。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8B%9B%E8%81%98/" rel="tag"># 招聘</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/03/29/%E5%B8%A6%E6%96%B0%E5%91%98%E5%B7%A5/" rel="prev" title="带新员工">
+      <i class="fa fa-chevron-left"></i> 带新员工
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/04/Git%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B/" rel="next" title="Git分支模型(参考阿里Aone Flow)">
+      Git分支模型(参考阿里Aone Flow) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">开场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">问问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%83%BD%E5%8A%9B-%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">逻辑能力+写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E8%A1%A8%E7%8E%B0-%E5%BE%85%E8%A1%A5%E5%85%85"><span class="nav-number">5.</span> <span class="nav-text">评估表现(待补充)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">李一</p>
+  <div class="site-description" itemprop="description">Logic will get you from A to B. Imagination will take you everywhere.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarlXK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarlXK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李一</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":"enable","app_id":"I1rX73moe8O5ACer7ME38fKz-gzGzoHsz","app_key":"38btLhxNFhVFyYm9mqwnUyb3","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

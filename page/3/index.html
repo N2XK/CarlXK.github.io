@@ -1,23 +1,2064 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaokunli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+  <meta name="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="二三">
+<meta property="og:url" content="http://www.xiaokunli.com/page/3/index.html">
+<meta property="og:site_name" content="二三">
+<meta property="og:description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+<meta property="og:locale">
+<meta property="article:author" content="李一">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaokunli.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>二三</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二三" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二三</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我见青山多妩媚，青山见我应如是</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/15/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/15/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">线上问题处理流程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-15 17:06:37 / Modified: 17:32:00" itemprop="dateCreated datePublished" datetime="2019-04-15T17:06:37+08:00">2019-04-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/15/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="线上问题处理流程" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题处理流程"><a href="#问题处理流程" class="headerlink" title="问题处理流程"></a>问题处理流程</h2><p><img src="/images/issue_process.png"></p>
+<h2 id="问题反馈渠道"><a href="#问题反馈渠道" class="headerlink" title="问题反馈渠道"></a>问题反馈渠道</h2><p>一般都是通过邮件、聊天群、私聊等途径反馈，尽量让监控系统及时发现问题</p>
+<ul>
+<li>监控系统 – 所有问题应该尽量从这里暴露出来</li>
+<li>客服 </li>
+<li>运营人员</li>
+<li>业务管理部门</li>
+<li>其他</li>
+</ul>
+<h2 id="问题收集"><a href="#问题收集" class="headerlink" title="问题收集"></a>问题收集</h2><ul>
+<li>收集：所属业务、模块、影响范围、发生时间、严重程度等</li>
+<li>初步判断发生原因</li>
+<li>在”线上问题研发跟进”微信群中@相关开发人员</li>
+</ul>
+<h2 id="问题跟踪"><a href="#问题跟踪" class="headerlink" title="问题跟踪"></a>问题跟踪</h2><ul>
+<li>严重问题，”线上问题研发跟进”@开发人员后&gt;10分钟无响应，电话联系相关主要负责人沟通跟进</li>
+<li>非严重问题，”线上问题研发跟进”@开发人员后&gt;30分钟无响应，电话联系相关主要负责人沟通跟进</li>
+<li>开发人员判断是问题，录入Issue到TAPD，并发送链接到微信群”线上问题研发跟进”</li>
+<li>开发人员判断问题严重，则需要在研发响应群中告知问题及影响范围，并及时召集人员讨论处理</li>
+<li>开发人员处理Bug应及时更新状态到TAPD中，并告知相关人员对当前工作进度的影响</li>
+</ul>
+<h2 id="后续优化"><a href="#后续优化" class="headerlink" title="后续优化"></a>后续优化</h2><p>问题处理完成后应该讨论是否需要优化现有的业务逻辑或代码，主要是为了消除问题影响、避免技术债务、提升体验。</p>
+<h2 id="例行问题分析"><a href="#例行问题分析" class="headerlink" title="例行问题分析"></a>例行问题分析</h2><ul>
+<li>周会<blockquote>
+<p>分析一周线上问题</p>
+</blockquote>
+</li>
+<li>月度质量分析会议  <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">问题汇总分析 <span class="comment">-- 按问题来源、模块及归属</span></span><br><span class="line">问题解决时长分析</span><br><span class="line">未关闭问题：处理进度、优化的方案讨论</span><br><span class="line"></span><br><span class="line">关键流程分析，如：XX业务的响应时间、成功率、错误码占比、用户的操作习惯等</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/09/%E7%A0%94%E5%8F%91%E5%8D%8F%E4%BD%9C%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/09/%E7%A0%94%E5%8F%91%E5%8D%8F%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">研发协作流程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-09 18:58:53" itemprop="dateCreated datePublished" datetime="2019-04-09T18:58:53+08:00">2019-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-11 18:43:39" itemprop="dateModified" datetime="2019-04-11T18:43:39+08:00">2019-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/09/%E7%A0%94%E5%8F%91%E5%8D%8F%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="研发协作流程" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="协作流程图"><a href="#协作流程图" class="headerlink" title="协作流程图"></a>协作流程图</h2><p><img src="/images/rd_co_process.png"></p>
+<h2 id="需求评审"><a href="#需求评审" class="headerlink" title="需求评审"></a>需求评审</h2><p>一般由项目负责人&#x2F;Scrum Master发起，项目组所有成员参与。</p>
+<ol>
+<li><p>阶段目标</p>
+<p> 所有成员详细了解需求方案及需求的关键点。</p>
+</li>
+<li><p>要做的准备</p>
+<ul>
+<li>提前一天发评审会邀和相关文档</li>
+<li>提前看需求文档，了解需求内容</li>
+<li>熟悉相关业务和代码</li>
+</ul>
+</li>
+<li><p>解决的问题</p>
+<ul>
+<li>项目所有成员统一需求认知</li>
+<li>初步评估需求方案，技术可行性</li>
+<li>预估项目容量</li>
+</ul>
+</li>
+</ol>
+<h2 id="技术方案评审"><a href="#技术方案评审" class="headerlink" title="技术方案评审"></a>技术方案评审</h2><p>技术方案的设计，一般由研发负责人或者项目技术负责人发起。<br> 开发必须经过技术方案评审，和需求挂钩，明确回答“怎么做”</p>
+<ol>
+<li><p>阶段目标</p>
+<blockquote>
+<p>梳理所有技术点的实现方案</p>
+</blockquote>
+</li>
+<li><p>要做的准备</p>
+<ul>
+<li>提前一天发评审邀请和相关文档</li>
+<li>提前评估各自的实现方案</li>
+<li>复杂的技术点，需要提前沟通</li>
+</ul>
+</li>
+<li><p>解决的问题</p>
+<ul>
+<li>项目组成员间沟通技术实现方案</li>
+<li>确定各端交互的方式，以文字的形式留存</li>
+<li>评估详细排期</li>
+</ul>
+</li>
+</ol>
+<h2 id="评估排期"><a href="#评估排期" class="headerlink" title="评估排期"></a>评估排期</h2><p>采用文档协作的方式来分解任务和评估排期。比如使用tencent docs或者google docs。</p>
+<ol>
+<li>阶段目标<blockquote>
+<p>输出全员无异议的开发计划，记录到项目管理工具(TAPD)并通过邮件发出.</p>
+</blockquote>
+ 注意点：<ul>
+<li>对需求进行尽量细的功能点拆分，有助于准确评估排期（精确到0.5天）</li>
+<li>根据实际项目情况，预留适当的buffer时间（大约为项目总时长的5% ~ 10%）</li>
+<li>排期一旦确定，视为对所有成员的承诺，非极端情况不可更改</li>
+</ul>
+</li>
+<li>排期计划规范<ul>
+<li>项目名称、参与项目人员、日期、开发功能点简述、项目天数</li>
+<li>排期邮件由项目负责人汇总发出</li>
+<li>邮件需知会参与项目各方同学及leader</li>
+</ul>
+</li>
+</ol>
+<h2 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h2><ul>
+<li>参考分支开发规范</li>
+<li>先在YAPI平台定义接口，前端和测试使用Mock Server来开发前端及自动化测试接口，待后端接口提供后进行联调测试。</li>
+<li>全部联调通过及单元测试通过后提交测试。</li>
+</ul>
+<h2 id="用例评审"><a href="#用例评审" class="headerlink" title="用例评审"></a>用例评审</h2><p>由QA同学发起，项目组成员全部参加，评审测试用例的准确性和完整性，一般在项目开发过程中进行，没有固定时间。</p>
+<ol>
+<li>阶段目标<blockquote>
+<p>所有成员详细了解测试用例，并产出覆盖完整性高的测试用例。</p>
+</blockquote>
+</li>
+<li>要做的准备<ul>
+<li>提前一天发评审邀请和相关文档</li>
+<li>明晰需求细节</li>
+<li>了解测试用例</li>
+<li>如果有负责的测试场景需要和开发一起制定解决方案</li>
+</ul>
+</li>
+<li>解决的问题<ul>
+<li>评估测试用例是否覆盖到所有情况，正常路径以及异常路径</li>
+<li>借助测试用例回顾已经开发的内容和需求的细节</li>
+</ul>
+</li>
+</ol>
+<h2 id="联调"><a href="#联调" class="headerlink" title="联调"></a>联调</h2><p>由后端或者前端人员发起，仅开发人员参与，尽可能利用一套统一的环境，进行联调。</p>
+<ol>
+<li>阶段目标<blockquote>
+<p>调试完成全部需求需要完成的流程</p>
+</blockquote>
+</li>
+<li>联调规范<ul>
+<li>各功能开发完成则开始联调，是否可以分阶段联调视情况而定</li>
+<li>有QA的项目，在联调过程中覆盖大多数测试用例</li>
+<li>无QA的项目，开发人员整理测试用例，并在联调过程中尽可能覆盖</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码评审"><a href="#代码评审" class="headerlink" title="代码评审"></a>代码评审</h2><p>代码合并到主干之前应该经过 code review。</p>
+<h2 id="提测规范"><a href="#提测规范" class="headerlink" title="提测规范"></a>提测规范</h2><ul>
+<li>提测给QA的代码必须通过自测和验收</li>
+<li>提测分支若落后主干，同步之后再提测</li>
+<li>提供编译后代码，保证与上线代码一致性</li>
+<li>严禁使用QA环境调试bug</li>
+<li>阻塞测试流程的bug及时修复</li>
+<li>其余bug可定期统一修复</li>
+</ul>
+<h2 id="项目验收"><a href="#项目验收" class="headerlink" title="项目验收"></a>项目验收</h2><p>在测试环境通过或者上线后，由测试人员发起，邀请PM&#x2F;UI&#x2F;UE等角色，对产品进行全方位的验收。</p>
+<ol>
+<li>阶段目标<ul>
+<li>保证需求没有遗漏，符合预期</li>
+<li>正常流程没有问题，可以使用</li>
+</ul>
+</li>
+<li>验收规范<ul>
+<li>在单元测试完成和上线后发起</li>
+<li>UI&#x2F;UE进行视觉交互验收，PM进行功能验收</li>
+<li>中大型项目排期时至少预留1天验收时间，一般预留半天验收时间</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/09/%E6%8B%9B%E8%81%98%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/09/%E6%8B%9B%E8%81%98%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">招聘流程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-09 15:23:36" itemprop="dateCreated datePublished" datetime="2019-04-09T15:23:36+08:00">2019-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-24 14:37:05" itemprop="dateModified" datetime="2019-07-24T14:37:05+08:00">2019-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/09/%E6%8B%9B%E8%81%98%E6%B5%81%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="招聘流程" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="招聘流程"><a href="#招聘流程" class="headerlink" title="招聘流程"></a>招聘流程</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HR推送简历-&gt;筛选简历-&gt;电话面试-&gt;技术面试-&gt;填写面试评估表格-&gt;Offer</span><br></pre></td></tr></table></figure>
+<h2 id="筛选简历"><a href="#筛选简历" class="headerlink" title="筛选简历"></a>筛选简历</h2><p>最多5分钟筛选一份简历，目的是尽量筛选掉不符合岗位需求的简历。</p>
+<ul>
+<li>明确岗位需求</li>
+<li>考察简历与岗位需求的匹配度<ul>
+<li>基本：年龄、性别、婚育、教育经历</li>
+<li>重点：职位职责、工作经验、技术匹配度</li>
+</ul>
+</li>
+</ul>
+<h2 id="电话面试"><a href="#电话面试" class="headerlink" title="电话面试"></a>电话面试</h2><p>不超过30 分钟，快速过滤明显不符合岗位要求的人，节省双方的时间成本。</p>
+<p>大致流程：</p>
+<ul>
+<li>浏览候选人简历，对其中有疑问的地方如：跳槽频繁、职业经历空档、学历问题或其他疑问事先划线标出来</li>
+<li>双方选手相互介绍后，先核对一下简历的细节，如果公司有隐性的标准比如学历、工作经验年限、婚育等可以问到</li>
+<li>就过完工作经验与岗位匹配度进行判断，过程中考察其语言表达和逻辑能力等细节。</li>
+<li>聊聊离职动机与期望薪资以及候选人对职业的发展规划</li>
+<li>结束电话面试。</li>
+</ul>
+<h2 id="技术面试"><a href="#技术面试" class="headerlink" title="技术面试"></a>技术面试</h2><ul>
+<li><p>第一轮  </p>
+<ul>
+<li>面试官：1~2个，技术Leader&#x2F;高级工程师 </li>
+<li>基础 - Java基础，数据结构，算法，网络，操作系统等 </li>
+<li>深度原理 - 就了解、做过、学习过的技术框架、中间件进行灵魂拷问</li>
+<li>逻辑题</li>
+<li>给出问题，在纸&#x2F;电脑上写程序</li>
+</ul>
+</li>
+<li><p>第二轮  </p>
+<ul>
+<li>面试官：2个，技术Leader&#x2F;高级工程师 + 其他组的高级工程师(比如面试后台则为测试或者前端)</li>
+<li>针对以往的项目经验及做过的技术方案进行考察</li>
+<li>针对沟通能力和协作能力做考察</li>
+</ul>
+</li>
+<li><p>终试 </p>
+<ul>
+<li>技术负责人复试</li>
+<li>离职动机薪资期望</li>
+<li>职业规划、发展方向、学习能力、领导力等</li>
+<li>让对方提问</li>
+</ul>
+<p>  面试中碰到好的候选人，在面试结束时可以对他们说：“最迟在两天内可以收到我们的通知，如果没有请直接联系我或者HR”。</p>
+</li>
+</ul>
+<p>如果对这个人不是很感兴趣，可以直接拒绝。</p>
+<h2 id="填写面试评估表格"><a href="#填写面试评估表格" class="headerlink" title="填写面试评估表格"></a>填写面试评估表格</h2><p>面试完毕记得填写评估表格，可以提供后续面试参考以及回溯比较作用，表格存放在共享文档系统(tencent&#x2F;google docs)中。</p>
+<p>电话面试评估表：<br><br>记录项值：[符合、不符合] [基本匹配、匹配度高、不匹配]</p>
+<table>
+<thead>
+<tr>
+<th align="left">候选人</th>
+<th align="left">面试官</th>
+<th align="left">基本条件</th>
+<th align="left">职位职责</th>
+<th align="left">工作经验</th>
+<th align="left">技术能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="left">小明</td>
+<td align="left">符合</td>
+<td align="left">符合</td>
+<td align="left">匹配</td>
+<td align="left">匹配</td>
+</tr>
+<tr>
+<td align="left">李四</td>
+<td align="left">老赵</td>
+<td align="left">符合</td>
+<td align="left">不符合</td>
+<td align="left">匹配度高</td>
+<td align="left">匹配</td>
+</tr>
+</tbody></table>
+<p>技术面试评估表：<br><br>四个等级：优秀、良好、一般、较差</p>
+<table>
+<thead>
+<tr>
+<th align="left">候选人</th>
+<th align="left">面试官</th>
+<th align="left">基础技术</th>
+<th align="left">逻辑能力</th>
+<th align="left">沟通能力</th>
+<th align="left">协作能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="left">三丰、逍遥</td>
+<td align="left">良好</td>
+<td align="left">一般</td>
+<td align="left">优秀</td>
+<td align="left">良好</td>
+</tr>
+<tr>
+<td align="left">李四</td>
+<td align="left">紫霞、玉帝</td>
+<td align="left">优秀</td>
+<td align="left">良好</td>
+<td align="left">优秀</td>
+<td align="left">良好</td>
+</tr>
+</tbody></table>
+<h2 id="Offer"><a href="#Offer" class="headerlink" title="Offer"></a>Offer</h2><p>通过比较选定候选人后，让HR谈薪资并发Offer</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/09/ActiveMQ-InactivityIOException/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/09/ActiveMQ-InactivityIOException/" class="post-title-link" itemprop="url">ActiveMQ InactivityIOException</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-09 09:33:48 / Modified: 17:53:38" itemprop="dateCreated datePublished" datetime="2019-04-09T09:33:48+08:00">2019-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/09/ActiveMQ-InactivityIOException/" class="post-meta-item leancloud_visitors" data-flag-title="ActiveMQ InactivityIOException" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>生产服务器上，ActiveMQ Produce和Consumer端同时报如下错误，导致不能正常工作。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">2019</span>-<span class="number">03</span>-<span class="number">26</span> <span class="number">23</span>:<span class="number">01</span>:<span class="number">18</span>,<span class="number">815</span> | WARN  | Transport Connection to: tcp://xx.xx.xx.xx:<span class="number">59582</span> failed: org.apache.activemq.transport.InactivityIOException: Channel was inactive for too (&gt;<span class="number">30000</span>) long: tcp://xx.xx.xx.xx:<span class="number">59582</span> | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ InactivityMonitor Worker</span><br></pre></td></tr></table></figure>
+
+<h2 id="官网解释"><a href="#官网解释" class="headerlink" title="官网解释"></a>官网解释</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The maximum inactivity duration (<span class="keyword">before</span> which <span class="keyword">the</span> <span class="built_in">socket</span> is considered dead) <span class="keyword">in</span> <span class="built_in">milliseconds</span>. </span><br><span class="line">On some platforms <span class="keyword">it</span> can take <span class="keyword">a</span> <span class="keyword">long</span> <span class="built_in">time</span> <span class="keyword">for</span> <span class="keyword">a</span> <span class="built_in">socket</span> <span class="built_in">to</span> appear <span class="built_in">to</span> die, so we allow <span class="keyword">the</span> broker <span class="built_in">to</span> <span class="built_in">kill</span> connections <span class="keyword">if</span> they are inactive <span class="keyword">for</span> <span class="keyword">a</span> period <span class="keyword">of</span> <span class="built_in">time</span>. </span><br><span class="line">Use <span class="keyword">by</span> some transports <span class="built_in">to</span> enable <span class="keyword">a</span> keep alive heart beat feature. Set <span class="built_in">to</span> <span class="keyword">a</span> <span class="built_in">value</span> &lt;= <span class="number">0</span> <span class="built_in">to</span> disable inactivity monitoring.</span><br></pre></td></tr></table></figure>
+
+<p>配置JMS连接最大闲置时间(消息服务器无消息)<br>该wireFormat.maxInactivityDuration 的默认值是30000ms<br>wireFormat.maxInactivityDuration&#x3D;0 这样的参数， wireFormat.maxInactivityDuration是心跳参数。<br>避免ActiveMQ在一段时间没有消息发送时抛出 “Channel was inactive for too long”异常。</p>
+<p>该异常会关闭连接，虽然client端会重连成功，但是不能发送数据，然后继续报下面异常：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[ WARN ]</span>  <span class="selector-tag">Transport</span> (<span class="attribute">tcp</span>:<span class="comment">//xx.xx.xx.xx:61616) failed, reason:  java.net.SocketException: Connection reset, attempting to automatically reconnect</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置wireFormat.<span class="keyword">max</span>InactivityDuration=<span class="number">0</span>，禁用InactivityMonitor</span><br><span class="line">改为tcp://xx.xx.xx.xx:<span class="number">61616</span>?wireFormat.<span class="keyword">max</span>InactivityDuration=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/04/04/Git%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/04/Git%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">Git分支模型(参考阿里Aone Flow)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-04 11:49:45" itemprop="dateCreated datePublished" datetime="2019-04-04T11:49:45+08:00">2019-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-06-11 15:21:00" itemprop="dateModified" datetime="2019-06-11T15:21:00+08:00">2019-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/04/04/Git%E5%88%86%E6%94%AF%E6%A8%A1%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Git分支模型(参考阿里Aone Flow)" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="分支定义"><a href="#分支定义" class="headerlink" title="分支定义"></a>分支定义</h2><ol>
+<li>master <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">长期分支，存在与整个项目开发过程。</span><br><span class="line"></span><br><span class="line">由项目主要技术负责人管理该分支。</span><br></pre></td></tr></table></figure></li>
+<li>release&#x2F;xxx <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">release/test 和 release/prod</span><br><span class="line">既可以为长期分支也可以为短期分支，可能存在于一个或者多个版本之间.</span><br><span class="line"></span><br><span class="line">由测试负责人负责人管理该分支。</span><br></pre></td></tr></table></figure></li>
+<li>feature&#x2F;fixbug&#x2F;hotfix <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">临时分支</span><br><span class="line">用于开发的具体功能特性和修复bug的分支，功能完成后删除.</span><br><span class="line">格式为：feature_$date_$name_$description</span><br><span class="line">       fixbug_$date_$name_$description</span><br><span class="line">       hotfix_$date_$name_$description</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h2><ol>
+<li><p>规则1</p>
+<p> 开始工作前，从主干创建特性分支</p>
+<ul>
+<li>每当开始一件新的工作项（比如新的功能或是bug）的时候，从最新已发布版本的主干Master上创建一个以feature(bugfix)&#x2F;前缀命名的特性分支，然后在这个分支上提交代码修改。</li>
+<li>每个工作项（可以是一个人完成，或是多个人协作完成）对应一个特性分支，所有的修改都不允许直接提交到主干。<br> <img src="/images/git1.png"></li>
+</ul>
+</li>
+<li><p>规则2</p>
+<p> 通过合并特性分支，形成发布分支</p>
+<ul>
+<li>从主干上拉出一条新分支，将所有本次要集成或发布的特性分支依次合并过去，从而得到发布分支。发布分支通常以release&#x2F;前缀命名。</li>
+<li>每条发布分支与具体的环境相对应，比如release&#x2F;test分支对应部署测试环境，release&#x2F;prod分支对应线上正式环境等等，并与流水线工具相结合，串联各个环境上的代码质量扫描和自动化测试关卡，将产出的部署包直接发布到相应环境上。</li>
+<li>release&#x2F;prod从master上拉取的时候master可能已经有其他更新上线了，此时从master拉取拉取的release&#x2F;prod合并相关feature分支后需要进行回归测试。<br> <img src="/images/git2.png"></li>
+</ul>
+</li>
+<li><p>规则3</p>
+<p> 发布到线上正式环境后，合并相应的发布分支到主干，在主干添加标签，同时删除该发布分支关联的特性分支</p>
+<ul>
+<li>完成了线上正式环境的部署，就意味着相应的功能真正地发布了，此时应该将这条发布分支合并到主干。</li>
+<li>为了避免在代码仓库里堆积大量历史上的特性分支，还应该清理掉已经上线部分特性分支。</li>
+<li>主干分支上的最新版本始终与线上版本一致，如果要回溯历史版本，只需在主干分支上找到相应的版本标签即可。<br> <img src="/images/git3.png"></li>
+</ul>
+</li>
+<li><p>其他</p>
+<ul>
+<li>对于hotfix，可以创建一条新的发布分支对应线上环境（相当于hotfix分支），同时为这个分支创建临时流水线，以保障必要的发布前检查和冒烟测试能够自动执行。</li>
+<li>如果非得修一个历史版本的Bug，在主干分支找到版本标签位置，然后从那个位置创建hotfix分支，这种情况比较少见</li>
+</ul>
+</li>
+</ol>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><ol>
+<li><p>新功能开发时，开发人员从Master拉取代码生成特性分支。</p>
+</li>
+<li><p>单元测试完成后等待测试负责人拉取release&#x2F;test分支，然后提交Pull Request</p>
+</li>
+<li><p>开发负责人或者其他开发人员对Pull Request进行代码Review</p>
+</li>
+<li><p>代码Review完成后，测试负责人合并Pull Request到release&#x2F;test，如果遇到合并冲突，则让相应的开发人员把feature&#x2F;bug&#x2F;hotfix分支重新以master为基准进行提交以及让相应的开发人员协助解决。</p>
+</li>
+<li><p>测试人员使用流水线工具进行代码质量扫描和自动化测试</p>
+</li>
+<li><p>测试人员进行测试</p>
+</li>
+<li><p>完成测试后，查看Master是否比拉取release&#x2F;test时有更新，如果没有直接使用release&#x2F;test上线，否则从最新Master拉取分支release&#x2F;prod分支合并相关PR并进行回归测试</p>
+</li>
+<li><p>提交上线申请上线</p>
+<p> 示例：</p>
+ <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">开发人员A从Master拉取代码生成feature_20190818_A_get_users</span><br><span class="line">开发人员B从Master拉取代码生成feature_20190819_B_login</span><br><span class="line"></span><br><span class="line">测试负责人Y从Master拉取release/test</span><br><span class="line">开发人员A提交Pull Request PR1</span><br><span class="line">开发人员B提交Pull Request PR2</span><br><span class="line"></span><br><span class="line">开发负责人F和开发人员C评审PR1 PR2，评审通过</span><br><span class="line"></span><br><span class="line">测试负责人Y合并代码到release/test</span><br><span class="line">测试人员X进行测试，完成后发现Master和拉取release/test时一样，直接使用release/test进行构建申请发布</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/" class="post-title-link" itemprop="url">结构化行为面试法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-30 11:06:50" itemprop="dateCreated datePublished" datetime="2019-03-30T11:06:50+08:00">2019-03-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-09 15:55:47" itemprop="dateModified" datetime="2019-07-09T15:55:47+08:00">2019-07-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/30/%E7%BB%93%E6%9E%84%E5%8C%96%E8%A1%8C%E4%B8%BA%E9%9D%A2%E8%AF%95%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="结构化行为面试法" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>掌握候选人基本信息 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">年龄、性别、学历、专业</span><br><span class="line">行业背景</span><br><span class="line">技术范围、工作经验</span><br></pre></td></tr></table></figure></li>
+<li>对候选人的期望值 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">技术要求</span><br><span class="line">    比如：Java基础扎实，熟悉分布式系统开发，对<span class="selector-tag">A</span>、<span class="selector-tag">B</span>、C、D技术熟练使用/掌握原理/有优化经验，实践过并发大于<span class="number">100</span>的系统等</span><br><span class="line">能力素质</span><br><span class="line">    例如：沟通能力、协调能力、领导力等</span><br><span class="line">个性特质</span><br><span class="line">    例如：外向型、严谨、细致等，需要结合领导风格、团队风格、企业文化环境</span><br></pre></td></tr></table></figure>
+ 最好公司有自己的能力素质模型 – 待整理</li>
+<li>其他 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">列出提问的问题：</span><br><span class="line">    问题要求：清晰、准确、易理解</span><br><span class="line">    多维度：  项目经验、技术能力、沟通、协作、规划等</span><br><span class="line">面试流程<span class="comment">(确定面几轮、谁来面？如何决策)</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h2><ol>
+<li><p>暖场</p>
+<p> 暖场的作用在于减少候选人的压力，便于后续从面试的过程中获取真实的行为事例。</p>
+<p> 暖场话术示例(继续补充)：</p>
+ <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">茶水或者咖啡？</span><br><span class="line">天气状况，适宜出游 <span class="keyword">or</span> 太热太冷只可宅？</span><br><span class="line">路况如何，到达公司所需时长，是否顺利？</span><br><span class="line">哪里人，靠近什么名胜或者有什么特产？<span class="comment">(注意避免地域性偏见)</span></span><br><span class="line">毕业于什么学校，学校有什么有名的人物或者事迹？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开篇话术</p>
+<p> 介绍自己、面试流程和面试重点</p>
+<p> 示例：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">面试官：您好，王先生，请坐。自我介绍一下，我是今天的面试官XXX，这位是YYY，欢迎来参加今天的面试。</span><br><span class="line">求职者：谢谢。</span><br><span class="line">面试官：面试的过程中我们会提出一些问题，请您以过去经历当中的具体事例来回答，而这部分将占用大部分的面谈时间，在回答的过程中请注意简明扼要、抓住重点。需要说明的是面试的过程中我会视情况调整话题，以确保多谈一些您过往曾经做过的事情。最后我会留一些时间让您询问跟这份工作以及我们公司相关的问题。</span><br><span class="line">我们现在正式开始，OK？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对方自我介绍</p>
+<p> 注意倾听不要打断，有问题等介绍完再去问。</p>
+</li>
+</ol>
+<h2 id="问问题"><a href="#问问题" class="headerlink" title="问问题"></a>问问题</h2><ol>
+<li><p>提问话术</p>
+<p> 问题短而精，基于事的行为问题（为什么这么做），少问假设性问题</p>
+<p> 标准化能力行为提问：</p>
+ <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请谈谈 你在工作中快速掌握新知识的 一些经验</span><br><span class="line">请举   一个 体现<span class="string">&quot;沟通能力&quot;</span>的 栗子 </span><br><span class="line">请描述 一件 在跨部门合作成功的 经历</span><br><span class="line">请举  一个 证明你有效与人合作并共同完成了一件重要的事情的 栗子 </span><br></pre></td></tr></table></figure>
+<p> 过去行为示例：</p>
+ <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请举例说明 你过往是如何 获得了XX技能并把该技能转化到实际工作中</span><br><span class="line">请举例说明 你过往是如何 处理线上突发的Bug</span><br><span class="line">请举例说明 你过往是如何  进行<span class="meta">Code</span> Review</span><br><span class="line">请举例说明 你过往是如何  帮助下属/同事成长</span><br></pre></td></tr></table></figure>
+<p> 过去行为示例：</p>
+ <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">分享一下 你在过往工作 所使用的git分支模型</span><br><span class="line">分享一下 你在过往工作 所做过的MYSQL优化</span><br><span class="line">分享一下 你在过往工作 所做过的技术分享</span><br><span class="line">讲述一下 你在上一份工作中遇到的最难解决的问题 你是怎么处理的？</span><br><span class="line">回忆    你在同一时间内需要同时处理多项工作时 你是如何处理的？</span><br><span class="line">在过去  你和领导意见不一致时 你是如何处理的？</span><br><span class="line">分享一下 你在面对新的工作环境时 你是怎么处理的？</span><br><span class="line">分享一下 你在过往工作中最有价值的一件事 当时你是怎么做的？</span><br><span class="line">分享一下 你在遇到服务<span class="string">/Mysql</span>变慢的问题时 你是怎么处理的？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何避免面试中出现的虚假的回答？</p>
+<p> 运用STAR进行有效追问，面试官需要敏锐地观察并进行细节追问，追问的目的在于获取行为事例或者对不完整事例进行补充</p>
+ <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S指情景（Situation）：这件事发生的时间、地点、人物等背景介绍。</span><br><span class="line">T指任务（<span class="keyword">Task</span>）：这件事情发生在什么场景下，你要完成什么任务，面对什么抉择或者困难？</span><br><span class="line">A指行动（Action）：你扮演什么角色？做了哪些事情？</span><br><span class="line">R指结果（Result）：事情的结果如何？你收到了什么反馈？</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>层层递进问题法</p>
+<p> 针对候选人的项目经验和过往的技术能力问题层层递进，直到候选人答不上来为止</p>
+<p> 比如HashMap：</p>
+ <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">HashMap</span>的使用场景</span><br><span class="line">为什么用<span class="built_in">HashMap</span></span><br><span class="line"><span class="built_in">HashMap</span>的原理</span><br><span class="line"><span class="built_in">HashMap</span>的初始化、增长、键值获取</span><br><span class="line"><span class="built_in">HashMap</span>如何减少碰撞</span><br><span class="line">Hash函数如何实现</span><br><span class="line">为什么改为红黑树，不用二叉树 -&gt; 为什么不一致用红黑树</span><br><span class="line"><span class="built_in">HashMap</span>有序嘛 -&gt; 有没有有序的Map -&gt; 有序的Map怎么实现的,怎么保证有序性</span><br><span class="line">HashTable和<span class="built_in">HashMap</span>的区别</span><br><span class="line">ConcurrentHashMap可以完全替代Hashtable嘛</span><br><span class="line">ConcurrentHashMap的版本迭代中发生了哪些变动，各个版本都有什么问题</span><br><span class="line">ConcurrentHashMap用到的锁的逻辑部分是怎么实现的</span><br></pre></td></tr></table></figure>
+<p> 候选人：我是谁？我为什么要来面试？这个面试官太强了吧…</p>
+</li>
+</ol>
+<h2 id="逻辑能力-写代码"><a href="#逻辑能力-写代码" class="headerlink" title="逻辑能力+写代码"></a>逻辑能力+写代码</h2><p>针对技术面试一定要有逻辑能力和代码能力的部分</p>
+<ol>
+<li><p>逻辑题</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">马路上的井盖为什么是圆的？</span><br><span class="line">有人把车停在旅馆外，丢失了他的财物，他接下来会干什么？</span><br><span class="line">你需要确认朋友<span class="keyword">Bob是否有你正确的电话号码，但不能直接问他。你须在一张卡片上写下这个问题，然后交给Eva，由Eva把卡片交给Bob，再转告你答案。除了在卡片上写下这个问题外，你还必须怎样写，才能确保Bob在给出答案的同时，不让Eva知道你的电话号码？</span></span><br><span class="line"><span class="keyword"></span>假设你是海盗船的船长，船员们即将对黄金的分配方案投票。如果赞成票不到半数的话，你会被杀死。你怎样才能在保证自己存活的情况下拿到最多的黄金？</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>算法题</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">排序算法</span><br><span class="line">哈希算法</span><br><span class="line">红黑树</span><br><span class="line">合并有序链表</span><br><span class="line">约瑟夫问题<span class="punctuation">(</span>求最后一个人序号、求最小的<span class="variable">m</span>使得<span class="built_in">K</span>个被处决<span class="built_in">K</span>个不被处决<span class="punctuation">)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>其他代码能力</p>
+<p> 例如(继续补充)：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">写一个生产者消费者模式</span><br><span class="line">写一个死锁</span><br><span class="line">写一个你认为最好的单例模式</span><br><span class="line">给盲人设计一个ATM/电梯</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="评估表现-待补充"><a href="#评估表现-待补充" class="headerlink" title="评估表现(待补充)"></a>评估表现(待补充)</h2><ol>
+<li><p>依据上述记录的事实来进行多维度评估</p>
+</li>
+<li><p>填写表格并作出相应的决定</p>
+<p> 使用公司拥有的能力模型来设计打分表，并进行结果评估，然后做出候选人对比。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/29/%E5%B8%A6%E6%96%B0%E5%91%98%E5%B7%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/29/%E5%B8%A6%E6%96%B0%E5%91%98%E5%B7%A5/" class="post-title-link" itemprop="url">带新员工</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-03-29 17:11:17" itemprop="dateCreated datePublished" datetime="2019-03-29T17:11:17+08:00">2019-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-11 09:59:39" itemprop="dateModified" datetime="2019-04-11T09:59:39+08:00">2019-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/29/%E5%B8%A6%E6%96%B0%E5%91%98%E5%B7%A5/" class="post-meta-item leancloud_visitors" data-flag-title="带新员工" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="导图"><a href="#导图" class="headerlink" title="导图"></a>导图</h2><p><img src="/images/new_bird_train.png"></p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li>遵从 PDCA(Plan-&gt;Do-&gt;Check-&gt;Action) 的原则<ul>
+<li>就计划达成一致并讲解计划</li>
+<li>引导思考，最终可以自己寻找找到解决方案(给答案-&gt;给线索-&gt;自己摸索)</li>
+<li>进行阶段性检查，确保计划执行的正确性，解决过程中遇到的问题以及对计划做出调整</li>
+</ul>
+</li>
+<li>以身作则，多肯定和鼓励引导做出正确的选择和避免犯错，多沟通并积极主动去完成每一件事。</li>
+<li>用心、有耐心以及有责任心。</li>
+<li>…待补充</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/29/%E5%AF%BC%E5%B8%88%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/29/%E5%AF%BC%E5%B8%88%E5%88%B6/" class="post-title-link" itemprop="url">导师制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-03-29 16:21:33 / Modified: 16:30:39" itemprop="dateCreated datePublished" datetime="2019-03-29T16:21:33+08:00">2019-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">管理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/29/%E5%AF%BC%E5%B8%88%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="导师制" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>传道授业解惑</p>
+<ol>
+<li>帮助新员工熟悉环境、业务以及进行例行化工作指导</li>
+<li>在各个阶段观察和帮助新员工，避免工作不饱和，不明确工作目标。</li>
+<li>传递公司的价值观和规章制度，绩效考核制度等等关键信息</li>
+<li>帮助新员工融入新的集体，快速融入公司的节奏。</li>
+<li>及时发现新员工是否满足工作要求，做出及时的调整</li>
+</ol>
+<h2 id="导师的选拔条件"><a href="#导师的选拔条件" class="headerlink" title="导师的选拔条件"></a>导师的选拔条件</h2><ol>
+<li>在公司工作一年以上，绩效必须好</li>
+<li>部门业务骨干，有能力进行业务指导</li>
+<li>充分认可公司文化，有能力进行思想引导</li>
+<li>为人正直热情，责任心强，有较强的计划、组织、管理、沟通能力，有能力为新员工制定合理的计划、安排相应的工作任务</li>
+<li>一名导师名下不能超过两个学生</li>
+</ol>
+<h2 id="导师奖惩"><a href="#导师奖惩" class="headerlink" title="导师奖惩"></a>导师奖惩</h2><ol>
+<li>以补助的形式给导师每月XXX元的“导师费”</li>
+<li>定期评选“优秀导师”，被评为“优秀导师”的可得到公司XXX元的奖励</li>
+<li>连带责任，如果徒弟犯了错误导师连带追责，甚至降职</li>
+<li>没有担任过导师的员工，不得提拔为行政干部；不能继续担任导师的，不能再晋升</li>
+</ol>
+<h2 id="导师的管理主体"><a href="#导师的管理主体" class="headerlink" title="导师的管理主体"></a>导师的管理主体</h2><ol>
+<li>部门Leader、总监</li>
+<li>人力资源部</li>
+</ol>
+<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><ol>
+<li>业务知识培训</li>
+<li>开发规范和流程培训</li>
+<li>需要使用到的相关技术培训</li>
+<li>公司相关制度</li>
+</ol>
+<h2 id="可能的周期和计划"><a href="#可能的周期和计划" class="headerlink" title="可能的周期和计划"></a>可能的周期和计划</h2><ul>
+<li>第一月：熟悉环境，制定计划，开发规范和业务培训<ul>
+<li>第一天：帮助熟悉工作环境</li>
+<li>第一周：制定培养计划，布置工作和学习任务</li>
+<li>第二周：主动询问，有问必答</li>
+<li>第一月末：沟通，总结，做计划</li>
+</ul>
+</li>
+<li>第二月：安排工作，监督学习成果和工作绩效，及时就计划是否需要修改作出沟通</li>
+<li>第三月：安排工作，监督学习成果和工作绩效，及时就计划是否需要修改作出沟通</li>
+<li>…</li>
+<li>帮助转正答辩</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/03/25/CM-CDH6.1.0%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/03/25/CM-CDH6.1.0%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">CentOS 7下Cloudera Manager及CDH 6.1.0安装过程详解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-03-25 10:22:35 / Modified: 10:50:15" itemprop="dateCreated datePublished" datetime="2019-03-25T10:22:35+08:00">2019-03-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/03/25/CM-CDH6.1.0%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="CentOS 7下Cloudera Manager及CDH 6.1.0安装过程详解" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、概念介绍"><a href="#一、概念介绍" class="headerlink" title="一、概念介绍"></a>一、概念介绍</h1><h2 id="1、CDH-概览"><a href="#1、CDH-概览" class="headerlink" title="1、CDH 概览"></a>1、CDH 概览</h2><p>CDH是Apache Hadoop和相关项目的最完整、最受测试和最流行的发行版。CDH提供Hadoop的核心元素-可伸缩存储和分布式计算-以及基于web的用户界面和重要的企业功能。CDH是Apache许可的开放源码，是唯一提供统一批处理、交互式SQL和交互式搜索以及基于角色的访问控制的Hadoop解决方案。</p>
+<p>CDH 提供以下特性：</p>
+<ul>
+<li>灵活性：存储任何类型的数据并使用各种不同的计算框架进行操作，包括批处理、交互式SQL、免费文本搜索、机器学习和统计计算。</li>
+<li>集成：在一个完整的Hadoop平台上快速启动和运行，该平台与广泛的硬件和软件解决方案一起工作。</li>
+<li>安全：处理和控制敏感数据。</li>
+<li>可伸缩性：启用广泛的应用程序和规模，并扩展它们以满足您的需求。</li>
+<li>高可用性：满怀信心地执行任务关键的业务任务。</li>
+<li>兼容性：利用您现有的IT基础设施和投资。</li>
+</ul>
+<p>CDH 组件如下图：</p>
+<p><img src="/images/C7E8A8B692225249CD0F47C6C73C7A3E.png"></p>
+<h2 id="2、Cloudera-Manager-概览"><a href="#2、Cloudera-Manager-概览" class="headerlink" title="2、Cloudera Manager 概览"></a>2、Cloudera Manager 概览</h2><p>Cloudera Manager 是用于管理cdh集群的端到端应用程序。Cloudera Manager通过向CDH集群的每个部分提供细粒度的可见性并对其进行控制来设置企业部署标准-授权运营商提高性能、提高服务质量、提高遵从性和降低管理成本。使用Cloudera Manager，您可以轻松地部署和集中操作完整的CDH堆栈和其他托管服务。应用程序自动化安装过程，将部署时间从数周减少到分钟；为您提供在集群范围内运行主机和服务的实时视图；提供一个单一的中央控制台来执行整个集群的配置更改；并集成各种报告和诊断工具，以帮助您进行操作。</p>
+<p><img src="/images/F940E845607AA6F447A8F2A94EC53E17.png"></p>
+<p>Cloudera Manager 的架构如上图所示（cs结构），主要由如下几部分组成：</p>
+<ul>
+<li><strong>服务端&#x2F;Server：</strong><br>Cloudera Manager 的核心。主要用于管理 web server 和应用逻辑。它用于安装软件，配置，开始和停止服务，以及管理服务运行的集群。</li>
+<li><strong>代理&#x2F;agent：</strong><br>安装在每台主机上。它负责启动和停止的进程，部署配置，触发安装和监控主机。</li>
+<li><strong>数据库&#x2F;Database：</strong><br>存储配置和监控信息。通常可以在一个或多个数据库服务器上运行的多个逻辑数据库。例如，所述的 Cloudera 管理器服务和监视，后台程序使用不同的逻辑数据库。</li>
+<li><strong>Cloudera Repository</strong>：由cloudera manager 提供的软件分发库。</li>
+<li><strong>客户端&#x2F;Clients：</strong><br>提供了一个与 Server 交互的接口。</li>
+</ul>
+<blockquote>
+<p>Cloudera Manager包括server端和agent；server端主要作用是监控集群分发配置集群等，agent端主管集群各节点。<br>CDH是CM的安装包，本地或者云端，其中包括hadoop的生态系统需要的所有组件，通过Cloudera Manager统一管理和安装。<br>CDH除了可以通过cm安装也可以通过yum,tar,rpm安装。</p>
+</blockquote>
+<h1 id="二、环境准备"><a href="#二、环境准备" class="headerlink" title="二、环境准备"></a>二、环境准备</h1><h2 id="1、软件版本选择"><a href="#1、软件版本选择" class="headerlink" title="1、软件版本选择"></a>1、软件版本选择</h2><table>
+<thead>
+<tr>
+<th align="left">类目</th>
+<th align="left">版本</th>
+<th align="left">下载地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">操作系统</td>
+<td align="left">CentOS Linux release 7.5.1804 (Core)</td>
+<td align="left">阿里云或者其他</td>
+</tr>
+<tr>
+<td align="left">数据库</td>
+<td align="left">MySQL 5.7.25</td>
+<td align="left">官网下载</td>
+</tr>
+<tr>
+<td align="left">JDK</td>
+<td align="left">jdk-8u202-linux-x64.rpm</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Oracle 官网下载</a></td>
+</tr>
+<tr>
+<td align="left">Cloudera Manager</td>
+<td align="left">Cloudera Manager 6.1.0</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://archive.cloudera.com/cm6">官方地址</a></td>
+</tr>
+<tr>
+<td align="left">CDH</td>
+<td align="left">CDH 6.1.0</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://archive.cloudera.com/cdh6/6.1.0/parcels/">使用parcels安装</a></td>
+</tr>
+</tbody></table>
+<h2 id="2、节点准备（四个节点）"><a href="#2、节点准备（四个节点）" class="headerlink" title="2、节点准备（四个节点）"></a>2、节点准备（四个节点）</h2><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">IP</th>
+<th align="left">CM管理软件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">namenode1</td>
+<td align="left">192.168.0.23</td>
+<td align="left">Cloudera Manager Server&amp;Agent ，MySQL</td>
+</tr>
+<tr>
+<td align="left">datanode1</td>
+<td align="left">192.168.0.70</td>
+<td align="left">Cloudera Manager Agent</td>
+</tr>
+<tr>
+<td align="left">datanode2</td>
+<td align="left">192.168.0.74</td>
+<td align="left">Cloudera Manager Agent</td>
+</tr>
+<tr>
+<td align="left">datanode3</td>
+<td align="left">192.168.0.155</td>
+<td align="left">Cloudera Manager Agent</td>
+</tr>
+</tbody></table>
+<p><img src="/images/B776614CF41501721825EBD67ED7C8F5.png"></p>
+<h2 id="3、配置主机名和hosts解析-所有节点"><a href="#3、配置主机名和hosts解析-所有节点" class="headerlink" title="3、配置主机名和hosts解析(所有节点)"></a>3、配置主机名和hosts解析(所有节点)</h2><p>编辑<code>/etc/hostname</code>，在每个节点上修改主机名(主机名不能出现下划线):</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">namenode1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data<span class="symbol">node1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data<span class="symbol">node2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data<span class="symbol">node3</span></span><br></pre></td></tr></table></figure>
+<p>在对应的节点上使用命令使其立刻生效：</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hostnamectl</span> <span class="built_in">set-hostname</span> <span class="string">namenode1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hostnamectl</span> <span class="built_in">set-hostname</span> <span class="string">datanode1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hostnamectl</span> <span class="built_in">set-hostname</span> <span class="string">datanode2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hostnamectl</span> <span class="built_in">set-hostname</span> <span class="string">datanode3</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>/etc/hosts</code>，增加如下内容(所有节点)。</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">192.168.0.23</span>  namenode1</span><br><span class="line"><span class="number">192.168.0.70</span>  datanode1</span><br><span class="line"><span class="number">192.168.0.74</span>  datanode2</span><br><span class="line"><span class="number">192.168.0.155</span> datanode3</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>/etc/sysconfig/network</code>(所有节点):</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">NETWORKING</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">HOSTNAME</span>=xxxnodexx</span><br></pre></td></tr></table></figure>
+
+<p>使用命令使其立刻生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、关闭防火墙-所有节点"><a href="#4、关闭防火墙-所有节点" class="headerlink" title="4、关闭防火墙(所有节点)"></a>4、关闭防火墙(所有节点)</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">stop</span> firewalld.service</span><br><span class="line">systemctl <span class="keyword">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd <span class="comment">--state</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5、关闭SELinux-所有节点"><a href="#5、关闭SELinux-所有节点" class="headerlink" title="5、关闭SELinux(所有节点)"></a>5、关闭SELinux(所有节点)</h2><figure class="highlight leaf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s\<span class="punctuation">#</span><span class="keyword">SELINUX</span>=enforcing\<span class="punctuation">#</span><span class="keyword">SELINUX</span>=disabled\<span class="punctuation">#</span><span class="keyword">g</span>&#x27; /etc/selinux/config</span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>sbin/sestatus -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、添加定时任务-所有节点"><a href="#6、添加定时任务-所有节点" class="headerlink" title="6、添加定时任务(所有节点)"></a>6、添加定时任务(所有节点)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$((RANDOM%60)</span>) <span class="subst">$((RANDOM%24)</span>) \* \* \* /usr/sbin/ntpdate time1.aliyun.com&quot;</span> &gt;&gt; /var/spool/cron/root</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、禁用透明大页面压缩-所有节点"><a href="#7、禁用透明大页面压缩-所有节点" class="headerlink" title="7、禁用透明大页面压缩(所有节点)"></a>7、禁用透明大页面压缩(所有节点)</h2><p>CDH配置需要</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo never &gt; <span class="regexp">/sys/</span>kernel<span class="regexp">/mm/</span>transparent_hugepage/defrag</span><br><span class="line">echo never &gt; <span class="regexp">/sys/</span>kernel<span class="regexp">/mm/</span>transparent_hugepage/enabled</span><br></pre></td></tr></table></figure>
+
+<p>并将上面的两条命令写入开机自启动<code>/etc/rc.local</code>。</p>
+<h2 id="8、优化交换分区-所有节点"><a href="#8、优化交换分区-所有节点" class="headerlink" title="8、优化交换分区(所有节点)"></a>8、优化交换分区(所有节点)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;vm.swappiness = 10&quot;</span> \&gt;\&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h2 id="9、配置-JDK-所有节点"><a href="#9、配置-JDK-所有节点" class="headerlink" title="9、配置 JDK (所有节点)"></a>9、配置 JDK (所有节点)</h2><p>卸载自带的OpenJdk：</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">rpm</span> -<span class="string">qa</span> | <span class="string">grep</span> <span class="string">java</span>  <span class="comment">#查询java相关的包</span></span><br><span class="line"><span class="string">rpm</span> -<span class="string">e</span> <span class="string">java</span>*** <span class="built_in">--nodeps</span> <span class="comment">#根据查找到的软件包信息卸载</span></span><br></pre></td></tr></table></figure>
+
+<p>在Oracle官网下载JDK的RPM包</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rpm</span> -ivh jdk-<span class="number">8</span>u202-linux-x64.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="10、安装数据库-namenode1"><a href="#10、安装数据库-namenode1" class="headerlink" title="10、安装数据库(namenode1)"></a>10、安装数据库(namenode1)</h2><p>我们这里安装 MYSQL5.7.25，版本是支持的。</p>
+<h3 id="10-1-卸载自带mariadb"><a href="#10-1-卸载自带mariadb" class="headerlink" title="10.1 卸载自带mariadb"></a>10.1 卸载自带mariadb</h3><p>centos 7 默认安装的是mariadb，如果不卸载直接安装的话会报错。</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">rpm</span> -<span class="string">qa</span> | <span class="string">grep</span> <span class="string">mariadb</span> <span class="comment">#查看安装信息</span></span><br><span class="line"><span class="string">rpm</span> -<span class="string">e</span> <span class="string">mariadb-libs</span>* <span class="built_in">--nodeps</span> <span class="comment">#根据查找到的软件包信息卸载</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-2-下载安装文件"><a href="#10-2-下载安装文件" class="headerlink" title="10.2 下载安装文件"></a>10.2 下载安装文件</h3><p>下载地址如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https</span>://dev.mysql.com/get/Downloads/MySQL-<span class="number">5</span>.<span class="number">7</span>/mysql-community-common-<span class="number">5</span>.<span class="number">7</span>.<span class="number">25</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://dev.mysql.com/get/Downloads/MySQL-<span class="number">5</span>.<span class="number">7</span>/mysql-community-libs-<span class="number">5</span>.<span class="number">7</span>.<span class="number">25</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://dev.mysql.com/get/Downloads/MySQL-<span class="number">5</span>.<span class="number">7</span>/mysql-community-client-<span class="number">5</span>.<span class="number">7</span>.<span class="number">25</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://dev.mysql.com/get/Downloads/MySQL-<span class="number">5</span>.<span class="number">7</span>/mysql-community-server-<span class="number">5</span>.<span class="number">7</span>.<span class="number">25</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-3-安装MySQL"><a href="#10-3-安装MySQL" class="headerlink" title="10.3 安装MySQL"></a>10.3 安装MySQL</h3><p>按以下顺序安装</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rpm</span> -ivh mysql-community-common-<span class="number">5</span>.<span class="number">7</span>.<span class="number">21</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">rpm</span> -ivh mysql-community-libs-<span class="number">5</span>.<span class="number">7</span>.<span class="number">21</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">rpm</span> -ivh mysql-community-client-<span class="number">5</span>.<span class="number">7</span>.<span class="number">21</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">rpm</span> -ivh mysql-community-server-<span class="number">5</span>.<span class="number">7</span>.<span class="number">21</span>-<span class="number">1</span>.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>如果出现以下缺少libnuma错误，请先安装libnuma</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> libnuma*</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-4-设置数据库-namenode1"><a href="#10-4-设置数据库-namenode1" class="headerlink" title="10.4 设置数据库(namenode1)"></a>10.4 设置数据库(namenode1)</h3><p>启动服务</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld <span class="literal">start</span></span><br></pre></td></tr></table></figure>
+
+<p>查看初始密码</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /<span class="keyword">var</span>/<span class="built_in">log</span>/mysqld.<span class="built_in">log</span> </span><br></pre></td></tr></table></figure>
+
+<p>修改密码<br>mysql -uroot -p  #使用mysqld.log中的临时密码登录</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;Root123!!!&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>授权用户root使用密码passwd从任意主机连接到mysql服务器</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;Root123!!!&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br><span class="line">flush <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11、安装-MySQL-JDBC-驱动-所有节点"><a href="#11、安装-MySQL-JDBC-驱动-所有节点" class="headerlink" title="11、安装 MySQL JDBC 驱动(所有节点)"></a>11、安装 MySQL JDBC 驱动(所有节点)</h2><p>用于各节点连接数据库。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-<span class="number">5</span>.<span class="number">1</span>.<span class="number">47</span>.tar.gz</span><br><span class="line"><span class="attribute">tar</span> xf mysql-connector-java-<span class="number">5</span>.<span class="number">1</span>.<span class="number">46</span>.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="attribute">mkdir</span> -p /usr/share/java/</span><br><span class="line"><span class="attribute">cd</span> mysql-connector-java-<span class="number">5</span>.<span class="number">1</span>.<span class="number">47</span></span><br><span class="line"><span class="attribute">cp</span> mysql-connector-java-<span class="number">5</span>.<span class="number">1</span>.<span class="number">47</span>-bin.jar /usr/share/java/mysql-connector-java.jar</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="三、安装-CM-和-CDH"><a href="#三、安装-CM-和-CDH" class="headerlink" title="三、安装 CM 和 CDH"></a>三、安装 CM 和 CDH</h1><h2 id="1、配置-Cloudera-Manager-仓库-namenode1"><a href="#1、配置-Cloudera-Manager-仓库-namenode1" class="headerlink" title="1、配置 Cloudera Manager 仓库(namenode1)"></a>1、配置 Cloudera Manager 仓库(namenode1)</h2><h3 id="1-1-下载rpm包"><a href="#1-1-下载rpm包" class="headerlink" title="1.1. 下载rpm包"></a>1.1. 下载rpm包</h3><p>CM主要下面的三个软件包：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">cloudera</span>-manager-agent-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">cloudera</span>-manager-daemons-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">cloudera</span>-manager-server-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">cloudera</span>-manager-server-db-<span class="number">2</span>-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">allkeys</span>.asc</span><br></pre></td></tr></table></figure>
+<p>地址如下，下载完成放在cm6.1.0目录：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cm6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/redhat7/yum/RPMS/x86_64/cloudera-manager-agent-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cm6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/redhat7/yum/RPMS/x86_64/cloudera-manager-daemons-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cm6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/redhat7/yum/RPMS/x86_64/cloudera-manager-server-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cm6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/redhat7/yum/RPMS/x86_64/cloudera-manager-server-db-<span class="number">2</span>-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">769885</span>.el7.x86_64.rpm</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cm6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/allkeys.asc</span><br></pre></td></tr></table></figure>
+
+<p>CDH主要有如下几个文件：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CDH</span>-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel</span><br><span class="line"><span class="attribute">CDH</span>-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel.sha256</span><br><span class="line"><span class="attribute">manifest</span>.json</span><br></pre></td></tr></table></figure>
+<p>地址如下，下载完成放在cdh6.1.0目录：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cdh6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/parcels/CDH-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cdh6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/parcels/CDH-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel.sha256</span><br><span class="line"><span class="attribute">https</span>://archive.cloudera.com/cdh6/<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>/parcels/manifest.json</span><br></pre></td></tr></table></figure>
+
+<p><code>cloudera-manager-daemons</code> 是 <code>server</code> 和 <code>agent</code> 必须安装的。</p>
+<h3 id="1-2-安装http服务"><a href="#1-2-安装http服务" class="headerlink" title="1.2 安装http服务"></a>1.2 安装http服务</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y <span class="keyword">install</span> httpd </span><br><span class="line">sudo service httpd start</span><br></pre></td></tr></table></figure>
+<p>在浏览器输入服务器地址，检查是否启动成功。</p>
+<h3 id="1-3-制作本地repo"><a href="#1-3-制作本地repo" class="headerlink" title="1.3 制作本地repo"></a>1.3 制作本地repo</h3><p>在cm6.1.0  cdh6.1.0 同级目录输入如下命令：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">createrepo</span> cm6.<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">createrepo</span> cdh6.<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>将cm6.1.0 与cdh6.1.0移到&#x2F;var&#x2F;www&#x2F;html目录下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mv</span> cm6.<span class="number">1</span>.<span class="number">0</span> cdh6.<span class="number">1</span>.<span class="number">0</span> /var/www/html</span><br></pre></td></tr></table></figure>
+<p>在浏览器中查看目录:<br><a target="_blank" rel="noopener" href="http://ip/cm6.1.0">http://ip/cm6.1.0</a><br><a target="_blank" rel="noopener" href="http://ip/cdh6.1.0">http://ip/cdh6.1.0</a></p>
+<h3 id="1-3-制作本地repo源"><a href="#1-3-制作本地repo源" class="headerlink" title="1.3 制作本地repo源"></a>1.3 制作本地repo源</h3><p><code>sudo vi /etc/yum.repos.d/cm.repo</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[cmrepo]</span></span><br><span class="line"><span class="attr">name</span> = cm_repo</span><br><span class="line"><span class="attr">baseurl</span> =http://ip/cm6.<span class="number">1.0</span>/</span><br><span class="line"><span class="attr">enable</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">gpgcheck</span> = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p><code>sudo vi /etc/yum.repos.d/cm.repo</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[cdhrepo]</span></span><br><span class="line"><span class="attr">name</span> = cdh_repo</span><br><span class="line"><span class="attr">baseurl</span> =http://ip/cdh6.<span class="number">1.0</span>/</span><br><span class="line"><span class="attr">enable</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">gpgcheck</span> = <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-把repo源文件传输到其他节点"><a href="#1-4-把repo源文件传输到其他节点" class="headerlink" title="1.4 把repo源文件传输到其他节点"></a>1.4 把repo源文件传输到其他节点</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp /etc/yum.repos.d/cm.repo root<span class="variable">@datanodeX</span><span class="symbol">:/etc/yum</span>.repos.d/</span><br><span class="line">scp /etc/yum.repos.d/cdh.repo root<span class="variable">@datanodeX</span><span class="symbol">:/etc/yum</span>.repos.d/</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2、安装-CM-Server-和-Agent-所有节点"><a href="#2、安装-CM-Server-和-Agent-所有节点" class="headerlink" title="2、安装 CM Server 和 Agent(所有节点)"></a>2、安装 CM Server 和 Agent(所有节点)</h2><ul>
+<li>namenode1：</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install </span><span class="keyword">cloudera-manager-daemons </span><span class="keyword">cloudera-manager-agent </span><span class="keyword">cloudera-manager-server</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>datanode0[1-3]：</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install </span><span class="keyword">cloudera-manager-daemons </span><span class="keyword">cloudera-manager-agent</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3、为-Cloudera-各软件创建数据库-namenode1"><a href="#3、为-Cloudera-各软件创建数据库-namenode1" class="headerlink" title="3、为 Cloudera 各软件创建数据库(namenode1)"></a>3、为 Cloudera 各软件创建数据库(namenode1)</h2><p>使用root登陆数据库，创建以下数据库和账号。</p>
+<p><img src="/images/479CA26EB8349F0EB908118DB9B74FD7.png"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> scm <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> scm.* <span class="keyword">TO</span> <span class="string">&#x27;scm&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> amon <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> amon.* <span class="keyword">TO</span> <span class="string">&#x27;amon&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> rman <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> rman.* <span class="keyword">TO</span> <span class="string">&#x27;rman&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> hue <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> hue.* <span class="keyword">TO</span> <span class="string">&#x27;hue&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> metastore <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> metastore.* <span class="keyword">TO</span> <span class="string">&#x27;hive&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> sentry <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> sentry.* <span class="keyword">TO</span> <span class="string">&#x27;sentry&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> nav <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> nav.* <span class="keyword">TO</span> <span class="string">&#x27;nav&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> navms <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> navms.* <span class="keyword">TO</span> <span class="string">&#x27;navms&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> oozie <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">DEFAULT</span> <span class="keyword">COLLATE</span> utf8_general_ci;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> oozie.* <span class="keyword">TO</span> <span class="string">&#x27;oozie&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;YZHdata2019!!!&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、设置-Cloudera-Manager-数据库-namenode1"><a href="#4、设置-Cloudera-Manager-数据库-namenode1" class="headerlink" title="4、设置 Cloudera Manager 数据库(namenode1)"></a>4、设置 Cloudera Manager 数据库(namenode1)</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@namenode1 ~]# <span class="regexp">/opt/</span>cloudera<span class="regexp">/cm/</span>schema/scm_prepare_database.sh mysql scm scm</span><br><span class="line"></span><br><span class="line">Enter SCM password:      YZHdata2019!!!</span><br><span class="line">JAVA_HOME=<span class="regexp">/usr/</span>java/jdk1.<span class="number">8.0</span>_162</span><br><span class="line">Verifying that we can <span class="keyword">write</span> to <span class="regexp">/etc/</span>cloudera-scm-server</span><br><span class="line">Creating SCM configuration <span class="keyword">file</span> in <span class="regexp">/etc/</span>cloudera-scm-server</span><br><span class="line">Executing:  <span class="regexp">/usr/</span>java<span class="regexp">/jdk1.8.0_162/</span>bin<span class="regexp">/java -cp /u</span>sr<span class="regexp">/share/</span>java<span class="regexp">/mysql-connector-java.jar:/u</span>sr<span class="regexp">/share/</span>java<span class="regexp">/oracle-connector-java.jar:/u</span>sr<span class="regexp">/share/</span>java<span class="regexp">/postgresql-connector-java.jar:/</span>opt<span class="regexp">/cloudera/</span>cm<span class="regexp">/schema/</span>..<span class="regexp">/lib/</span>* com.cloudera.enterprise.dbutil.DbCommandExecutor <span class="regexp">/etc/</span>cloudera-scm-server/db.properties com.cloudera.cmf.db.</span><br><span class="line">[                          main] DbCommandExecutor              INFO  Successfully connected to database.</span><br><span class="line">All done, your SCM database is configured correctly!</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、安装-CDH"><a href="#5、安装-CDH" class="headerlink" title="5、安装 CDH"></a>5、安装 CDH</h2><h3 id="5-1-配置CDH的软件包-parcels-namenode1"><a href="#5-1-配置CDH的软件包-parcels-namenode1" class="headerlink" title="5.1 配置CDH的软件包 parcels(namenode1)"></a>5.1 配置CDH的软件包 parcels(namenode1)</h3><p>把下载的CDH相关文件copy到&#x2F;opt&#x2F;cloudera&#x2F;parcel-repo&#x2F;目录</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">cp</span> /var/www/html/cm6.<span class="number">1</span>.<span class="number">0</span>/CDH-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel /opt/cloudera/parcel-repo/</span><br><span class="line"><span class="attribute">cp</span> /var/www/html/cm6.<span class="number">1</span>.<span class="number">0</span>/CDH-<span class="number">6</span>.<span class="number">1</span>.<span class="number">0</span>-<span class="number">1</span>.cdh6.<span class="number">1</span>.<span class="number">0</span>.p0.<span class="number">770702</span>-el7.parcel.sha256 /opt/cloudera/parcel-repo/</span><br><span class="line"><span class="attribute">cp</span> /var/www/html/cm6.<span class="number">1</span>.<span class="number">0</span>/manifest.json /opt/cloudera/parcel-repo/</span><br></pre></td></tr></table></figure>
+<p>修改属主属组</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown cloudera-scm.cloudera-scm <span class="regexp">/opt/</span>cloudera<span class="regexp">/parcel-repo/</span>*</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-启动-Cloudera-Manager-Server"><a href="#5-2-启动-Cloudera-Manager-Server" class="headerlink" title="5.2 启动 Cloudera Manager Server"></a>5.2 启动 Cloudera Manager Server</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> cloudera-scm-<span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+
+<p>如果启动中有什么问题，可以查看日志。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/<span class="keyword">log</span>/cloudera-scm-<span class="keyword">server</span>/cloudera-scm-<span class="keyword">server</span>.<span class="keyword">log</span></span><br></pre></td></tr></table></figure>
+
+<p>在最后显示的日志中，有显示启动监听的端口。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Started</span> ServerConnector@da518cb&#123;SSL,[ssl, http/<span class="number">1</span>.<span class="number">1</span>]&#125;&#123;<span class="number">0.0.0.0:7183</span>&#125;</span><br><span class="line"><span class="attribute">Started</span> ServerConnector@a77165b&#123;HTTP/<span class="number">1</span>.<span class="number">1</span>,[http/<span class="number">1</span>.<span class="number">1</span>]&#125;&#123;<span class="number">0.0.0.0:7180</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、初始化-Cloudera-Manager"><a href="#四、初始化-Cloudera-Manager" class="headerlink" title="四、初始化 Cloudera Manager"></a>四、初始化 Cloudera Manager</h1><p>浏览器打开<code>http://192.168.0.23:7180</code>，用户名和密码默认都是<code>admin</code>。</p>
+<p><img src="/images/D79415E281D81FACC05ABB0C2F4E53DE.png"><br>接收许可。</p>
+<p><img src="/images/DFC5D28400C2329ACEFF77772A646F5E.png"><br>这里我们选择免费版，收费版请自行选择。</p>
+<p><img src="/images/98E5DD37263C35DE6E11DF3B9E6121EF.png"></p>
+<h1 id="五、集群安装"><a href="#五、集群安装" class="headerlink" title="五、集群安装"></a>五、集群安装</h1><p><img src="/images/67BB9B818F4307375C239F3049DCB63F.png"><br>指定要添加的节点。</p>
+<p><img src="/images/31D51846431C7E958FAA2CAF1373B4D1.png"><br>选择存储库，之前我们已经在 CM Server 节点配置好了。</p>
+<p><img src="/images/185D3654F205E024CF3FC8E7F5F1FF6F.png"><br>不进行勾选，选择我们自己安装的 JDK。</p>
+<p><img src="/images/5ECBE28D7AAAC0DB30E6336C5B6381FF.png"><br>提供 SSH 登录凭据。</p>
+<p><img src="/images/36A5A328679F90FE5CD12787CD0C68AA.png"><br>安装 agents，因为之前我们已经安装了，所以这里速度会很快。</p>
+<p><img src="/images/906BC79852356809935E0B947E66F248.png"><br>安装选定的Parcel，之前我们已经下载好，并配置好放在的 CM Server 节点的<code>/opt/cloudera/parcel-repo</code>。</p>
+<p><img src="/images/E17DE8E551C207A7246147399052B221.png"><br>检查主机正确性。</p>
+<p><img src="/images/D1E8E7FACD1345EABE80B8503FD6EE2B.png"></p>
+<h1 id="六、集群设置"><a href="#六、集群设置" class="headerlink" title="六、集群设置"></a>六、集群设置</h1><p>选择要安装的服务，可以根据自己的需求进行软件安装。</p>
+<p><img src="/images/A8569510F2B8375AD2D24ACF8EBED680.png"><br>自定义角色分配。</p>
+<p><img src="/images/35E9164F5281F89D967F5EC751A0F94E.png"><br>数据库设置。</p>
+<p><img src="/images/4CC140B89DE7F94BFA770352D8FECCEB.png"><br>审核更改，如果有特定目录的设定或者参数的设定，可以在这里进行更正。</p>
+<p><img src="/images/2F38134908074A853EC2108090101CB9.png"><br>首次运行。</p>
+<p><img src="/images/432CB1AFCAC5DD4A75F46BCBE1E706FC.png"><br>安装完成。</p>
+<p><img src="/images/03400A65AB08C221EB55DA0C3E6D92D8.png"></p>
+<h1 id="七、管理集群"><a href="#七、管理集群" class="headerlink" title="七、管理集群"></a>七、管理集群</h1><p>首页Dashboard。</p>
+<p><img src="/images/5B389A0F581967521F31680C6E1C3711.png"><br>HDFS。</p>
+<p><img src="/images/585BC6659A36BB4BBA6850CA63A63A45.png"><br>HBase。</p>
+<p><img src="/images/3E9C8BF41EA8BF611BDAEBB0AFF03AEA.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2018/10/22/RESTful-API%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/22/RESTful-API%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">RESTfule API规范</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-22 17:49:48" itemprop="dateCreated datePublished" datetime="2018-10-22T17:49:48+08:00">2018-10-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/10/22/RESTful-API%E8%A7%84%E8%8C%83/" class="post-meta-item leancloud_visitors" data-flag-title="RESTfule API规范" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><hr>
+<p><em>RESTful本身是一种风格而不是规范，本文为该风格的规范实现的最佳实践，本文档详细说明了HTTP RESTful API的定义和使用规范，作为接口调用者和实现者的重要参考。</em></p>
+<h2 id="接口风格"><a href="#接口风格" class="headerlink" title="接口风格"></a>接口风格</h2><p>遵循RESTful设计风格，同时控制复杂度及易于使用，仅遵循大部分原则。 遵循原则：</p>
+<ul>
+<li>使用https协议</li>
+<li>版本号放入URL或Header</li>
+<li>只提供json返回格式</li>
+<li>post,put上使用json作为输入</li>
+<li>使用http状态码作为错误提示</li>
+<li>Path（路径）尽量使用名词，不使用动词，把每个URL看成一个资源</li>
+<li>使用HTTP动词（GET,POST,PUT,DELETE）作为action操作URL资源</li>
+<li>过滤信息<ul>
+<li>limit：指定返回记录数量</li>
+<li>offset：记录开始位置</li>
+<li>direction：请求数据的方向，取值prev-上一页数据；next-下一页数据</li>
+<li>page：第几页</li>
+<li>per_page：每页条数</li>
+<li>total_count：总记录数</li>
+<li>total_pages：总页数，等于page时，表示当前是最后一页</li>
+<li>sort：column1,column2排序字段</li>
+<li>orderby：排序规则，desc或asc</li>
+<li>q：搜索关键字（uri encode之后的）</li>
+</ul>
+</li>
+<li>返回结果<ul>
+<li>GET：返回资源对象</li>
+<li>POST：返回新生成的资源对象</li>
+<li>PUT：返回完整的资源对象</li>
+<li>DELETE：返回一个空文档</li>
+</ul>
+</li>
+<li>速率限制<ul>
+<li>X-RateLimit-Limit: 每个IP每个时间窗口最大请求数</li>
+<li>X-RateLimit-Remaining: 当前时间窗口剩余请求数</li>
+<li>X-RateLimit-Reset: 下次更新时间窗口的时间（UNIX时间戳），达到下个时间窗口时，Remaining恢复为Limit</li>
+</ul>
+</li>
+</ul>
+<p>未遵循原则：</p>
+<ul>
+<li>Hypermedia API（HATEOAS），通过接口URL获取接口地址及帮助文档地址信息</li>
+<li>限制返回值的域，fields&#x3D;id,subject,customer_name</li>
+<li>缓存，使用ETag和Last-Modified</li>
+</ul>
+<p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.github.com/v3/">GitHub api </a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html">ruanyifeng blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">best-practices-for-a-pragmatic-restful-api</a></li>
+</ul>
+<h2 id="模块和版本说明"><a href="#模块和版本说明" class="headerlink" title="模块和版本说明"></a>模块和版本说明</h2><p>接口模块相互对立且有版本管理，模块名作为APP配置项进行存储，每个模块的版本号version和endpoint在应用初始化时调用api模块信息接口（通过传递客户端应用名称和版本号获取各个API模块的endpoint和version）获取并存储。</p>
+<ul>
+<li>示例模块及最新版本号：</li>
+</ul>
+<p>模块模块用途最新版本号account帐户v1sms短信v1open一些开放接口，不需要公共参数v1</p>
+<h2 id="公共参数"><a href="#公共参数" class="headerlink" title="公共参数"></a>公共参数</h2><h4 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h4><p>公共请求参数是指每个接口都可能需要传递的参数，公共参数通过header传递。</p>
+<p>参数是否必须说明及header格式app所有接口必须请求客户端应用标识，取值<code>*-ios、*-android、*-pc、*-h5</code><br>header格式：<br><code>X-Co-App: $app</code>user_idApp登录后所有接口都传，<br>Web通过session机制获取用户标识<br>header格式：<br><code>Authorization: CoAPI base64(user_id:token)</code>tokenApp登录后所有接口都传，<br>Web通过session机制获取授权访问令牌<br>header格式：<br><code>Authorization: CoAPI base64(user_id:token)</code></p>
+<ul>
+<li>Web应用通过cookies传递session id，user_id和token无需传递，接口会从session自动获取；</li>
+<li>同一token值在App和Web各应用间通用（token即为session id）；</li>
+<li>APP修改user-agent，在原有user-agent的尾部添加<code>$app/$version</code>和<code>NetType/$value</code>。如：<ul>
+<li><code>Dalvik/2.1.0 (Linux; U; Android 6.0.1; MI 4LTE MIUI/V7.5.3.0.MXGCNDE) $app-android/3.0.0 NetType/4G</code></li>
+<li><code>Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) $app-ios/3.0.0 NetType/WIFI</code></li>
+</ul>
+</li>
+<li>app取值及释义示例</li>
+</ul>
+<p>app取值客户端名称【域名】admin-pc管理中心PC网页版【admin.url.com】admin-h5管理中心手机网页版【admin.url.com】admin-ios管理中心iOS版admin-android管理中心Android版</p>
+<h4 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h4><ul>
+<li>用于告知服务端是否支持Webp的Cookie：cookie name是<code>supportWebp</code>，取值是1（支持）和0（不支持），未传递时服务端默认取值为0。</li>
+<li>Webview植入Session的Cookie：</li>
+</ul>
+<h4 id="JWT-OAuth2"><a href="#JWT-OAuth2" class="headerlink" title="JWT &amp; OAuth2"></a>JWT &amp; OAuth2</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://jwt.io/">Json Web Token</a>可用于替代session-cookie机制。但会存在一些问题，比如为过期token强制失效问题（用户修改了密码后，无法强制其他的终端token全部失效）。</li>
+<li><a target="_blank" rel="noopener" href="https://oauth.net/2/">OAuth2</a>是授权其他开发者访问自己应用有限权限的授权机制。</li>
+</ul>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul>
+<li>权限分为<ul>
+<li><code>none</code>：无需任何授权；</li>
+<li><code>token</code>：需要用户登录授权，可通过<code>header Authorization</code>和<code>Cookie CoSID</code>传递；</li>
+<li><code>admintoken</code>：需要管理员登录授权，可通过<code>header Authorization</code>和<code>Cookie CoCPSID</code>传递；</li>
+<li><code>token || admintoken</code>：用户登录授权或管理员登录授权都可以；<img src="/images/91CE3B191AA340DCC1AE30657BC35CF3.png" alt="图片"></li>
+<li><code>sign</code>：需要签名，一般用于服务端内部相互调用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="状态码说明"><a href="#状态码说明" class="headerlink" title="状态码说明"></a>状态码说明</h2><p>正确<br>接口正常访问情况下，服务器返回2××的HTTP状态码。</p>
+<p>HTTP状态码200 OK - 表示已在响应中发出、资源更改成功（GET、PUT）201 Created - 新资源被创建（POST）204 No Content - 资源被删除（DELETE）</p>
+<p>错误<br>当用户访问接口出错时，服务器会返回给一个合适的4××或者5××的HTTP状态码；以及一个application&#x2F;json格式的消息体，消息体中包含错误码code和错误说明message。</p>
+<ul>
+<li>5××错误(<code>500=&lt;status code</code>)为服务器或程序出错，客户端只需要提示“服务异常，请稍后重试”即可，该类错误不在每个接口中列出。</li>
+<li>4××错误(<code>400=&lt;status code&lt;500</code>)为客户端的请求错误，需要根据具体的code做相应的提示和逻辑处理，message仅供开发时参考，不建议作为用户提示。</li>
+<li>部分错误示例：</li>
+</ul>
+<p>codemessageHTTP状态码InvalidToken未登录或授权过期，请登录401 UnauthorizedValidationError输入字段验证出错，缺少字段或字段格式有误422 Unprocessable EntityAccountNotExist账户名不存在404 Not FoundInvalidPassword密码错误401 UnauthorizedNotFound请求的资源不存在404 Not FoundAccountHasExist账户名已经存在409 ConflictMobileHasBinded手机号已经绑定其他账户409 ConflictInvalidSign参数签名验证未通过403 ForbiddenInvalidSMSCode短信验证码错误403 ForbiddenExpiredSMSCode过期的短信验证码403 ForbiddenFrequencyLimit发送过于频繁，请稍后再试403 ForbiddenTimesExceeded达到最大发送次数限制，请明天再试403 ForbiddenVerifyTimesExceeded达到最大校验次数，请明天再试403 ForbiddenRateLimitExceeded接口调用次数超过限制，请稍后再试429 Too Many Requests   InternalError服务异常，请稍后再试500 Internal Server Error</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://baike.baidu.com/item/HTTP%E7%8A%B6%E6%80%81%E7%A0%81">HTTP状态码参考</a><img src="/images/675D06D91948B580BE09A845EAEF869C.png" alt="图片"></li>
+</ul>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>遵循RESTful规范，使用了GET, POST, PUT, DELETE共4种请求方法。</p>
+<ol>
+<li>GET：请求资源，返回资源对象</li>
+<li>POST：新建资源，返回新生成的资源对象</li>
+<li>PUT：新建&#x2F;更新资源，返回完整的资源对象</li>
+<li>DELETE：删除资源，返回body为空</li>
+</ol>
+<ul>
+<li>GET请求不允许有body， 所有参数通过拼接在URL之后传递，所有的请求参数都要进行遵循<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>的URL Encode。</li>
+<li>DELETE删除单个资源时，资源标识通过path传递，批量删除时，通过在body中传递JSON。</li>
+<li>POST, PUT请求，所有参数通过JSON传递，<em>可选的请求参数，只传有值的，无值的不要传递</em>，contentType为application&#x2F;json。</li>
+</ul>
+<p><em>4种请求动作中，GET、PUT、DELETE是幂等的；只有POST是非幂等的。幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。</em> 是非幂等是判断接口使用POST还是PUT的决定条件</p>
+<p>注意： APP端获取json数据时，对于数值类型字段必须以数值类型转换，无论传递过来的值是否带引号。<img src="/images/6ADB0471C4586203DC41F089CC7AE5C2.png" alt="图片"><img src="/images/8A7923DA6F4F6C943455327D7EFFCE8E.png" alt="图片"></p>
+<h2 id="速率限制Rate-Limiting"><a href="#速率限制Rate-Limiting" class="headerlink" title="速率限制Rate Limiting"></a>速率限制Rate Limiting</h2><ul>
+<li>为了防止API被恶意调用，对API调用进行速率限制。</li>
+<li>速率限制为每IP每15分钟5000次（dev&#x2F;qa为10W）调用（15分钟是一个时间窗口）。</li>
+<li>限制是针对所有接口模块一起计算的（Redis key为<code>APIRL:&#123;IP&#125;</code>），暂时没有特殊的模块或单个接口（未来可能有）。</li>
+<li>你可以通过每个接口返回的HTTP headers了解当前速率限制的情况:<ul>
+<li>X-RateLimit-Limit: 每个IP每个时间窗口最大请求数</li>
+<li>X-RateLimit-Remaining: 当前时间窗口剩余请求数</li>
+<li>X-RateLimit-Reset: 下次更新时间窗口的时间（UNIX时间戳），达到下个时间窗口时，Remaining恢复为Limit</li>
+</ul>
+</li>
+<li>超出速率限制，返回以下错误<img src="/images/DBE0B1939E1FB99300DA43DE527F6919.png" alt="图片"></li>
+</ul>
+<h2 id="安全注意事项"><a href="#安全注意事项" class="headerlink" title="安全注意事项"></a>安全注意事项</h2><ul>
+<li>用户登录后用户的token；aliyun OSS的bucket、AccessKey ID与AccessKey secret；微视频的appid、sign、bucket；这些关键数据通过调用接口获得，需要在客户端以安全的方式存储。</li>
+<li>音频视频在APP内的存储，不允许被拷贝（即使越狱或root后拿走也无法使用）。</li>
+</ul>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h2><p>推荐Chrome浏览器插件Postman作为接口测试工具， <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop">Postman下载地址</a><br><img src="/images/2C3DCFC9251B9D1C2BE62D24BA2D5F51.png" alt="图片"></p>
+<h2 id="文档生成工具"><a href="#文档生成工具" class="headerlink" title="文档生成工具"></a>文档生成工具</h2><ul>
+<li>生成的工具为apidoc，详细阅读官方文档：<a target="_blank" rel="noopener" href="http://apidocjs.com/">http://apidocjs.com</a></li>
+</ul>
+<h2 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h2><ul>
+<li>伪代码<img src="/images/A0124F9D8F1F1C1444BD26F92DB0651B.png" alt="图片"></li>
+<li>PHP<img src="/images/D46706A93340184429DDF34164065D41.png" alt="图片"></li>
+</ul>
+<h2 id="API模块信息获取"><a href="#API模块信息获取" class="headerlink" title="API模块信息获取"></a>API模块信息获取</h2><ul>
+<li>App配置文件中仅存储api模块名，App初始化时请求<a target="_blank" rel="noopener" href="https://apidev.baobaobooks.net/docs/open/#api-basicGroup-get_basic_apis">获取api模块信息</a>，获取各个api模块的信息（endpoint和version）。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">李一</p>
+  <div class="site-description" itemprop="description">Logic will get you from A to B. Imagination will take you everywhere.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarlXK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarlXK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李一</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":"enable","app_id":"I1rX73moe8O5ACer7ME38fKz-gzGzoHsz","app_key":"38btLhxNFhVFyYm9mqwnUyb3","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

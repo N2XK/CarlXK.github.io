@@ -1,37 +1,693 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-{% block page_class %}page-post-detail{% endblock %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaokunli.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="What is RPA? RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks. How RPA is different from Test Automation? Bo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPA常见问题">
+<meta property="og:url" content="http://www.xiaokunli.com/2019/06/27/RPA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="二三">
+<meta property="og:description" content="What is RPA? RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks. How RPA is different from Test Automation? Bo">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-06-27T03:38:05.000Z">
+<meta property="article:modified_time" content="2019-06-27T03:39:03.135Z">
+<meta property="article:author" content="李一">
+<meta property="article:tag" content="RPA">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaokunli.com/2019/06/27/RPA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
 
-{% block content %}
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <title>RPA常见问题 | 二三</title>
+  
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="二三" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">二三</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我见青山多妩媚，青山见我应如是</p>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaokunli.com/2019/06/27/RPA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="李一">
+      <meta itemprop="description" content="Logic will get you from A to B. Imagination will take you everywhere.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二三">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RPA常见问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-27 11:38:05 / Modified: 11:39:03" itemprop="dateCreated datePublished" datetime="2019-06-27T11:38:05+08:00">2019-06-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2019/06/27/RPA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="RPA常见问题" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="What-is-RPA"><a href="#What-is-RPA" class="headerlink" title="What is RPA?"></a>What is RPA?</h2><p> RPA (Robotic Process Automation) is a type of automation where a machine or computer mimics a human’s action in completing rules based tasks.</p>
+<h2 id="How-RPA-is-different-from-Test-Automation"><a href="#How-RPA-is-different-from-Test-Automation" class="headerlink" title="How RPA is different from Test Automation?"></a>How RPA is different from Test Automation?</h2><ul>
+<li><p>Both Test Automation and RPA involve “Automation” and offer advantages of reducing manual intervention and delivering quality, but these two or different…</p>
+</li>
+<li><p>RPA – Robotic Process Automation, Automates Business Processes like Data Entry, Queries, Calculations, and Transactions in various organizations. where as Test Automation Automates Software Testing Processes,It automates Functional Testing, Performance Testing, Web Services Testing Etc. of Software Products.</p>
+</li>
+<li><p>Using Blueprism, Automation Anywhere, Uipath etc… tools we can automate Business Automation, and Using Selenium, UFT&#x2F;QTP, LoadRunner SoapUI etc…Software Tools we can automate software Testing Processes.</p>
+</li>
+</ul>
+<h2 id="What-type-of-processes-can-be-automated-with-RPA"><a href="#What-type-of-processes-can-be-automated-with-RPA" class="headerlink" title="What type of processes can be automated with RPA?"></a>What type of processes can be automated with RPA?</h2><ul>
+<li><p>RPA is software-based, it can be used to perform various tasks. These include Maintenance of records, queries, calculations, and transactions.</p>
+</li>
+<li><p>Additionally, any application commonly used by your company can be operated by RPA. Citrix, .NET, HTML, and Java are all technologies commonly supported by RPA.</p>
+</li>
+<li><p>Compatible systems include Mainframe Terminals, SAP, Oracle, Blackline, and many more. RPA can be configured to perform almost any rule-based task.</p>
+</li>
+</ul>
+<h2 id="What-are-the-Popular-RPA-Tools"><a href="#What-are-the-Popular-RPA-Tools" class="headerlink" title="What are the Popular RPA Tools?"></a>What are the Popular RPA Tools?</h2><p>Popular Robotic Process Automation (RPA) Tools to automate the Business Processes.</p>
+<ul>
+<li><p>Blue Prism</p>
+<p>Blue Prism is the trading name of the Blue Prism Group, a UK multinational software corporation, the term Robotic Process Automation was invented by Blue Prism, that itself proves they are the pioneers in Robotic Process Automation Software Development.</p>
+</li>
+<li><p>Automation Anywhere</p>
+<p>Automation Anywhere is another top RPA vendors providing powerful and User- friendly robotic process automation tools to automate tasks of any complexity.</p>
+</li>
+<li><p>UiPath</p>
+<p>UiPath is a Windows desktop Robotic Process Automation (RPA) Software used for automation for various web,desktop,citrix,etc based applications.</p>
+</li>
+</ul>
+<p>Other Popular RPA tools are Pega, Nice, and Workfusion etc…</p>
+<h2 id="How-to-Select-a-RPA-Tool"><a href="#How-to-Select-a-RPA-Tool" class="headerlink" title="How to Select a RPA Tool?"></a>How to Select a RPA Tool?</h2><p>By considering several factors we select a RPA Tool for Businness Process Automation,</p>
+<ul>
+<li><p>Technology</p>
+<p>First and foremost is the technology in which RPA tool has been built, like Microsift .NET, IBM Mainframe, Java, web etc. The tool has to be platform independent, considering many of the organizations perform their day to day tasks outside the local desktop using Citrix or Virtual machines etc. So the automation solution should be able to support any application and platform.</p>
+</li>
+<li><p>Interface</p>
+<p>Next most important feature is the RPA tool’s user interface. A complex user interface will delay the process of implementation and increase the learning curve and adaptability. A more user friendly interface like drag and drop, auto capture, image recognition etc. would be better.</p>
+</li>
+<li><p>Management</p>
+<p>It is important to know how effectively and easily the robots can be managed, considering these robots are going to be replacing your human workforce. There should be a high level of visibility and control in terms of process monitoring, process change, development, re-use etc.</p>
+</li>
+<li><p>Security</p>
+<p>Security is one of the most important factor to be considered. How safe are the robots when compared to the humans? After all robots&#x2F;RPA tools are also a piece of software, so how much more security controls can be implemented, test the code rigidly and lock it up, the better.</p>
+</li>
+</ul>
+<h2 id="6-What-are-the-important-Phases-of-RPA-Life-Cycle"><a href="#6-What-are-the-important-Phases-of-RPA-Life-Cycle" class="headerlink" title="6) What are the important Phases of RPA Life Cycle?"></a>6) What are the important Phases of RPA Life Cycle?</h2><p>Phases of RPA Life Cycle:</p>
+<ul>
+<li><p>Analysis</p>
+<p>Life cycle in RPA begins with analysis phase. Business team and RPA Architect work together to identify a business process for RPA development.</p>
+</li>
+<li><p>Bot Development</p>
+<p>RPA developer(Team) starts working on requirement in their environment possibly a separate development environment.</p>
+</li>
+<li><p>Testing</p>
+<p>There are two approaches on which testing is being carried out-</p>
+<p>Some organisations conduct Testing by Separate Testing Team, While other few have a dedicated testing team which perform a dedicated QA like normal SDLC flow.</p>
+<p>Best Practice is to have a dedicated testing team which perform QA of developed bot.</p>
+</li>
+<li><p>Deployment and Maintenance-</p>
+<p>After the Development and Testing closure, a bot is ready for deployment and enters maintenance phase.</p>
+</li>
+</ul>
+<h2 id="How-to-implement-Robotic-Process-Automation"><a href="#How-to-implement-Robotic-Process-Automation" class="headerlink" title="How to implement Robotic Process Automation?"></a>How to implement Robotic Process Automation?</h2><p>There are mainly 6 steps to be followed for a successful RPA implementation.</p>
+<ul>
+<li>Identify the Automation Opportunities</li>
+<li>Optimize the Identified Processes</li>
+<li>Build a Business Case</li>
+<li>RPA Vendor Selection</li>
+<li>Pilot RPA Development</li>
+<li>Ramp up and Continue Building Expertise RPA bots.</li>
+</ul>
+<h2 id="Explain-about-RPA-Testing"><a href="#Explain-about-RPA-Testing" class="headerlink" title="Explain about RPA Testing?"></a>Explain about RPA Testing?</h2><p>At a broader level RPA testing can be grouped in to 2 categories.</p>
+<blockquote>
+<p>First one is testing the business processes automated through RPA and the second one is testing the instructions passed on to Robots to execute user actions.</p>
+</blockquote>
+<ul>
+<li><p>Business Process Testing</p>
+<p>This is nothing but the conventional testing done for any application. The end to end business process automated by the RPA tool has to be validated here.</p>
+<p>If we have to test the RPA use case, a scenario would be to test if Robot is able to get the file from server, read the data from application, compare these two data sources, identify any conflicts and send an email notification to respective owner. All combinations of data are to be validate like it is done for any other application.</p>
+</li>
+<li><p>Robots Testing</p>
+<p>There are multiple aspects when testing Robots. The first one is interpretation of the models by Robots. It is very important that the Robots are able to interpret the instructions given through the models correctly and able to perform actions on the UI accordingly. This need not be tested regularly but when the model is designed&#x2F;modified or before a Robot is put into use.</p>
+</li>
+</ul>
+<h2 id="What-are-different-RPA-Jobs"><a href="#What-are-different-RPA-Jobs" class="headerlink" title="What are different RPA Jobs?"></a>What are different RPA Jobs?</h2><p>Robotics Process Automation jobs can be broadly classify into 3 major categories.</p>
+<ul>
+<li>RPA Developers&#x2F;Architects</li>
+<li>Robotic Process Automation Consultants</li>
+<li>RPA Leads&#x2F;Managers</li>
+</ul>
+<h2 id="What-are-advantages-of-Robotic-Process-Automation"><a href="#What-are-advantages-of-Robotic-Process-Automation" class="headerlink" title="What are advantages of Robotic Process Automation?"></a>What are advantages of Robotic Process Automation?</h2><ul>
+<li><p>Faster</p>
+<p>As bots are handling the execution here, a larger amount of work can be done in a relatively much shorter period. A faster delivery, coupled with accuracy.</p>
+</li>
+<li><p>Cost Effective</p>
+<p>It has been estimated that using robotics cuts operational costs, Robots can operate 24&#x2F;7 and take no vacation, when compared to humans.</p>
+</li>
+<li><p>Consistency</p>
+<p>Robotics is a safe, non-invasive technology that doesn’t interfere with the inherent systems and provides perfect consistency in performing the activities across the board, each time and every time.</p>
+</li>
+<li><p>Accuracy &amp; Quality</p>
+<p>RPA offers improved services to processes that have a high probability of human error, thereby increasing accuracy. Robots are reliable, and consistent and do not whine when expected to work tirelessly.</p>
+</li>
+<li><p>Increased Customer Satisfaction</p>
+<p>Delivering better quality of work with high accuracy and improved customer&#x2F;client interaction leads to increased customer and client satisfaction.</p>
+</li>
+<li><p>Improved Analytics</p>
+<p>Having access to error free, accurate data from various sources would improve the quality of analytics in the process.</p>
+</li>
+</ul>
+<h2 id="What-are-Limitations-of-Robotic-Process-Automation"><a href="#What-are-Limitations-of-Robotic-Process-Automation" class="headerlink" title="What are Limitations of Robotic Process Automation?"></a>What are Limitations of Robotic Process Automation?</h2><ul>
+<li><p>RPA certainly boosts company efficiency by automating repetitive human effort, but there are limitations to the types of work that it can be applied to – specifically ones that require judgement.</p>
+</li>
+<li><p>RPA cannot read any data that is non-electronic with unstructured inputs.</p>
+</li>
+<li><p>companies need to be aware of diverse inputs coming from multiple sources.</p>
+</li>
+<li><p>RPA is not a cognitive computing solution. It cannot learn from experience and therefore has a ‘shelf life’. As processes evolve</p>
+</li>
+<li><p>Applying RPA to a broken and inefficient process will not fix it. RPA is not a Business Process Management solution and does not bring an end-to-end process view.</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RPA/" rel="tag"># RPA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/06/22/Libra%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E7%AC%AC%E4%B8%80%E7%AC%94%E4%BA%A4%E6%98%93/" rel="prev" title="Libra环境搭建和第一笔交易">
+      <i class="fa fa-chevron-left"></i> Libra环境搭建和第一笔交易
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/27/%E5%9B%A2%E9%98%9F%E8%A7%84%E5%88%92%E5%8F%8A%E8%80%83%E6%A0%B8/" rel="next" title="团队规划考核">
+      团队规划考核 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-RPA"><span class="nav-number">1.</span> <span class="nav-text">What is RPA?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-RPA-is-different-from-Test-Automation"><span class="nav-number">2.</span> <span class="nav-text">How RPA is different from Test Automation?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-type-of-processes-can-be-automated-with-RPA"><span class="nav-number">3.</span> <span class="nav-text">What type of processes can be automated with RPA?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-the-Popular-RPA-Tools"><span class="nav-number">4.</span> <span class="nav-text">What are the Popular RPA Tools?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Select-a-RPA-Tool"><span class="nav-number">5.</span> <span class="nav-text">How to Select a RPA Tool?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-What-are-the-important-Phases-of-RPA-Life-Cycle"><span class="nav-number">6.</span> <span class="nav-text">6) What are the important Phases of RPA Life Cycle?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-implement-Robotic-Process-Automation"><span class="nav-number">7.</span> <span class="nav-text">How to implement Robotic Process Automation?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Explain-about-RPA-Testing"><span class="nav-number">8.</span> <span class="nav-text">Explain about RPA Testing?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-different-RPA-Jobs"><span class="nav-number">9.</span> <span class="nav-text">What are different RPA Jobs?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-advantages-of-Robotic-Process-Automation"><span class="nav-number">10.</span> <span class="nav-text">What are advantages of Robotic Process Automation?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-Limitations-of-Robotic-Process-Automation"><span class="nav-number">11.</span> <span class="nav-text">What are Limitations of Robotic Process Automation?</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">李一</p>
+  <div class="site-description" itemprop="description">Logic will get you from A to B. Imagination will take you everywhere.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CarlXK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CarlXK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李一</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":"enable","app_id":"I1rX73moe8O5ACer7ME38fKz-gzGzoHsz","app_key":"38btLhxNFhVFyYm9mqwnUyb3","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
